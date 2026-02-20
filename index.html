@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maristas 2026</title>
+<style>
+  body { background:#82b1ff; font-family:Arial,sans-serif; margin:0; padding:20px; }
+  h1 { color:white; text-align:center; font-size:24px; margin-bottom:20px; }
+  .grid { display:flex; flex-direction:column; align-items:center; gap:8px; }
+  .row { display:flex; gap:8px; justify-content:center; }
+  .btn { width:65px; height:65px; background:lightgrey; border:1px solid #888;
+    border-radius:5px; font-weight:bold; font-size:14px; cursor:pointer;
+    box-shadow:2px 2px 4px rgba(0,0,0,0.3); display:flex; align-items:center;
+    justify-content:center; }
+  .btn:hover { background:#bbb; }
+  .btn.azul { background:#9ea7c1; }
+  .btn.amarelo { background:yellow; }
+  .detalhe { background:white; border-radius:20px; padding:30px; max-width:400px;
+    margin:20px auto; display:none; text-align:center; }
+  .detalhe h2 { color:blue; }
+  .detalhe p { font-size:18px; color:black; margin:8px 0; }
+  .voltar { margin-top:20px; padding:10px 30px; font-size:16px;
+    cursor:pointer; border-radius:8px; border:none; background:#1976d2;
+    color:white; font-weight:bold; }
+  .tela-inicial { display:block; }
+</style>
+</head>
+<body>
+
+<div class="tela-inicial" id="inicio">
+  <h1>MARISTAS 2026</h1>
+  <div class="grid">
+    <div class="row">
+      <div class="btn azul" onclick="abrir('11')">11</div>
+      <div class="btn" onclick="abrir('12')">12</div>
+      <div class="btn" onclick="abrir('13')">13</div>
+      <div class="btn" onclick="abrir('14')">14</div>
+    </div>
+    <div class="row">
+      <div class="btn" onclick="abrir('111')">111</div>
+      <div class="btn" onclick="abrir('112')">112</div>
+      <div class="btn" onclick="abrir('113')">113</div>
+      <div class="btn" onclick="abrir('114')">114</div>
+      <div class="btn" onclick="abrir('115')">115</div>
+    </div>
+    <div class="row">
+      <div class="btn" onclick="abrir('121')">121</div>
+      <div class="btn amarelo" onclick="abrir('122')">122</div>
+      <div class="btn" onclick="abrir('123')">123</div>
+      <div class="btn amarelo" onclick="abrir('124')">124</div>
+      <div class="btn" onclick="abrir('125')">125</div>
+    </div>
+    <div class="row">
+      <div class="btn" onclick="abrir('131')">131</div>
+      <div class="btn" onclick="abrir('132')">132</div>
+      <div class="btn" onclick="abrir('133')">133</div>
+      <div class="btn azul" onclick="abrir('134')">134</div>
+      <div class="btn" onclick="abrir('135')">135</div>
+    </div>
+    <div class="row">
+      <div class="btn" onclick="abrir('141')">141</div>
+      <div class="btn" onclick="abrir('142')">142</div>
+      <div class="btn" onclick="abrir('143')">143</div>
+      <div class="btn" onclick="abrir('144')">144</div>
+      <div class="btn" onclick="abrir('145')">145</div>
+    </div>
+    <div class="row">
+      <div class="btn" onclick="abrir('151')">151</div>
+      <div class="btn" onclick="abrir('152')">152</div>
+      <div class="btn" onclick="abrir('153')">153</div>
+      <div class="btn" onclick="abrir('154')">154</div>
+    </div>
+    <div class="row">
+      <div class="btn" onclick="abrir('161')">161</div>
+      <div class="btn" onclick="abrir('162')">162</div>
+      <div class="btn" onclick="abrir('163')">163</div>
+    </div>
+    <div class="row">
+      <div class="btn" onclick="abrir('171')">171</div>
+      <div class="btn" onclick="abrir('172')">172</div>
+      <div class="btn" onclick="abrir('173')">173</div>
+    </div>
+    <div class="row">
+      <div class="btn" onclick="abrir('181')">181</div>
+      <div class="btn" onclick="abrir('182')">182</div>
+      <div class="btn" onclick="abrir('183')">183</div>
+    </div>
+    <div class="row">
+      <div class="btn" onclick="abrir('191')">191</div>
+      <div class="btn" onclick="abrir('192')">192</div>
+      <div class="btn" onclick="abrir('193')">193</div>
+    </div>
+  </div>
+</div>
+
+<div class="detalhe" id="detalhe">
+  <h2 id="titulo"></h2>
+  <p id="sala"></p>
+  <p id="entrada"></p>
+  <p id="saida"></p>
+  <p id="portao"></p>
+  <p id="lanche"></p>
+  <button class="voltar" onclick="voltar()">VOLTAR</button>
+</div>
+
+<script>
+const dados = {
+  "11":  {sala:"Sala 01",entrada:"07:00",saida:"12:00",portao:"A",lanche:"09:30"},
+  "12":  {sala:"Sala 02",entrada:"08:00",saida:"08:45",portao:"Principal",lanche:"10:00"},
+  "13":  {sala:"Sala 03",entrada:"07:00",saida:"12:00",portao:"A",lanche:"09:30"},
+  "14":  {sala:"Sala 04",entrada:"07:00",saida:"12:00",portao:"A",lanche:"09:30"},
+  "111": {sala:"Sala 05",entrada:"07:00",saida:"12:00",portao:"A",lanche:"09:30"},
+  "112": {sala:"Sala 06",entrada:"07:00",saida:"12:00",portao:"A",lanche:"09:30"},
+  "113": {sala:"Sala 07",entrada:"07:00",saida:"12:00",portao:"A",lanche:"09:30"},
+  "114": {sala:"Sala 08",entrada:"07:00",saida:"12:00",portao:"A",lanche:"09:30"},
+  "115": {sala:"Sala 09",entrada:"07:00",saida:"12:00",portao:"A",lanche:"09:30"},
+  "121": {sala:"Sala 10",entrada:"07:00",saida:"12:00",portao:"A",lanche:"09:30"},
+  "122": {sala:"Sala 11",entrada:"07:30",saida:"11:45",portao:"Lateral",lanche:"09:15"},
+  "123": {sala:"Sala 12",entrada:"07:00",saida:"12:00",portao:"A",lanche:"09:30"},
+  "124": {sala:"Sala 13",entrada:"07:00",saida:"12:00",portao:"A",lanche:"09:30"},
+  "125": {sala:"Sala 14",entrada:"07:00",saida:"12:00",portao:"A",lanche:"09:30"},
+  "131": {sala:"Sala 15",entrada:"07:00",saida:"12:00",portao:"A",lanche:"09:30"},
+  "132": {sala:"Sala 16",entrada:"07:00",saida:"12:00",portao:"A",lanche:"09:30"},
+  "133": {sala:"Sala 17",entrada:"07:00",saida:"12:00",portao:"A",lanche:"09:30"},
+  "134": {sala:"Sala 18",entrada:"07:00",saida:"12:00",portao:"A",lanche:"09:30"},
+  "135": {sala:"Sala 19",entrada:"07:00",saida:"12:00",portao:"A",lanche:"09:30"},
+  "141": {sala:"Sala 20",entrada:"07:00",saida:"12:00",portao:"A",lanche:"09:30"},
+  "142": {sala:"Sala 21",entrada:"07:00",saida:"12:00",portao:"A",lanche:"09:30"},
+  "143": {sala:"Sala 22",entrada:"07:00",saida:"12:00",portao:"A",lanche:"09:30"},
+  "144": {sala:"Sala 23",entrada:"07:00",saida:"12:00",portao:"A",lanche:"09:30"},
+  "145": {sala:"Sala 24",entrada:"07:00",saida:"12:00",portao:"A",lanche:"09:30"},
+  "151": {sala:"Sala 25",entrada:"07:00",saida:"12:00",portao:"A",lanche:"09:30"},
+  "152": {sala:"Sala 26",entrada:"07:00",saida:"12:00",portao:"A",lanche:"09:30"},
+  "153": {sala:"Sala 27",entrada:"07:00",saida:"12:00",portao:"A",lanche:"09:30"},
+  "154": {sala:"Sala 28",entrada:"07:00",saida:"12:00",portao:"A",lanche:"09:30"},
+  "161": {sala:"Sala 29",entrada:"07:00",saida:"12:00",portao:"A",lanche:"09:30"},
+  "162": {sala:"Sala 30",entrada:"07:00",saida:"12:00",portao:"A",lanche:"09:30"},
+  "163": {sala:"Sala 31",entrada:"07:00",saida:"12:00",portao:"A",lanche:"09:30"},
+  "171": {sala:"Sala 32",entrada:"07:00",saida:"12:00",portao:"A",lanche:"09:30"},
+  "172": {sala:"Sala 33",entrada:"07:00",saida:"12:00",portao:"A",lanche:"09:30"},
+  "173": {sala:"Sala 34",entrada:"07:00",saida:"12:00",portao:"A",lanche:"09:30"},
+  "181": {sala:"Sala 35",entrada:"07:00",saida:"12:00",portao:"A",lanche:"09:30"},
+  "182": {sala:"Sala 36",entrada:"07:00",saida:"12:00",portao:"A",lanche:"09:30"},
+  "183": {sala:"Sala 37",entrada:"07:00",saida:"12:00",portao:"A",lanche:"09:30"},
+  "191": {sala:"Sala 38",entrada:"07:00",saida:"12:00",portao:"A",lanche:"09:30"},
+  "192": {sala:"Sala 39",entrada:"07:00",saida:"12:00",portao:"A",lanche:"09:30"},
+  "193": {sala:"Sala 40",entrada:"07:00",saida:"12:00",portao:"A",lanche:"09:30"},
+};
+
+function abrir(turma) {
+  const d = dados[turma] || {sala:"N/A",entrada:"07:00",saida:"12:00",portao:"A",lanche:"09:30"};
+  document.getElementById("titulo").innerText = "TURMA " + turma;
+  document.getElementById("sala").in
