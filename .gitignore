@@ -1,0 +1,9 @@
+nano .gitignore
+```
+
+Cole isso:
+```
+build/
+.venv/
+__pycache__/
+*.pyc
