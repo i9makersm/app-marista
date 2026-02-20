@@ -8,147 +8,157 @@
   body { background:#82b1ff; font-family:Arial,sans-serif; margin:0; padding:20px; }
   h1 { color:white; text-align:center; font-size:24px; margin-bottom:20px; }
   .grid { display:flex; flex-direction:column; align-items:center; gap:8px; }
-  .row { display:flex; gap:8px; justify-content:center; }
+  .row { display:flex; gap:8px; justify-content:center; flex-wrap:wrap; }
   .btn { width:65px; height:65px; background:lightgrey; border:1px solid #888;
-    border-radius:5px; font-weight:bold; font-size:14px; cursor:pointer;
+    border-radius:5px; font-weight:bold; font-size:13px; cursor:pointer;
     box-shadow:2px 2px 4px rgba(0,0,0,0.3); display:flex; align-items:center;
-    justify-content:center; }
+    justify-content:center; text-align:center; }
   .btn:hover { background:#bbb; }
   .btn.azul { background:#9ea7c1; }
   .btn.amarelo { background:yellow; }
-  .detalhe { background:white; border-radius:20px; padding:30px; max-width:400px;
-    margin:20px auto; display:none; text-align:center; }
-  .detalhe h2 { color:blue; }
-  .detalhe p { font-size:18px; color:black; margin:8px 0; }
-  .voltar { margin-top:20px; padding:10px 30px; font-size:16px;
+  .detalhe { background:white; border-radius:20px; padding:25px;
+    max-width:400px; margin:20px auto; display:none; }
+  .detalhe h2 { color:blue; text-align:center; margin-bottom:15px; }
+  .detalhe p { font-size:16px; color:black; margin:8px 0;
+    border-bottom:1px solid #eee; padding-bottom:8px; }
+  .detalhe p span { font-weight:bold; }
+  .voltar { margin-top:20px; padding:10px 30px; font-size:16px; width:100%;
     cursor:pointer; border-radius:8px; border:none; background:#1976d2;
     color:white; font-weight:bold; }
-  .tela-inicial { display:block; }
 </style>
 </head>
 <body>
 
-<div class="tela-inicial" id="inicio">
+<div id="inicio">
   <h1>MARISTAS 2026</h1>
   <div class="grid">
     <div class="row">
-      <div class="btn azul" onclick="abrir('11')">11</div>
-      <div class="btn" onclick="abrir('12')">12</div>
-      <div class="btn" onclick="abrir('13')">13</div>
-      <div class="btn" onclick="abrir('14')">14</div>
+      <div class="btn amarelo" onclick="abrir('1A')">1A</div>
+      <div class="btn amarelo" onclick="abrir('1B')">1B</div>
+      <div class="btn azul" onclick="abrir('1C')">1C</div>
+      <div class="btn azul" onclick="abrir('1D')">1D</div>
     </div>
     <div class="row">
-      <div class="btn" onclick="abrir('111')">111</div>
-      <div class="btn" onclick="abrir('112')">112</div>
-      <div class="btn" onclick="abrir('113')">113</div>
-      <div class="btn" onclick="abrir('114')">114</div>
-      <div class="btn" onclick="abrir('115')">115</div>
+      <div class="btn amarelo" onclick="abrir('2A')">2A</div>
+      <div class="btn amarelo" onclick="abrir('2B')">2B</div>
+      <div class="btn azul" onclick="abrir('2C')">2C</div>
+      <div class="btn azul" onclick="abrir('2D')">2D</div>
+      <div class="btn azul" onclick="abrir('2E')">2E</div>
     </div>
     <div class="row">
-      <div class="btn" onclick="abrir('121')">121</div>
-      <div class="btn amarelo" onclick="abrir('122')">122</div>
-      <div class="btn" onclick="abrir('123')">123</div>
-      <div class="btn amarelo" onclick="abrir('124')">124</div>
-      <div class="btn" onclick="abrir('125')">125</div>
+      <div class="btn amarelo" onclick="abrir('3A')">3A</div>
+      <div class="btn amarelo" onclick="abrir('3B')">3B</div>
+      <div class="btn amarelo" onclick="abrir('3C')">3C</div>
+      <div class="btn azul" onclick="abrir('3D')">3D</div>
+      <div class="btn azul" onclick="abrir('3E')">3E</div>
     </div>
     <div class="row">
-      <div class="btn" onclick="abrir('131')">131</div>
-      <div class="btn" onclick="abrir('132')">132</div>
-      <div class="btn" onclick="abrir('133')">133</div>
-      <div class="btn azul" onclick="abrir('134')">134</div>
-      <div class="btn" onclick="abrir('135')">135</div>
+      <div class="btn azul" onclick="abrir('4A')">4A</div>
+      <div class="btn azul" onclick="abrir('4B')">4B</div>
+      <div class="btn azul" onclick="abrir('4C')">4C</div>
+      <div class="btn azul" onclick="abrir('4D')">4D</div>
+      <div class="btn azul" onclick="abrir('4E')">4E</div>
     </div>
     <div class="row">
-      <div class="btn" onclick="abrir('141')">141</div>
-      <div class="btn" onclick="abrir('142')">142</div>
-      <div class="btn" onclick="abrir('143')">143</div>
-      <div class="btn" onclick="abrir('144')">144</div>
-      <div class="btn" onclick="abrir('145')">145</div>
+      <div class="btn azul" onclick="abrir('5A')">5A</div>
+      <div class="btn azul" onclick="abrir('5B')">5B</div>
+      <div class="btn azul" onclick="abrir('5C')">5C</div>
+      <div class="btn azul" onclick="abrir('5D')">5D</div>
     </div>
     <div class="row">
-      <div class="btn" onclick="abrir('151')">151</div>
-      <div class="btn" onclick="abrir('152')">152</div>
-      <div class="btn" onclick="abrir('153')">153</div>
-      <div class="btn" onclick="abrir('154')">154</div>
+      <div class="btn amarelo" onclick="abrir('6A')">6A</div>
+      <div class="btn azul" onclick="abrir('6B')">6B</div>
+      <div class="btn azul" onclick="abrir('6C')">6C</div>
     </div>
     <div class="row">
-      <div class="btn" onclick="abrir('161')">161</div>
-      <div class="btn" onclick="abrir('162')">162</div>
-      <div class="btn" onclick="abrir('163')">163</div>
+      <div class="btn amarelo" onclick="abrir('7A')">7A</div>
+      <div class="btn amarelo" onclick="abrir('7B')">7B</div>
+      <div class="btn amarelo" onclick="abrir('7C')">7C</div>
     </div>
     <div class="row">
-      <div class="btn" onclick="abrir('171')">171</div>
-      <div class="btn" onclick="abrir('172')">172</div>
-      <div class="btn" onclick="abrir('173')">173</div>
+      <div class="btn amarelo" onclick="abrir('8A')">8A</div>
+      <div class="btn amarelo" onclick="abrir('8B')">8B</div>
+      <div class="btn amarelo" onclick="abrir('8C')">8C</div>
     </div>
     <div class="row">
-      <div class="btn" onclick="abrir('181')">181</div>
-      <div class="btn" onclick="abrir('182')">182</div>
-      <div class="btn" onclick="abrir('183')">183</div>
-    </div>
-    <div class="row">
-      <div class="btn" onclick="abrir('191')">191</div>
-      <div class="btn" onclick="abrir('192')">192</div>
-      <div class="btn" onclick="abrir('193')">193</div>
+      <div class="btn amarelo" onclick="abrir('9A')">9A</div>
+      <div class="btn amarelo" onclick="abrir('9B')">9B</div>
+      <div class="btn amarelo" onclick="abrir('9C')">9C</div>
     </div>
   </div>
 </div>
 
 <div class="detalhe" id="detalhe">
   <h2 id="titulo"></h2>
-  <p id="sala"></p>
-  <p id="entrada"></p>
-  <p id="saida"></p>
-  <p id="portao"></p>
-  <p id="lanche"></p>
+  <p><span>Professor(a):</span> <span id="prof"></span></p>
+  <p><span>Turno:</span> <span id="turno"></span></p>
+  <p><span>Sala:</span> <span id="sala"></span></p>
+  <p><span>Entrada/Saída:</span> <span id="horario"></span></p>
+  <p><span>Portão:</span> <span id="portao"></span></p>
+  <p><span>Lanche:</span> <span id="lanche"></span></p>
+  <p><span>Intervalo:</span> <span id="intervalo"></span></p>
   <button class="voltar" onclick="voltar()">VOLTAR</button>
 </div>
 
 <script>
 const dados = {
-  "11":  {sala:"Sala 01",entrada:"07:00",saida:"12:00",portao:"A",lanche:"09:30"},
-  "12":  {sala:"Sala 02",entrada:"08:00",saida:"08:45",portao:"Principal",lanche:"10:00"},
-  "13":  {sala:"Sala 03",entrada:"07:00",saida:"12:00",portao:"A",lanche:"09:30"},
-  "14":  {sala:"Sala 04",entrada:"07:00",saida:"12:00",portao:"A",lanche:"09:30"},
-  "111": {sala:"Sala 05",entrada:"07:00",saida:"12:00",portao:"A",lanche:"09:30"},
-  "112": {sala:"Sala 06",entrada:"07:00",saida:"12:00",portao:"A",lanche:"09:30"},
-  "113": {sala:"Sala 07",entrada:"07:00",saida:"12:00",portao:"A",lanche:"09:30"},
-  "114": {sala:"Sala 08",entrada:"07:00",saida:"12:00",portao:"A",lanche:"09:30"},
-  "115": {sala:"Sala 09",entrada:"07:00",saida:"12:00",portao:"A",lanche:"09:30"},
-  "121": {sala:"Sala 10",entrada:"07:00",saida:"12:00",portao:"A",lanche:"09:30"},
-  "122": {sala:"Sala 11",entrada:"07:30",saida:"11:45",portao:"Lateral",lanche:"09:15"},
-  "123": {sala:"Sala 12",entrada:"07:00",saida:"12:00",portao:"A",lanche:"09:30"},
-  "124": {sala:"Sala 13",entrada:"07:00",saida:"12:00",portao:"A",lanche:"09:30"},
-  "125": {sala:"Sala 14",entrada:"07:00",saida:"12:00",portao:"A",lanche:"09:30"},
-  "131": {sala:"Sala 15",entrada:"07:00",saida:"12:00",portao:"A",lanche:"09:30"},
-  "132": {sala:"Sala 16",entrada:"07:00",saida:"12:00",portao:"A",lanche:"09:30"},
-  "133": {sala:"Sala 17",entrada:"07:00",saida:"12:00",portao:"A",lanche:"09:30"},
-  "134": {sala:"Sala 18",entrada:"07:00",saida:"12:00",portao:"A",lanche:"09:30"},
-  "135": {sala:"Sala 19",entrada:"07:00",saida:"12:00",portao:"A",lanche:"09:30"},
-  "141": {sala:"Sala 20",entrada:"07:00",saida:"12:00",portao:"A",lanche:"09:30"},
-  "142": {sala:"Sala 21",entrada:"07:00",saida:"12:00",portao:"A",lanche:"09:30"},
-  "143": {sala:"Sala 22",entrada:"07:00",saida:"12:00",portao:"A",lanche:"09:30"},
-  "144": {sala:"Sala 23",entrada:"07:00",saida:"12:00",portao:"A",lanche:"09:30"},
-  "145": {sala:"Sala 24",entrada:"07:00",saida:"12:00",portao:"A",lanche:"09:30"},
-  "151": {sala:"Sala 25",entrada:"07:00",saida:"12:00",portao:"A",lanche:"09:30"},
-  "152": {sala:"Sala 26",entrada:"07:00",saida:"12:00",portao:"A",lanche:"09:30"},
-  "153": {sala:"Sala 27",entrada:"07:00",saida:"12:00",portao:"A",lanche:"09:30"},
-  "154": {sala:"Sala 28",entrada:"07:00",saida:"12:00",portao:"A",lanche:"09:30"},
-  "161": {sala:"Sala 29",entrada:"07:00",saida:"12:00",portao:"A",lanche:"09:30"},
-  "162": {sala:"Sala 30",entrada:"07:00",saida:"12:00",portao:"A",lanche:"09:30"},
-  "163": {sala:"Sala 31",entrada:"07:00",saida:"12:00",portao:"A",lanche:"09:30"},
-  "171": {sala:"Sala 32",entrada:"07:00",saida:"12:00",portao:"A",lanche:"09:30"},
-  "172": {sala:"Sala 33",entrada:"07:00",saida:"12:00",portao:"A",lanche:"09:30"},
-  "173": {sala:"Sala 34",entrada:"07:00",saida:"12:00",portao:"A",lanche:"09:30"},
-  "181": {sala:"Sala 35",entrada:"07:00",saida:"12:00",portao:"A",lanche:"09:30"},
-  "182": {sala:"Sala 36",entrada:"07:00",saida:"12:00",portao:"A",lanche:"09:30"},
-  "183": {sala:"Sala 37",entrada:"07:00",saida:"12:00",portao:"A",lanche:"09:30"},
-  "191": {sala:"Sala 38",entrada:"07:00",saida:"12:00",portao:"A",lanche:"09:30"},
-  "192": {sala:"Sala 39",entrada:"07:00",saida:"12:00",portao:"A",lanche:"09:30"},
-  "193": {sala:"Sala 40",entrada:"07:00",saida:"12:00",portao:"A",lanche:"09:30"},
+  "1A": {prof:"Elizete de Lima",turno:"Manhã",sala:"36",horario:"08h / 12h",portao:"Portão 3",lanche:"09h00 - 09h15",intervalo:"09h15 - 09h30"},
+  "1B": {prof:"Cátia Maciel",turno:"Manhã",sala:"37",horario:"08h / 12h",portao:"Portão 3",lanche:"09h00 - 09h15",intervalo:"09h15 - 09h30"},
+  "1C": {prof:"Otília Silveira",turno:"Tarde",sala:"36",horario:"13h30 / 17h30",portao:"Portão 3",lanche:"14h15 - 14h30",intervalo:"14h30 - 14h45"},
+  "1D": {prof:"Monitora Gabriela",turno:"Tarde",sala:"37",horario:"13h30 / 17h30",portao:"Portão 3",lanche:"14h15 - 14h30",intervalo:"14h30 - 14h45"},
+  "2A": {prof:"Casinelli Dias",turno:"Manhã",sala:"38",horario:"08h / 12h",portao:"Portão 3",lanche:"09h00 - 09h15",intervalo:"09h15 - 09h30"},
+  "2B": {prof:"Leslie Nunes",turno:"Manhã",sala:"32",horario:"08h / 12h",portao:"Portão 2",lanche:"09h00 - 09h15",intervalo:"09h15 - 09h30"},
+  "2C": {prof:"Estagiária Gabrielly",turno:"Tarde",sala:"32",horario:"13h30 / 17h30",portao:"Portão 3",lanche:"14h15 - 14h30",intervalo:"14h30 - 14h45"},
+  "2D": {prof:"Karen Quoos",turno:"Tarde",sala:"38",horario:"13h30 / 17h30",portao:"Portão 3",lanche:"14h15 - 14h30",intervalo:"14h30 - 14h45"},
+  "2E": {prof:"Lígia Corrêa",turno:"Tarde",sala:"52",horario:"13h30 / 17h30",portao:"Portão 3",lanche:"14h15 - 14h30",intervalo:"14h30 - 14h45"},
+  "3A": {prof:"Carla Lidiane da Silva",turno:"Manhã",sala:"1",horario:"08h / 12h",portao:"Recepção",lanche:"09h20 - 09h35",intervalo:"09h35 - 09h50"},
+  "3B": {prof:"Eleana Flores",turno:"Manhã",sala:"2",horario:"08h / 12h",portao:"Recepção",lanche:"09h20 - 09h35",intervalo:"09h35 - 09h50"},
+  "3C": {prof:"Admilson Lorbiete",turno:"Manhã",sala:"5",horario:"08h / 12h",portao:"Recepção",lanche:"09h20 - 09h35",intervalo:"09h35 - 09h50"},
+  "3D": {prof:"Aline Ferreira",turno:"Tarde",sala:"1",horario:"13h30 / 17h30",portao:"Portão 2",lanche:"14h35 - 14h50",intervalo:"14h50 - 15h05"},
+  "3E": {prof:"Fabiane Ferreira",turno:"Tarde",sala:"2",horario:"13h30 / 17h30",portao:"Portão 2",lanche:"14h35 - 14h50",intervalo:"14h50 - 15h05"},
+  "4A": {prof:"Eliane Fonseca",turno:"Tarde",sala:"53",horario:"13h30 / 17h30",portao:"Portão Ginásio",lanche:"15h00 - 15h15",intervalo:"15h15 - 15h30"},
+  "4B": {prof:"Sandra Cardozo",turno:"Tarde",sala:"54",horario:"13h30 / 17h30",portao:"Portão Ginásio",lanche:"15h00 - 15h15",intervalo:"15h15 - 15h30"},
+  "4C": {prof:"Thainá Moraes",turno:"Tarde",sala:"55",horario:"13h30 / 17h30",portao:"Portão Ginásio",lanche:"15h00 - 15h15",intervalo:"15h15 - 15h30"},
+  "4D": {prof:"Admilson Lorbiete",turno:"Tarde",sala:"56",horario:"13h30 / 17h30",portao:"Portão Ginásio",lanche:"15h00 - 15h15",intervalo:"15h15 - 15h30"},
+  "4E": {prof:"Patrícia Milbradt",turno:"Tarde",sala:"57",horario:"13h30 / 17h30",portao:"Portão Ginásio",lanche:"15h00 - 15h15",intervalo:"15h15 - 15h30"},
+  "5A": {prof:"Milene Cardoso",turno:"Tarde",sala:"13",horario:"13h30 / 17h30",portao:"Recepção",lanche:"16h00 - 16h20",intervalo:"16h00 - 16h20"},
+  "5B": {prof:"Eleana Caetano",turno:"Tarde",sala:"14",horario:"13h30 / 17h30",portao:"Recepção",lanche:"16h00 - 16h20",intervalo:"16h00 - 16h20"},
+  "5C": {prof:"Casinelli Dias",turno:"Tarde",sala:"17",horario:"13h30 / 17h30",portao:"Recepção",lanche:"16h00 - 16h20",intervalo:"16h00 - 16h20"},
+  "5D": {prof:"Ariane de Mello Vaz",turno:"Tarde",sala:"18",horario:"13h30 / 17h30",portao:"Recepção",lanche:"16h00 - 16h20",intervalo:"16h00 - 16h20"},
+  "6A": {prof:"A definir",turno:"Manhã",sala:"A definir",horario:"07h30 / 12h",portao:"Recepção / Portão Ginásio",lanche:"10h00 - 10h20",intervalo:"10h00 - 10h20"},
+  "6B": {prof:"A definir",turno:"Tarde",sala:"5",horario:"13h30 / 18h",portao:"Recepção / Portão 3",lanche:"16h00 - 16h20",intervalo:"16h00 - 16h20"},
+  "6C": {prof:"A definir",turno:"Tarde",sala:"6",horario:"13h30 / 18h",portao:"Recepção / Portão 3",lanche:"16h00 - 16h20",intervalo:"16h00 - 16h20"},
+  "7A": {prof:"A definir",turno:"Manhã",sala:"A definir",horario:"07h30 / 12h",portao:"Recepção / Portão Ginásio",lanche:"10h00 - 10h20",intervalo:"10h00 - 10h20"},
+  "7B": {prof:"A definir",turno:"Manhã",sala:"A definir",horario:"07h30 / 12h",portao:"Recepção / Portão Ginásio",lanche:"10h00 - 10h20",intervalo:"10h00 - 10h20"},
+  "7C": {prof:"A definir",turno:"Manhã",sala:"A definir",horario:"07h30 / 12h",portao:"Recepção / Portão Ginásio",lanche:"10h00 - 10h20",intervalo:"10h00 - 10h20"},
+  "8A": {prof:"A definir",turno:"Manhã",sala:"A definir",horario:"07h30 / 12h",portao:"Recepção / Portão Ginásio",lanche:"10h00 - 10h20",intervalo:"10h00 - 10h20"},
+  "8B": {prof:"A definir",turno:"Manhã",sala:"A definir",horario:"07h30 / 12h",portao:"Recepção / Portão Ginásio",lanche:"10h00 - 10h20",intervalo:"10h00 - 10h20"},
+  "8C": {prof:"A definir",turno:"Manhã",sala:"A definir",horario:"07h30 / 12h",portao:"Recepção / Portão Ginásio",lanche:"10h00 - 10h20",intervalo:"10h00 - 10h20"},
+  "9A": {prof:"A definir",turno:"Manhã",sala:"A definir",horario:"07h30 / 12h",portao:"Recepção / Portão Ginásio",lanche:"10h00 - 10h20",intervalo:"10h00 - 10h20"},
+  "9B": {prof:"A definir",turno:"Manhã",sala:"A definir",horario:"07h30 / 12h",portao:"Recepção / Portão Ginásio",lanche:"10h00 - 10h20",intervalo:"10h00 - 10h20"},
+  "9C": {prof:"A definir",turno:"Manhã",sala:"A definir",horario:"07h30 / 12h",portao:"Recepção / Portão Ginásio",lanche:"10h00 - 10h20",intervalo:"10h00 - 10h20"},
 };
 
 function abrir(turma) {
-  const d = dados[turma] || {sala:"N/A",entrada:"07:00",saida:"12:00",portao:"A",lanche:"09:30"};
+  const d = dados[turma];
   document.getElementById("titulo").innerText = "TURMA " + turma;
-  document.getElementById("sala").in
+  document.getElementById("prof").innerText = d.prof;
+  document.getElementById("turno").innerText = d.turno;
+  document.getElementById("sala").innerText = d.sala;
+  document.getElementById("horario").innerText = d.horario;
+  document.getElementById("portao").innerText = d.portao;
+  document.getElementById("lanche").innerText = d.lanche;
+  document.getElementById("intervalo").innerText = d.intervalo;
+  document.getElementById("inicio").style.display = "none";
+  document.getElementById("detalhe").style.display = "block";
+  window.scrollTo(0,0);
+}
+
+function voltar() {
+  document.getElementById("inicio").style.display = "block";
+  document.getElementById("detalhe").style.display = "none";
+  window.scrollTo(0,0);
+}
+</script>
+</body>
+</html>
