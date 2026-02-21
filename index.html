@@ -5,99 +5,147 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Maristas 2026</title>
 <style>
-  body { background:#82b1ff; font-family:Arial,sans-serif; margin:0; padding:20px; }
-  h1 { color:white; text-align:center; font-size:24px; margin-bottom:20px; }
+  * { box-sizing: border-box; }
+  body { background:#82b1ff; font-family:Arial,sans-serif; margin:0; padding:15px; }
+  h1 { color:white; text-align:center; font-size:22px; margin-bottom:15px; }
   .grid { display:flex; flex-direction:column; align-items:center; gap:8px; }
   .row { display:flex; gap:8px; justify-content:center; flex-wrap:wrap; }
-  .btn { width:65px; height:65px; background:lightgrey; border:1px solid #888;
+  .btn { width:62px; height:62px; background:lightgrey; border:1px solid #888;
     border-radius:5px; font-weight:bold; font-size:13px; cursor:pointer;
     box-shadow:2px 2px 4px rgba(0,0,0,0.3); display:flex; align-items:center;
-    justify-content:center; text-align:center; }
-  .btn:hover { background:#bbb; }
-  .btn.azul { background:#9ea7c1; }
-  .btn.amarelo { background:yellow; }
-  .detalhe { background:white; border-radius:20px; padding:25px;
-    max-width:400px; margin:20px auto; display:none; }
-  .detalhe h2 { color:blue; text-align:center; margin-bottom:15px; }
-  .detalhe p { font-size:16px; color:black; margin:8px 0;
-    border-bottom:1px solid #eee; padding-bottom:8px; }
-  .detalhe p span { font-weight:bold; }
-  .voltar { margin-top:20px; padding:10px 30px; font-size:16px; width:100%;
-    cursor:pointer; border-radius:8px; border:none; background:#1976d2;
+    justify-content:center; text-align:center; transition:0.1s; }
+  .btn:active { transform:scale(0.95); }
+  .btn.manha { background:#fffde7; }
+  .btn.tarde { background:#e3f2fd; }
+  .detalhe { background:white; border-radius:16px; padding:20px;
+    max-width:480px; margin:10px auto; display:none; }
+  .detalhe h2 { color:#1565c0; text-align:center; margin:0 0 12px; font-size:20px; }
+  .info-box { background:#f5f5f5; border-radius:8px; padding:12px; margin-bottom:12px; }
+  .info-box p { font-size:14px; color:#333; margin:4px 0; }
+  .info-box p span { font-weight:bold; color:#1565c0; }
+  .lista-titulo { font-weight:bold; color:#1565c0; font-size:15px; margin:10px 0 6px; }
+  .lista-alunos { list-style:none; padding:0; margin:0; }
+  .lista-alunos li { font-size:13px; padding:5px 8px; border-bottom:1px solid #eee; color:#333; }
+  .lista-alunos li:nth-child(even) { background:#f9f9f9; }
+  .lista-alunos li:last-child { border-bottom:none; }
+  .num { color:#999; font-size:11px; margin-right:5px; }
+  .voltar { margin-top:15px; padding:10px; font-size:15px; width:100%;
+    cursor:pointer; border-radius:8px; border:none; background:#1565c0;
     color:white; font-weight:bold; }
+  .legenda { display:flex; gap:10px; justify-content:center; margin-bottom:10px; flex-wrap:wrap; }
+  .leg { font-size:11px; color:white; display:flex; align-items:center; gap:4px; }
+  .leg-box { width:14px; height:14px; border-radius:3px; border:1px solid #888; }
+  .busca-bar { position:fixed; bottom:0; left:0; right:0; background:#1565c0;
+    padding:10px 15px; display:flex; gap:8px; align-items:center; z-index:100;
+    box-shadow:0 -2px 8px rgba(0,0,0,0.3); }
+  .busca-bar input { flex:1; padding:10px 14px; border-radius:25px; border:none;
+    font-size:15px; outline:none; }
+  .busca-bar button { background:#fff; border:none; border-radius:50%;
+    width:42px; height:42px; font-size:20px; cursor:pointer; flex-shrink:0; }
+  .busca-resultado { background:white; border-radius:16px; padding:20px;
+    max-width:480px; margin:10px auto; display:none; }
+  .busca-resultado h2 { color:#1565c0; margin:0 0 12px; font-size:18px; }
+  .resultado-item { padding:10px; border-bottom:1px solid #eee; cursor:pointer; }
+  .resultado-item:hover { background:#f0f4ff; border-radius:8px; }
+  .resultado-item .turma-tag { display:inline-block; background:#1565c0; color:white;
+    border-radius:12px; padding:2px 10px; font-size:12px; font-weight:bold; margin-right:8px; }
+  .resultado-item .nome { font-size:14px; color:#333; }
+  .nenhum { text-align:center; color:#999; padding:20px; font-size:14px; }
+  .padding-bottom { height:70px; }
 </style>
 </head>
 <body>
 
 <div id="inicio">
-  <h1>MARISTAS 2026</h1>
+  <h1>🏫 MARISTAS 2026</h1>
+  <div class="legenda">
+    <div class="leg"><div class="leg-box" style="background:#fffde7"></div> Manhã</div>
+    <div class="leg"><div class="leg-box" style="background:#e3f2fd"></div> Tarde</div>
+  </div>
   <div class="grid">
     <div class="row">
-      <div class="btn amarelo" onclick="abrir('1A')">1A</div>
-      <div class="btn amarelo" onclick="abrir('1B')">1B</div>
-      <div class="btn azul" onclick="abrir('1C')">1C</div>
-      <div class="btn azul" onclick="abrir('1D')">1D</div>
+      <div class="btn manha" onclick="abrir('1A')">1A</div>
+      <div class="btn manha" onclick="abrir('1B')">1B</div>
+      <div class="btn tarde" onclick="abrir('1C')">1C</div>
+      <div class="btn tarde" onclick="abrir('1D')">1D</div>
     </div>
     <div class="row">
-      <div class="btn amarelo" onclick="abrir('2A')">2A</div>
-      <div class="btn amarelo" onclick="abrir('2B')">2B</div>
-      <div class="btn azul" onclick="abrir('2C')">2C</div>
-      <div class="btn azul" onclick="abrir('2D')">2D</div>
-      <div class="btn azul" onclick="abrir('2E')">2E</div>
+      <div class="btn manha" onclick="abrir('2A')">2A</div>
+      <div class="btn manha" onclick="abrir('2B')">2B</div>
+      <div class="btn tarde" onclick="abrir('2C')">2C</div>
+      <div class="btn tarde" onclick="abrir('2D')">2D</div>
+      <div class="btn tarde" onclick="abrir('2E')">2E</div>
     </div>
     <div class="row">
-      <div class="btn amarelo" onclick="abrir('3A')">3A</div>
-      <div class="btn amarelo" onclick="abrir('3B')">3B</div>
-      <div class="btn amarelo" onclick="abrir('3C')">3C</div>
-      <div class="btn azul" onclick="abrir('3D')">3D</div>
-      <div class="btn azul" onclick="abrir('3E')">3E</div>
+      <div class="btn manha" onclick="abrir('3A')">3A</div>
+      <div class="btn manha" onclick="abrir('3B')">3B</div>
+      <div class="btn manha" onclick="abrir('3C')">3C</div>
+      <div class="btn tarde" onclick="abrir('3D')">3D</div>
+      <div class="btn tarde" onclick="abrir('3E')">3E</div>
     </div>
     <div class="row">
-      <div class="btn azul" onclick="abrir('4A')">4A</div>
-      <div class="btn azul" onclick="abrir('4B')">4B</div>
-      <div class="btn azul" onclick="abrir('4C')">4C</div>
-      <div class="btn azul" onclick="abrir('4D')">4D</div>
-      <div class="btn azul" onclick="abrir('4E')">4E</div>
+      <div class="btn tarde" onclick="abrir('4A')">4A</div>
+      <div class="btn tarde" onclick="abrir('4B')">4B</div>
+      <div class="btn tarde" onclick="abrir('4C')">4C</div>
+      <div class="btn tarde" onclick="abrir('4D')">4D</div>
+      <div class="btn tarde" onclick="abrir('4E')">4E</div>
     </div>
     <div class="row">
-      <div class="btn azul" onclick="abrir('5A')">5A</div>
-      <div class="btn azul" onclick="abrir('5B')">5B</div>
-      <div class="btn azul" onclick="abrir('5C')">5C</div>
-      <div class="btn azul" onclick="abrir('5D')">5D</div>
+      <div class="btn tarde" onclick="abrir('5A')">5A</div>
+      <div class="btn tarde" onclick="abrir('5B')">5B</div>
+      <div class="btn tarde" onclick="abrir('5C')">5C</div>
+      <div class="btn tarde" onclick="abrir('5D')">5D</div>
     </div>
     <div class="row">
-      <div class="btn amarelo" onclick="abrir('6A')">6A</div>
-      <div class="btn azul" onclick="abrir('6B')">6B</div>
-      <div class="btn azul" onclick="abrir('6C')">6C</div>
+      <div class="btn manha" onclick="abrir('6A')">6A</div>
+      <div class="btn tarde" onclick="abrir('6B')">6B</div>
+      <div class="btn tarde" onclick="abrir('6C')">6C</div>
     </div>
     <div class="row">
-      <div class="btn amarelo" onclick="abrir('7A')">7A</div>
-      <div class="btn amarelo" onclick="abrir('7B')">7B</div>
-      <div class="btn amarelo" onclick="abrir('7C')">7C</div>
+      <div class="btn manha" onclick="abrir('7A')">7A</div>
+      <div class="btn manha" onclick="abrir('7B')">7B</div>
+      <div class="btn manha" onclick="abrir('7C')">7C</div>
     </div>
     <div class="row">
-      <div class="btn amarelo" onclick="abrir('8A')">8A</div>
-      <div class="btn amarelo" onclick="abrir('8B')">8B</div>
-      <div class="btn amarelo" onclick="abrir('8C')">8C</div>
-    </div>
-    <div class="row">
-      <div class="btn amarelo" onclick="abrir('9A')">9A</div>
-      <div class="btn amarelo" onclick="abrir('9B')">9B</div>
-      <div class="btn amarelo" onclick="abrir('9C')">9C</div>
+      <div class="btn manha" onclick="abrir('8A')">8A</div>
+      <div class="btn manha" onclick="abrir('8B')">8B</div>
+      <div class="btn manha" onclick="abrir('8C')">8C</div>
     </div>
   </div>
+  <div class="padding-bottom"></div>
+</div>
+
+<!-- Tela de resultados de busca -->
+<div id="tela-busca" style="display:none; padding-bottom:70px;">
+  <h1>🔍 Busca de Alunos</h1>
+  <div class="busca-resultado" id="busca-resultado" style="display:block;">
+    <h2 id="busca-titulo">Digite o nome para buscar</h2>
+    <div id="busca-lista"></div>
+  </div>
+  <div class="padding-bottom"></div>
+</div>
+
+<!-- Barra de busca fixa no rodapé -->
+<div class="busca-bar" id="busca-bar">
+  <input type="text" id="busca-input" placeholder="🔍 Buscar aluno por nome..."
+    oninput="buscar(this.value)" onfocus="abrirBusca()" />
+  <button onclick="fecharBusca()" id="btn-fechar" style="display:none">✕</button>
 </div>
 
 <div class="detalhe" id="detalhe">
   <h2 id="titulo"></h2>
-  <p><span>Professor(a):</span> <span id="prof"></span></p>
-  <p><span>Turno:</span> <span id="turno"></span></p>
-  <p><span>Sala:</span> <span id="sala"></span></p>
-  <p><span>Entrada/Saída:</span> <span id="horario"></span></p>
-  <p><span>Portão:</span> <span id="portao"></span></p>
-  <p><span>Lanche:</span> <span id="lanche"></span></p>
-  <p><span>Intervalo:</span> <span id="intervalo"></span></p>
-  <button class="voltar" onclick="voltar()">VOLTAR</button>
+  <div class="info-box">
+    <p><span>Professor(a):</span> <span id="prof"></span></p>
+    <p><span>Turno:</span> <span id="turno"></span></p>
+    <p><span>Sala:</span> <span id="sala"></span></p>
+    <p><span>Entrada/Saída:</span> <span id="horario"></span></p>
+    <p><span>Portão:</span> <span id="portao"></span></p>
+    <p><span>Lanche:</span> <span id="lanche"></span></p>
+    <p><span>Intervalo:</span> <span id="intervalo"></span></p>
+  </div>
+  <div class="lista-titulo">👥 Lista de Alunos</div>
+  <ul class="lista-alunos" id="lista"></ul>
+  <button class="voltar" onclick="voltar()">← VOLTAR</button>
 </div>
 
 <script>
@@ -134,13 +182,103 @@ const dados = {
   "8A": {prof:"A definir",turno:"Manhã",sala:"A definir",horario:"07h30 / 12h",portao:"Recepção / Portão Ginásio",lanche:"10h00 - 10h20",intervalo:"10h00 - 10h20"},
   "8B": {prof:"A definir",turno:"Manhã",sala:"A definir",horario:"07h30 / 12h",portao:"Recepção / Portão Ginásio",lanche:"10h00 - 10h20",intervalo:"10h00 - 10h20"},
   "8C": {prof:"A definir",turno:"Manhã",sala:"A definir",horario:"07h30 / 12h",portao:"Recepção / Portão Ginásio",lanche:"10h00 - 10h20",intervalo:"10h00 - 10h20"},
-  "9A": {prof:"A definir",turno:"Manhã",sala:"A definir",horario:"07h30 / 12h",portao:"Recepção / Portão Ginásio",lanche:"10h00 - 10h20",intervalo:"10h00 - 10h20"},
-  "9B": {prof:"A definir",turno:"Manhã",sala:"A definir",horario:"07h30 / 12h",portao:"Recepção / Portão Ginásio",lanche:"10h00 - 10h20",intervalo:"10h00 - 10h20"},
-  "9C": {prof:"A definir",turno:"Manhã",sala:"A definir",horario:"07h30 / 12h",portao:"Recepção / Portão Ginásio",lanche:"10h00 - 10h20",intervalo:"10h00 - 10h20"},
 };
 
-function abrir(turma) {
+const alunos = {
+  "1A": ["Ágatha Rodrigues Moreira de Aguiar","Aghata Martim Veppo Oldani","Alisson Gabriel Nascimento Batista","Arthur Marmontel Goulart Ferreira","Bryana Victoria Bermonte dos Santos","Eduardo Junior do Nascimento Moura","Elisa Fernandes Cesar","Emanuel da Silva Souza","Emanuelly Santos Rodrigues","Héctor Goularte Silva","Heitor Goulart Severo","Helena Barcelar Ortiz","Heloisa Vargas Cuenca","Henzo Joaquim dos Santos Fridhin","Isabelly Silva Xavier","João Miguel Dutra dos Santos Diniz","Maria Clara Moreira Bittencourt","Max Raphael da Silva Siqueira","Nícolas Carvalho de Lima","Nicolly Stromm Barcelar","Nicoly Alves da Silva","Rodrigo de Souza Barbosa","Ruan Gomes da Conceição","Sophia Gabrielly Lima da Trindade","Théo Fagundes Kossman","Vitor Gabriel da Silva Kossmann"],
+  "1B": ["Alice Guimarães Hilgert","Antônio Vitor Quevedo de Aquino","Antony Cordeiro Venturini da Silva","Bernardo Carvalho da Silva","Bernardo de Carvalho Soares","Eduardo de Mattos","Esther Claro Niederauer","Helena Lima da Silva","Henrique Alves Coelho","Henry Miguel Machado Pacheco","Izabella Portella Medeiros","Joaquim da Rosa Carvalho","Joaquim Porto de Oliveira","Késia Corrales Cruber","Lara Martins Meireles","Lívia Natel de Deus","Luna Flor Kemerich de Arruda","Maria Valentina Camargo Dutra","Miguel Vargas Ayres Carvalho","Nycolas Coelho Machado","Sofia Vargas Cuenca","Thaygor Matheus Quinhones Dutra","Valentim Campos Pereira","Valentina Inkelmann Guimarães dos Santos","Vivian Goulart Brito","Wallace Kauã Moraes Goulart"],
+  "1C": ["Adham Vyctor Domingues Morozini","Alana da Silva Pereira","Ana Alice de Vargas da Rosa Batista","Ana Luiza Rodrigues Borges","Aylla Sophia Santos da Rosa","Bryan Mikael Vargas Ribeiro","Carlos Daniel da Rosa Freitas","Davi Lucca Bairros Boeno","Enzo Fagundes Martelli","Giovanna Fernandes Pereira","Hariany Soares Viana","Ícaro Rafael Garrot de Souza","Isadora Rafaela de Oliveira Silva","Joaquim Silva da Rosa","Júlia Simões de Oliveira","kawã Alves Aguiar","Lara Isabelly Alves Costa","Laysla Moana da Silva de Britto","Lorenzo dos Santos Morais","Manuella Rosa Camargo","Maria Valentina Medeiros dos Santos","Miguel Massoco Quinhones","Myrélla da Silva Dias","Thaylana Emanuelly Couto Ribeiro","Wendell Danillo Trindade de Andrade","William Gabriel Nunes de Moraes"],
+  "1D": ["Agatha Mariah Rodrigues da Silva Lopes","Alice Poncio Corrêa","Alice Schalemberger Zucchetto","Antonella Rossi Zeppenfeld","Antônia dos Santos Spat","Arthur Batista Figueiredo","Arthur Gomes de Azambuja","Crystal Paim Mendonça","Davi Pedroso Cavalheiro","Emanuelle Hundertmarck Moraes","Esther Juliane das Neves Aires","Heitor Hundertmarck Canto","Julia Ramos Machado","Kauany da Conceição Vargas","Kylie de Oliveira Mayer","Lucas Tatsch de Moraes","Manuela Barcellos Fernandes","Maria Alice Goulart Konig","Maria Clara Pinheiro Rossatto","Maria Helena Fernandes Marafiga","Maria Yohanna Alves de Andrade","Mirela Carvalho da Silva","Murilo Vargas Homercher","Nicoly Emanuelly Nunes Viana","Sophya Emanuelly da Silva Peres","Théo dos Santos Garcia","Thomaz Estevam de Moraes da Rosa"],
+  "2A": ["Ágatha Ferreira Dutra Corrêa da Silva","Alice de Castro Santos","Allana da Silva Corrêa","Antony Benjamim de Freitas Godoi","Arthur Guterres dos Santos","Bruna Iasmin Cristino da Cruz","Heitor Rodrigues Martins","Ícaro de Souza Ribeiro","Isabelle Britto Schimitt dos Reis","Izadora Martins Pereira","Julyane Graciano Goularte","Laura Catarina Rossi de Mello","Luiz Gustavo de Oliveira Pereira","Luiza Hellena Carvalho Canfield","Manuela Belmonte Fialho Lodi","Martín de Almeida","Miguel Heitor Müller Leite","Miguel Schefelbanis da Rocha","Murilo Aguirre Xavier","Nicolly Ester Prieto da Silva","Pietro Eliezer Santos da Silva","Samuel Cardoso Bicca","Thaylon Ribas Fagundes","Valentina Correa Lanes","Verônica Ramos Dias","Yasmin Flores","Yuri Andrade Rodrigues"],
+  "2B": ["Antonella da Rosa Marafiga","Benjamim Teixeira Mello","Brayan Noetzold de Souza","Brenda da Conceição Charão","Cecília dos Santos Focking","Davi Damaceno Lemos dos Santos","David Cristopher Alves Rieger","Emanuelly Quinhones do Nascimento","Enzo Gabriel Barbosa","Érica Sofia Pontel Weissheimer","Icaro Silveira Friedrich","Ísis Cezar de Menezes","Joaquim Beck Martinez","Joaquim Fachini Oliveira","Lavinya Maria dos Santos","Lorena Moreira Mello","Maria Clara Sanguinete Padilha","Mariana Menezes","Mélany Luiza Rodrigues da Silva","Melissa Valentina Alves Leal","Miguel Ferreira Machado","Millena Retamal Cardoso da Silva","Mirela Ferreira de Camargo","Nicolly Gabrielly Gomes Aguiar Fontana","Paula Silmara da Silva Rodriguez Saraiva Cezar","Paulo Gabriel Moraes Bandeira","Valentim Souza Marinho","Valentina Eduarda Rocha Teixeira"],
+  "2C": ["Anthony da Silva Koglin","Barbara Sofia da Costa Martínez","Emanuel e Silva Nunes","Emanuel Perez Fagundes","Enzo Gabriel Lemes de Britto","Isaac de Moraes da Silva","Isís da Silva de Aquino Ribeiro","Israel de Oliveira Rodrigues Dorneles","Joaquim Stello Rossi","Joaquim Xavier Marafiga","Lorena Gabriele da Silva Noal","Lorena Isabelly de Souza Braga","Lorena Simões Rossi","Luiza Vitória Souza Paim","Malcon Florence Pruni","Maria Antônia Britto da Silva","Maria Eduarda kemmerich Oliveira","Maria Fernanda Andrade da Silva","Miguel Benjamin Moura dos Reis","Miguel da Silva Pereira","Mirella Aguirre Pisney","Moisés Rios Freitas","Nathan Gabriel Borges Rodrigues","Sofia Gabrielly Brandão dos Santos","Sophia Pires Costa","Valentin da Silva Loreto Cezar","Valentina Bittencourt Pedroso","Valentina dos Santos Raimundo Milbradt"],
+  "2D": ["Agatha Emanuelly Maia Amorim","Ana Clara de Mattos Herbst","Antonella Rodrigues Couto","Arthur Binotto Vestena da Silva","Davi Luchtenberg Brandão","Emanuelly Goulart de Souza","Emanuelly Oliveira Siqueira","Erick Bairros Brito","Esmeralda Alves Britto","Estela Cristo Machado","Esther Saroti Cunha","Hanna Simões da Silva","Heithor Mello dos Santos","Isabelle Avila Machado","Isabely Nascimento Batista","Isadora Rodrigues Franco","Lara Cecília Ferreira de Oliveira","Maria Alice de Vargas Dias","Maria Luiza Nunes de Almeida","Muryllo Peres Pinto","Pietra Moraes de Jesus","Richard Iziquiel Barcellos Dal Osto","Valentina Peres de Britto","Vinícius de Bitencourt da Silva","Vitória Emanueli de Oliveira dos Santos","Vitória Simões da Costa","Yasmin de Almeida Moura","Yuri Oliveira da Silva"],
+  "2E": ["Alice Dutra dos Santos Diniz","Carol Machado Vidal","Eloísa Mendes Cezar","Emilly da Silva Portella","Erick Augusto Ribeiro de Andrades","Gabriel da Silva Pietro","Gabriel Umpierre Saturnino Ferreira","Isaac de Freitas Rubenich","Isabelly de Oliveira Dornelles","Kayler Éverton de Braga Mazzardo da Rocha","Krishna Xavier Fernandes Martins","Lavínia Campos Pereira","Lavynia Kemilly dos Santos Barrozo","Leonardo do Nascimento Silveira da Silva","Luiz Davy Maia dos Santos","Melissa Christino da Rosa","Miguel Matheus Valder Rodrigues","Murilo Kurtz de Oliveira","Nicole Valentina Carvalho Gonçalves","Nicolly Fagundes Figueiredo","Peterson Benjamin da Cruz Brum","Sophia Gabriely Gusmão Soares","Vitor Miguel Militz Bandeira","Yasmim de Oliveira Corrêa","Yasmin Goularte Silva","Ysadora Mello Garcia","Ysadora Rodrigues Pereira"],
+  "3A": ["Alerrandro de Souza Dutra","Antonny Gabriel Ferreira Bittencourte","Arthur Lima Paust","Caio Rodrigues Gomes","Derick Gabriel Müller Pereira","Eduarda Parcianello Mignot","Eduardo do Nascimento Silveira da Silva","Elliezer da Mota Fialho","Emanuelly Louise de Oliveira da Silva","Gabriella Castanho Moraes","Hellena Schalmes Machado","Henrique Maria dos Santos","Katty Emmanuelly Charão Simão","Kauã Dutra dos Santos Diniz","Larissa Bitencourt Domingues","Laura Maria Padilha de Souza","Lorenzo da Silva Vieira","Luiza Gabrielly de Andrade da Silva de Aquino","Luiza Siqueira Rodrigues","Manuelly dos Reis Carvalho","Maria Alice Cardoso Vargas","Maria Vitória Rodrigues Bachmann","Milcio Júnior Nascimento Batista","Pedro Henrique Ribeiro da Silva","Pietra Siqueira Santos","Pyetro da Silva Teixeira","Pyetro Santos Nunes","Sophia Beatriz Valder Michel"],
+  "3B": ["Antonella Phillippa Camargo Ribeiro","Antônio Miguel da Costa Martínez","Arthur Kemmerich Oliveira","Cayque Emanuel Rodrigues Machado de Freitas","Davi Ferreira","Davi Luiz dos Santos","Gabriele Favarini Rodrigues Roath","Guilherme Fripp Rodrigues","Isabelly Krug Leal","João Pedro Machado Trindade","Luara Valentyna dos Santos Ribeiro","Luiz Miguel Nogueira dos Santos","Luiza Sophia Souza de Almeida","Manuela Fernandes Pereira","Maria Júlia Machado de Castro","Matheus Trindade Bitencourt da Silva","Miguel Alves de Almeida Machado","Murilo Peres da Rosa Mathia Alves","Nicolas Vidal Borba dos Santos","Paulo Gabriel Brandão da Silva","Rafaella Kohler Vargas","Raphaelly de Andrade Leal","Ryan Carrion da Costa","Sthela Iensen de Camargo","Taynara Dafni Friedrich Fridhin","Thalissa Vianna Figueiredo","Théo Santos Krauspenhar","Ysabelle Bairros"],
+  "3C": ["Alexandre Nunes Maciel Oliveira","Alexia da Maia Kossmann","Antônio Gabriel Kuhn da Silva","Bárbara Helena Druzian Pozzobon","Brayan dos Santos Paust da Silva","Dandara Liberta Osvald Martins","Diovana de Oliveira Rodrigues Dorneles","Elena Mendes Cezar","Eliton Schimendes Castro","Elizandro Jayme da Silva Prass","Enthony Maciel Silva","Ícaro da Silva de Aquino Ribeiro","Isabella de Oliveira Strassburger","James Willian Rocha Teixeira","Joaquim Holkem Fogaça do Nascimento","Julia Danyele Lied Holkem","Júlia Emanuelly Fleck Rodrigues","Kamilly Vitoria Rodrigues Dutra","Lucas da Silva Cardoso","Luiza Rafaella Guterres Machado","Maria Cecília da Trindade de Souza","Mariana da Silva Rodrigues","Ruan Barros Duarte","Sophia Isabelly Guites de Britto","Sophia Mattos da Silva","Thalles Welliton Rodrigues de Oliveira"],
+  "3D": ["Ana Clara Trindade Siqueira","Antônia Bittencourt Pedroso","Berenice Xavier Bandeira Rodrigues","Bruno Horácio Fripp Rodrigues","Emily Vitória Xavier Palmieri","Hendryck Xavier da Silva","Isabelly Rodrigues Franco","Isadora da Silva Braio","Izabella Schmidt Cardoso","Izabelly da Rosa Freitas","Julia Antonella dos Santos Correia","Lorenzo Warnes da Silva Fernandes","Manuella Oliveira Silva","Maria Antonia Escobar Ribeiro","Maria Julia Souza do Nascimento","Maria Luíza Lopes da Costa","Maria Ysabella da Silva de Britto","Mayki Silveira de Freitas","Paulo Renato Quinhones do Nascimento","Pietro Gabriel Cruz da Silva","Pyetro de Brites Maciel","Sophia Rossi de Mello","Sthephany Roberta Xavier dos Santos","Victor Heitor Carrion Fonseca","Vinícius Medeiros Rocha","Vitória Dornelles dos Santos"],
+  "3E": ["Ágatha Pereira Araújo","Alyna Vitória Moura Lopes","Amanda Simões Xavier","Ana Clara Batista Bonassa","Anthony Cauê Pereira dos Santos","Anthony Fachini Oliveira","Bernardo Rafael de Oliveira Silva","Brenda Vitória Rodrigues Gomes","Diully de Oliveira Bicca","Éderson Antônio Oliveira Weissheimer","Emilly Vittória Bairros Britto","Enzo Gabriel Pereira Cuencas Fonseca da Rosa","Ezequiel Marques Machado","Fernanda Luchtenberg Brandão","João Gabriel Ziegler Ribeiro Moraes","Kamilly Escobar Negrini","Kauã Emanuel Dias de Freitas","Larissa Scremin Antunes","Larissa Vais da Silva Cruz","Lauany de Almeida Friedrich","Lorenzo Coelho da Silva","Lorenzo Silveira de Freitas","Manuela Almeida da Silva","Manuella Retamal Cardoso da Silva","Maria Helena Amaro Luiz","Noemy Medeiros Alves","Robert Lucas Rocha Teixeira","Tayla Allana Brito Carvalho"],
+  "4A": ["Ághata Antônia Silva de Abreu","Antonella Inkelmann Guimarães dos Santos","Antony Kael dos Santos Raimundo Milbradt","Arthur da Silva de Souza","Arthur Manoel dos Santos","Christian Antunes Vieira","Davi Luis de Almeida da Costa","Enzo Gabriel Araujo de Oliveira","Estér Rodrigues dos Santos","Ícaro Eduardo Azevedo Ferreira","Isabela Santos Lacerda","Laura Goulart do Nascimento","Lorena Aguirre Pisney","Luíz Cézar da Rosa Rodrigues","Luiz Gustavo da Costa de Freitas","Maria Cecília Simões Rossi","Miguel da Silva Borges","Miguel Pires Baldoni Hamerski","Milena Fenalti dos Santos","Murillo Zeppenfeld Calixto","Paulo Júnior de Bitencourt da Silva","Paulo Ricardo Fagundes dos Santos Marques","Rafael Nunes Maciel Oliveira","Vitchenzo Pereira Scotte","Vitor Lucca Gomes Pereira","Yuri Natan de Aquino"],
+  "4B": ["Alice França Dias","Alisson Muriel Silva de Moura","Arthur Fialho Fernandes","Benjamyn dos Santos Fernandes","Deivid Barbosa dos Santos","Erick Bernardo Godoy Bandeira","Erick Lorenzo de Souza Braga","Gabriela Dornelles dos Santos","Isak Rios Freitas","Jonathan Miguel Carvalho Pompéo","Julia Naysinger Schmitt","Kauã Nunes Cordeiro Konrath","Larissa de Oliveira Costa","Lorenzo Gabriel Dias da Silva","Manuella da Silva Blanco","Miguel Santos Pereira","Nicolly Elaine dos Santos Franco","Rafaela Freitas Canofre Oliveira","Sofia Nunes Martins","Sophia Roque Lima","Valentin Bairros Batista","Valentina Trindade Rodrigues","Victor Lorenzo da Rosa Goulart","Vitória Dutra da Rosa","Yasmim Silva Villagrand"],
+  "4C": ["Alejandro Andrade da Silva","Amanda Cruz da Rosa","Anna Júlia Souza de Mattos","Anyelle Fortunato Streb","Davi Cardoso Machado","Emily Lima Paust","Erika Vogt da Rosa","Evelyn Gabrielle dos Santos Silva","Fabio Gabriel de Oliveira Motta","Hérick Henrick Matias Rios","Hevelin Gabriela Perez Fagundes","Isadora Grazzioli da Rosa Xavier","João Luiz Pereira Iunges","João Lukas Soares de Abreu","Juliana Pena de Oliveira Medeiros","Katally Friedrich Fridhin","Kauan Eduardo Xavier da Rosa","Laís Graciolli Peransoni","Lauren dos Santos Faria","Luiza Malvina Pereira Lopes","Manuela da Silva Iensen","Maria Clara Pilar Pereira","Maria Sophia Pires Lencina","Mirely Padilha Pereira","Pietro Antunes Freitas","Pyetro Cezar da Silva","Richard Pietro da Silva","Samuel Nunes Stribe","Sofia Fleck Pinheiro","Vinycios Eduardo Costa da Silva Abicht","Vitória Mellanni Mendes Batista da Silva","Yasmin da Rosa Ribas"],
+  "4D": ["Adrian Barcellos Fernandes","Allana Stromm Barcelar","Ana Clara do Nascimento Gonçalves","Arthur Quevedo dos Santos","Cassia da Camara Bissacotti","Cauã Martim Araujo","Cecília Mariano da Silveira","Clarisse Santos Gomes","Davi Lucas e Silva Nunes","Davi Nascimento Escobar","Eduardo do Amaral Pedrollo","Eliézer Emanuel de Providel Borges","Eliza da Silva de Souza","Emilly Emanueli Alves da Costa","Enzo Gabriel Becker da Silva","Flávia Cristina Camargo dos Santos","Gabriely Dorneles Pereira","Henrique Avila Machado","Henrique Gabriel Barcelar Ortiz","Joaquim Eduardo Alves Ineu","Kethlyn Mariana Rodrigues da Silva","Kimberli Micaeli Carrion","Lorenzo Miguel Silveira Dutra de Barros","Marcos Vinicius Leal dos Santos","Mathias Natel de Deus","Miguel Pereira de Freitas","Miguel Portella da Silva Silvestre","Nicolas dos Santos de Souza","Pablo Britto Schimitt dos Reis","Pedro Carvalho da Cunha","Samuel Carvalho Pinto"],
+  "4E": ["Ágatha Lauane Rodrigues Landa","Ana Gabrielly da Maia Aguiar","Ana Júlia Rosa dos Reis","Ana Luiza Souza de Azambuja","Anna Luísa Oliveira Marinho","Brenda Victoria Carrion","Bruno Eduardo Müller Pereira","Daiton Ryan Mendes Batista da Silva","Déric Fernando Mello","Enzo Kemerich Ernesto","Erick Emanuel Lopes Senna","Izadora Santos da Rocha","João Gabriel Beck Leal da Costa","Júlia dos Santos Martins","Kauã Graciolli Palar","Kauê Portella dos Santos","Kevyn Gavião Kettes Brito","Luiz Otávio Rocha Teixeira","Luiza Manuella Silveira da Cunha","Mariana Maia dos Santos","Mateus Rodrigues dos Santos","Michelly Sandy Farias de Lima","Murillo Teixeira Gonçalves","Nathally Rebeca Leal Soares","Nicolas Cardoso Padilha","Samuel da Cunha Oliveira","Sofia Miler Zuse","Sophia Barcellos Flores","Thainá Gabrielli Barcellos Dal Osto","Valentina Costa Ferreira","Yasmin Roberta Quevedo Ferreira"],
+  "5A": ["Alysson Ryan Silveira","Arthur Carvalho da Silva","Bernardo Campos Pereira","Bernardo Tavares Cordeiro","Breno Schuster dos Santos","Bryan Vinicius Bermonte Venturini da Silva","Cecilia Osvald Carpes Cavalheiro","Claisla Lohanna Rodrigues Cavalheiro","Clara Luiza Rodrigues Brum","Davi de Carvalho Batista","Davy de Moraes da Silva","Eduarda da Silva Souza","Eduarda Isabelly Gonçalves Escobar","Emanuelli das Neves Aires","Guilherme dos Reis Rodrigues","Helena Vitória de Almeida Silva","Hendrew Levy Padilha de Oliveira","Isabelly Beatriz Strassburger Wachter","João Batista Walter Nardo","Kethelyn Lauany do Amaral Leite","Laís Silveira Oliveira Rumpel","Lorenzo Müller Leite","Luan Henrique Mainardi Gonçalves","Manuela Machado Fagundes","Matheus Tiago Rodrigues da Silva","Murilo Nogueira Costa","Nicoly Kimberly Fernandes Vidal","Otávio da Cunha Cabral","Pedro Luiz da Camara Bissacotti","Peterson Ryan Flores Neves","Rafaella Costa Moreira","Sara Emanuele Flores","Sarah Strassburger Dias","Victória Carrion Gomes","Victória Vargas Rocha","Wesley Silveira Rohdt"],
+  "5B": ["Adryan Cezar de Menezes","Alana dos Santos Wanderley","Alana Vitória Moura Lopes","Aldir de Jesus da Silveira Rodrigues","Alice Mannuela Medeiros Viana","Antônio Campos Souza Oliveira de Almeida","Artur da Cunha Schultz Dornelles","Augusto Henrique Lemes de Britto","Bernardo Stuker da Costa","Brayan Ezequiel da Silva Coelho","Cíntia Vitória Luchtenberg Brandão","Emanuela Silveira Brum","Emanuelly Peres da Silva Oliveira","Enzo Samuel Coelho Teixeira","Érika Tereza Fernandes de Andrades","Isabelle Mayara Stefani Aita","Isadora Helena Ferreira de Oliveira","Ismael Luan Oliveira Cacildo","Kauã Eduardo Cruz da Rosa","Layza Yohana de Brito Rodrigues","Luan Carvalho da Silva","Marcelo Luiz Ignacio Xavier","Maria Helena Santos de Quevedo","Milena Rossi Zeppenfeld","Murilo Ferreira Derzette","Natan Inacio Bitencourt","Nicolas da Silva Xavier","Nicolas Providel da Fonseca","Oliver Gonçalves dos Santos","Pedro Henrique Camargo dos Santos","Talisson Simões da Silva","Thaylor Cardoso dos Santos","Wendell Estêvão Batista Monteiro","William Artur da Silva Naisinger","Yasmin Rosado Soares","Yasmin Schmidt Cardoso"],
+  "5C": ["Ana Luiza Maia dos Santos","Anny Isadora Machado Galha","Brunna Janete Nunes de Abreu","Camili Eduarda Mello da Silva","Carlos Cassiano Lourenço da Silva","Daniel Marques Machado","David Luiz Miler de Oliveira","Dyessika Fillipa Hemam Camfild","Elano Emanuel Coelho Teixeira","Évellyn de Brites Maciel","Felipe Leal Barbosa","Giovanna Rafaela Pereira da Silva","Henry Ryan da Silva da Rosa","João Vítor Carvalho da Cunha","Kauan Aguirre de Campos","Kéthelin Gabriele Cordeiro Lucas","Lara Gabriely Beck Leal da Costa","Laysa Isabelly de Oliveira Machado","Livia Marafiga Farias","Luanny Gabrielly Bairros Galvão","Lucas de Souza Ribeiro","Maria Luiza Bianchin Pádua","Maryane Alves Bairros","Maurício Britto Schimitt dos Reis","Miguel Ozório Alves","Otoniel Araújo dos Santos","Peterson Oliveira Batista","Raphaelly de Avila Rodrrigues","Richard Alexander Retamal Rodrigues","Sara Ilha Batista","Sarah Maryana Machado de Lima","Sofia Moura Silva","Thálisson Rosaura da Silva Gonçalves","Thaylla de Britto Ferreira","Victor Mateus Bordin de Avila","Vitórya Vallentina Pazzato Peixoto"],
+  "5D": ["Aghata Homercher de Oliveira","Amanda Rodrigues Pereira","Ana Laura Bittencourt Pedroso","Andriele Santini de Medeiros","Anna Julia da Fontoura Fragoso","Artur Barcellos da Costa","Bryan Rhuan Sanches Machado","Dafny Silveira Dias","Emilly Fernandes Cavalheiro","Gabriel da Costa de Freitas","Gabrielli Teixeira dos Reis","Hacthor da Costa Blanco da Cunha","Hygor Bellé da Rosa","Isaac Pereira Machado","Isaias Emanuel de Oliveira Rodrigues Dorneles","Izabelly Martins Pereira","Jean Pierre Zeppenfeld Calixto","Jonas Gabriel Souza de Almeida","Karolina Jacy Rossi de Mello","Ketelin Amanda da Rosa Pires dos Santos","Kynipher Katrielle Vidal da Luz","Leonardo Henrique Ramos dos Santos","Luane de Medeiros Ferreira Dias","Lucas Santos Cavalheiro","Luiz Henrique Sanguinete Padilha","Marcelo Gabriel Pena Paz","Maria Luisa Freitas de Lima","Matheus Silveira de Moraes Perez","Pedro Coelho da Rosa","Pedro Henrique dos Santos do Nascimento","Sofia Braga de Lima","Stevan Abiel Rodrigues","Thiago Cordeiro Rodrigues","Thyego Corrales Cruber","Víctor Ferreira Almeida","Vitor Rauê Carvalho Silva"],
+  "6A": ["Adrielly Santos da Rocha","Alice Fagundes Dias","Alice Rosa Cezar","Ana Júlia Matias Lazzarotto","Andrey Pedrollo de Andrade","Bianca Cordeiro de Oliveira","Daynã Corrêa Coelho","Dominy Silveira Friedrich","Edson Corrêa de Britto","Emanuelly Prass da Costa","Emanuely Tastch Franco","Evelin Jaqueline dos Santos Franco","Gabriel Cabral da Costa","Gabriel Izaque Carvalho da Rosa","Henrique Aguirre Poltozi","Herick de Andrade Goes","Isaac Cristino Barbieri","Isadora Trindade Bitencourt da Silva","Ismael Marques Machado","João Henrique Pinheiro Rossatto","Kaio Henrique Costa da Silva","Kauan Henrique Kemerich Machado","Lauren Vitória Oliveira da Rosa","Lorenzo de Almeida Dressler","Manuella de Lima Camargo","Maria Luiza da Silva Pereira","Nícolas da Rosa Strassburger da Conceição","Pedro Fonseca Cordeiro","Pedro Henrique Machado de Freitas","Peterson Israel Rodrigues dos Santos","Rafaela Flores Farias","Sophia Alves da Silva","Thályta Andressa da Silva Guimarães","Vicktor Gabriel Sabin Cardoso","Yuri Otávio dos Santos Batista","Yzakel Barbosa dos Santos"],
+  "6B": ["Alexia Daise Leal Maciel","Anderson Esmael Carrion Nunes","Andressa de Mello Dias","Ângelo Miguel Cardoso Padilha","Anna Julia Amaro Luiz","Anyelli de Almeida Friedrich","Arthur de Freitas Andrade","Arthur Pedroso Cavalheiro","Bernnardo Henrique Valder Michel","Betânia Christino da Rosa","Bruno Rodrigues Gomes","Davi dos Santos Sousa","Dominyke Vollenghaupt Pereira","Eliézer Silva de Bitencourt","Emanuelly dos Santos da Rosa","Helena Rodrigues Adolfo","João Vitor Machado da Rosa Minello","Jordan Porto de Oliveira","Lavinnya Amorin da Silva","Lorena Lopes Silveira","Luane Rafaele Ribeiro Machado","Lucas da Silva Pereira","Luiz Henrique Vianna Figueiredo","Maria Eduarda de Almeida Alves","Maria Júlia Larréa de Oliveira","Noara Ramos Dias","Pedro Henrique Xavier Santos Palmieri","Péterson Simões Xavier","Rafhael da Maia Streb Negrini","Regina Bessauer Luiz","Sophia de Freitas da Silva","Wesley Gabriel Christino Barcelar","Willian Silveira Peixoto Pereira","Winícius Silva de Oliveira"],
+  "6C": ["Amanda da Rosa Rodrigues","Amanda de Oliveira da Silva","Angélica Tavares Cauduro","Antonella da Costa Pereira","Arthur Moura Silva","Bernardo Leal Santos","Davi Aysllan Brito Carvalho","Davi Becker Carvalho da Rosa","Dhiovana Antonela Silva da Costa","Edimilson Soares dos Santos","Emanuel Silveira Alves","Emanuelly Lopes Senna","Emilly Kauani Soares dos Santos","Emily Vitoria Andrades Cezar","Évelin Medeiros Rocha","Gabriel Vicente de Souza Parode","Heitor Dorneles do Rosário","Henrique da Silva Vieira","Henry de Andrade Leal","Isabelly Lima Paust da Silva","Isabely Alves Pena","Joana Guedes de Oliveira Bengochêa","João Guilherme Rodrigues Borges","João Lucas Albernais dos Reis","João Pedro Cardoso Batista","Julio Henrique Santos Linbergue Gonçalves","Kamily Vitória da Luz Coelho","Leandro Gustavo dos Santos de Oliveira","Manuella de Souza Rieger","Miriã Moraes Xavier","Paulo Henrique Gomes Pereira","Vitória Santos Possobom da Rosa","Yohan França Dias"],
+  "7A": ["Ana Julia dos Santos da Luz","Arthur Machado Meireles Santos","Brayan Gabriel da Rosa Barcellos dos Santos","Daniel Prieto da Silva","Diego Oliveira de Melo","Dienifer Emanuelle Schimidt Garcia","Emily Silveira de Andrades Rizzi","Érick Prass da Silva","Gileade Goulart Konig","Helena da Maia Aguiar","Isabela Cristina da Silva Scarpato","Josué Andrey de Oliveira dos Santos","Kauane Hinkelman Garcia","Kemilly Vitória Alves Brito","Manuela Brum Alves","Maria Eduarda Motta Soares da Silva","Mateus Machado Fagundes","Mauricio Silva da Silva","Mayara Ester Rodrigues Mello","Miguel da Silva Portella","Miguel Eduardo Alves Britto","Pedro Henrique Ravazzoli Mayer","Pedro Miguel Rosa Savian","Pyetro Rodrigues Moreira de Aguiar","Ruan Pablo da Silva Peres","Sophia Rodrigues Porto","Thalia de Oliveira Militz","Vallentina Zeppenfelt Nazario","Willian Gabryel Machado de Freitas","Yasmin Jaques Duarte Peransoni","Ygor Dutra Mercio","Ygor Penteado de Souza","Yuri Preuss de Lima"],
+  "7B": ["Andriele Soares da Silva","Anna Luiza Rosa Cezar","Braian Silveira Friedrich","Camilly Krug Oliveira","Christopher Henrique Oliveira Silva","Felipe Pietro da Trindade de Souza","Gabriela Valentina Streb da Silva","Giulliano Kayser Chaves","Hector Muriel da Silva Machado","Isac do Nascimento Silveira da Silva","Iury de Oliveira Machado","Izabelly Eggers dos Santos","Keven Kemerich Ernesto","Kevin Fernando Graciolli Ferreira","Lara da Silva Fagundes","Lauren Carvalho de Menezes","Lucas Gabriel Machado Odilon","Luiz Otávio da Costa Brasil","Manuella Nunes","Maria Luiza Leite Dallarosa","Maria Luiza Ludwig Winch","Mariana Xavier Santos","Mateus Andrades Carvalho da Cruz","Mayara Cristino Ludwig Guimarães","Milena Rafaela Vargas Ayres Carvalho","Mirella Alberti dos Santos","Nilmar Vieira de Menezes","Rafael Kuhn da Silva","Safira Gaier Müller","Samuel dos Santos Conrad de Menezes","Thaíza Alves Leal do Nascimento","Vitoria de Lima da Silva","Vitória Rodrigues Schneider"],
+  "7C": ["Alice Trindade de Jesus","Amanda Sanches Machado","Ana Julia Marques Flores","Ana Luiza Machado Gonçalves Lopes","Andriel Cordeiro Venturini da Silva","Arthur Oliari Viana","Bryan de Andrade Goes","Cassiane da Camara Bissacotti","Davi da Silva Romeiro","Deividy Antônio da Silva Pengo","Diênifer Garcia de Moraes","Edward Kemerich da Silva","Gabriel da Costa Pedroso","Helena Silva dos Santos","Igor Peres Gelocha","Jamilly Vieira Costa Domingues","Julia Paiva Denkio","Kimberlly da Silva dos Santos","Leandro Peres do Nascimento","Maria Clara da Silva Pietro","Maria Luiza Rodrigues Friedrich","Natyelle Noetzold de Souza","Nuriellen Soares Carneiro","Robert da Silva Baptista","Ruan Carlos dos Santos Sampaio","Shanan Éverton de Braga Mazzardo da Rocha","Tânia Isadora Carrion Gomes","Verônica Eloise de Aguirre Machado","Victor Alexandre Silveira de Lima","Vyctor Bruno Machado Cassol","Weslley da Costa Maia","Yasmim da Silva Naisinger"],
+  "8A": ["Amanda Dutra Soares da Silva","Ana Manuela Moreira Demarchi Abrahão","Augusto Dias Luiz","Beny Kauã Coelho Reichow","Bruna Anelize da Silveira Rodrigues","Cassiano Zeppenfelt Nazario","Crístofer Adriano Castro Garcia","Emanuel Kettes Dorneles","Felype Rodrigues Galvão","Gabriel Weide Rios","Isaac da Rosa Lamach","Jaqueline Cardoso Pimentel","Jean Graciano Goularte","Jorge Thainã Escobar Ribeiro","Kettelyn Eduarda de Oliveira Ferreira","Klaiton Leandro da Rosa Strassburger da Conceição","Lavinya Holkem dos Santos","Lucas Antônio Valder Rodrigues","Maria Eduarda Rodrigues Pereira","Maria Fernanda Reis de Oliveira Pereira","Maryana Karolyna Moraes Quadros","Mayana Cardoso da Costa","Mirella Naomy da Cruz Fagundes","Pedro Henrique Machado da Silva","Pyetro de Freitas Rodrigues","Sofia Cordeiro de Oliveira","Thauane Maidana Morais","Tiago Sanguinete Padilha","Vitor dos Santos Souza","Wallace Catiano da Cruz da Silva"],
+  "8B": ["Amanda Mattos da Silva","Ana Beatriz Rossi de Mello","Arielly da Silva Ribas","Arthur de Avila da Silva","Bernardo Rodrigues Gomes","Bruno da Silva Loreto Cezar","Bruno Rafael de Oliveira Silva","Camila Pinheiro Barbosa","Danilo Bandeira Grauna","Eduardo Couto Santos","Ériky Duarte Hoffmann","Gabriel Poltozi Krauspenhar da Silva","Gabriel Simões Xavier","Gilnei Cassenote Martins Júnior","Henzo Francisco Rodrigues Garrot","Isabella Reis de Oliveira Tavares","Isabelly da Silva Maciel","João Pedro Carvalho de Andrades","Kamily Minetti Rodrigues","Laizi Barcellos da Costa","Larissa de Quevedo Santos","Lendon Mayer Teixeira","Lucas Daniel Xavier da Rosa","Maria Valentina Leal Souza de Oliveira","Mariane Nunes Rigonzoni dos Santos","Matheus Muller Leite","Nícolas Mateus do Nascimento Graeff","Nicolly Borges Rodrigues","Paola Sofia da Trindade Marafiga","Pedro Henrique Santos Cavalheiro","Ricardo Gabriel Oliveira de Almeida","Sabrine Rodrigues da Silva","Thalita Vianna Figueiredo","Thauany Beatriz dos Santos Barrozo","Yadine Tayline Flores dos Santos"],
+  "8C": ["Álisson Wesley Marques da Silva","Ana Carolina Pedroso Cavalheiro","Antonella Santini de Medeiros","Arthur Coelho Rocha","Daniel Gomes Lemos","Daniela do Nascimento Gonçalves","Davyd Kauã Santos Vilson","Dickson Kauê dos Santos Peixoto","Êmilly Gonçalves Silva Thomas","Emily Vitória de Oliveira Pereira","Evelyn do Amaral Rosa","Gabriel Pinheiro Rossatto","Gabrielli Azambuja do Prado","Higor Samuel D'Avila Bonotto","Ismael Freitas da Costa","João Vítor Menezes dos Santos","Kauan de Amorin Hengen","Lanna Beatrys Ferreira Marinho","Luan Mendes da Silva Gomes","Luizy Gonçalves Hasselmann","Maria Clara Schmidt Cardoso","Maria Cláudia dos Santos Teixeira","Maria Eduarda da Silva Carrion","Maria Eduarda Otto dos Santos","Maria Vitoria da Rosa Braga","Marlon Everton Brites Oliveira","Maryane de Oliveira Teixeira","Pedro Henrique Bandeira Batista","Rayssa Manuele Amorim Roque","Roberto Lucian Wartmann Perez","Samuel Machado Nunes","Sthefany Rodrigues Dutra","Suzane da Silva Rocha","Valentina dos Santos da Rosa","Yasmin França Dias"],
+};
+
+function abrirBusca() {
+  document.getElementById("inicio").style.display = "none";
+  document.getElementById("detalhe").style.display = "none";
+  document.getElementById("tela-busca").style.display = "block";
+  document.getElementById("btn-fechar").style.display = "flex";
+  buscar(document.getElementById("busca-input").value);
+}
+
+function fecharBusca() {
+  document.getElementById("busca-input").value = "";
+  document.getElementById("tela-busca").style.display = "none";
+  document.getElementById("btn-fechar").style.display = "none";
+  document.getElementById("inicio").style.display = "block";
+  window.scrollTo(0,0);
+}
+
+function buscar(termo) {
+  const titulo = document.getElementById("busca-titulo");
+  const lista = document.getElementById("busca-lista");
+  termo = termo.trim().toLowerCase();
+
+  if (termo.length < 2) {
+    titulo.innerText = "Digite o nome para buscar";
+    lista.innerHTML = "";
+    return;
+  }
+
+  const resultados = [];
+  for (const turma in alunos) {
+    alunos[turma].forEach(nome => {
+      if (nome.toLowerCase().includes(termo)) {
+        resultados.push({turma, nome});
+      }
+    });
+  }
+
+  if (resultados.length === 0) {
+    titulo.innerText = "Nenhum resultado encontrado";
+    lista.innerHTML = `<div class="nenhum">😔 Nenhum aluno encontrado para "<b>${termo}</b>"</div>`;
+    return;
+  }
+
+  titulo.innerText = `${resultados.length} resultado(s) encontrado(s)`;
+  lista.innerHTML = resultados.map(r =>
+    `<div class="resultado-item" onclick="abrirDaTurma('${r.turma}')">
+      <span class="turma-tag">${r.turma}</span>
+      <span class="nome">${r.nome}</span>
+    </div>`
+  ).join("");
+}
+
+function abrirDaTurma(turma) {
+  document.getElementById("tela-busca").style.display = "none";
+  document.getElementById("btn-fechar").style.display = "none";
+  abrir(turma);
+}
+
+
   const d = dados[turma];
+  const lista = alunos[turma] || [];
   document.getElementById("titulo").innerText = "TURMA " + turma;
   document.getElementById("prof").innerText = d.prof;
   document.getElementById("turno").innerText = d.turno;
@@ -149,6 +287,13 @@ function abrir(turma) {
   document.getElementById("portao").innerText = d.portao;
   document.getElementById("lanche").innerText = d.lanche;
   document.getElementById("intervalo").innerText = d.intervalo;
+  const ul = document.getElementById("lista");
+  ul.innerHTML = "";
+  lista.forEach((nome, i) => {
+    const li = document.createElement("li");
+    li.innerHTML = `<span class="num">${i+1}.</span>${nome}`;
+    ul.appendChild(li);
+  });
   document.getElementById("inicio").style.display = "none";
   document.getElementById("detalhe").style.display = "block";
   window.scrollTo(0,0);
