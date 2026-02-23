@@ -5,87 +5,96 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Colégio Marista Santa Marta 2026</title>
 <style>
-  * { box-sizing: border-box; margin:0; padding:0; }
-  body { background:#1a237e; font-family:Arial,sans-serif; padding:12px 12px 80px; min-height:100vh; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { background:#1a237e; font-family:Arial,sans-serif; padding:12px 12px 80px; min-height:100vh; }
 
-  /* Cabeçalho */
-  .header { text-align:center; margin-bottom:14px; }
-  .header h1 { color:#fff; font-size:17px; font-weight:bold; line-height:1.3; }
-  .header p { color:rgba(255,255,255,0.7); font-size:11px; margin-top:3px; }
+/* ── Tela Inicial ── */
+.header { text-align:center; margin-bottom:14px; }
+.header h1 { color:#fff; font-size:17px; font-weight:bold; line-height:1.4; }
+.header p  { color:rgba(255,255,255,0.65); font-size:11px; margin-top:4px; }
 
-  /* Legenda */
-  .legenda { display:flex; gap:10px; justify-content:center; margin-bottom:12px; flex-wrap:wrap; }
-  .leg { font-size:11px; color:rgba(255,255,255,0.85); display:flex; align-items:center; gap:4px; }
-  .leg-box { width:13px; height:13px; border-radius:3px; border:1px solid rgba(255,255,255,0.3); }
+.legenda { display:flex; gap:10px; justify-content:center; margin-bottom:12px; flex-wrap:wrap; }
+.leg { font-size:11px; color:rgba(255,255,255,0.85); display:flex; align-items:center; gap:4px; }
+.leg-box { width:13px; height:13px; border-radius:3px; border:1px solid rgba(255,255,255,0.3); }
 
-  /* Seções */
-  .secao-wrap { background:rgba(255,255,255,0.07); border-radius:12px; padding:10px 10px 8px; margin-bottom:8px; }
-  .secao-titulo { color:rgba(255,255,255,0.6); font-size:10px; font-weight:bold; letter-spacing:1.5px;
-    text-transform:uppercase; text-align:center; margin-bottom:7px; }
-  .row { display:flex; gap:7px; justify-content:center; flex-wrap:wrap; }
+.secao-wrap { background:rgba(255,255,255,0.07); border-radius:12px; padding:10px 10px 8px; margin-bottom:8px; }
+.secao-titulo { color:rgba(255,255,255,0.6); font-size:10px; font-weight:bold; letter-spacing:1.5px;
+  text-transform:uppercase; text-align:center; margin-bottom:7px; }
+.row { display:flex; gap:7px; justify-content:center; flex-wrap:wrap; }
 
-  /* Botões */
-  .btn { width:58px; height:50px; border:none; border-radius:9px; font-weight:bold;
-    font-size:13px; cursor:pointer; box-shadow:0 2px 5px rgba(0,0,0,0.35);
-    transition:transform 0.1s; display:flex; align-items:center; justify-content:center; }
-  .btn:active { transform:scale(0.92); }
-  .manha  { background:#fffde7; color:#4a3900; }
-  .tarde  { background:#e3f2fd; color:#0d2b50; }
-  .ei     { background:#f3e5f5; color:#4a0072; }
-  .em     { background:#e8f5e9; color:#1b4a1b; }
+/* Botões de turma */
+.btn { width:58px; height:50px; border:none; border-radius:9px; font-weight:bold;
+  font-size:13px; cursor:pointer; box-shadow:0 2px 5px rgba(0,0,0,0.35);
+  transition:transform 0.1s; display:flex; align-items:center; justify-content:center; }
+.btn:active { transform:scale(0.92); }
+.manha { background:#fffde7; color:#4a3900; }
+.tarde { background:#e3f2fd; color:#0d2b50; }
+.ei    { background:#f3e5f5; color:#4a0072; }
+.em    { background:#e8f5e9; color:#1b4a1b; }
 
-  /* Tela detalhe */
-  .detalhe { display:none; background:#f5f7ff; min-height:100vh; padding:16px 14px 90px; }
-  .det-header { background:#1a237e; color:#fff; border-radius:12px; padding:14px; margin-bottom:12px; text-align:center; }
-  .det-header h2 { font-size:22px; font-weight:bold; }
-  .det-header p { font-size:12px; opacity:0.75; margin-top:3px; }
-  .info-grid { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:12px; }
-  .info-card { background:#fff; border-radius:10px; padding:10px; box-shadow:0 1px 4px rgba(0,0,0,0.08); }
-  .info-card .lbl { font-size:10px; color:#888; font-weight:bold; text-transform:uppercase; margin-bottom:2px; }
-  .info-card .val { font-size:13px; color:#1a237e; font-weight:bold; }
-  .lista-card { background:#fff; border-radius:10px; padding:12px; box-shadow:0 1px 4px rgba(0,0,0,0.08); }
-  .lista-titulo { font-size:13px; font-weight:bold; color:#1a237e; margin-bottom:8px; display:flex; justify-content:space-between; }
-  .lista-alunos { list-style:none; }
-  .lista-alunos li { font-size:13px; padding:6px 4px; border-bottom:1px solid #f0f0f0; color:#333; display:flex; gap:6px; }
-  .lista-alunos li:last-child { border-bottom:none; }
-  .num { color:#bbb; font-size:11px; min-width:18px; }
-  .btn-voltar { position:fixed; bottom:0; left:0; right:0; padding:14px; background:#1a237e;
-    color:#fff; border:none; font-size:16px; font-weight:bold; cursor:pointer;
-    box-shadow:0 -2px 10px rgba(0,0,0,0.3); }
+/* ── Tela Detalhe ── */
+.detalhe { display:none; background:#f5f7ff; min-height:100vh; padding:16px 14px 24px; }
 
-  /* Tela busca */
-  .tela-busca { display:none; padding-bottom:80px; }
-  .tela-busca h1 { color:#fff; font-size:18px; text-align:center; margin-bottom:12px; }
-  .res-card { background:#fff; border-radius:12px; padding:14px; }
-  .res-titulo { font-size:15px; font-weight:bold; color:#1a237e; margin-bottom:10px; }
-  .res-item { display:flex; align-items:center; gap:8px; padding:9px 4px;
-    border-bottom:1px solid #f0f0f0; cursor:pointer; }
-  .res-item:last-child { border-bottom:none; }
-  .res-item:active { background:#f0f4ff; border-radius:8px; }
-  .tag { background:#1a237e; color:#fff; border-radius:10px; padding:3px 9px;
-    font-size:11px; font-weight:bold; white-space:nowrap; }
-  .res-nome { font-size:13px; color:#333; }
-  .nenhum { text-align:center; color:#999; padding:20px; font-size:14px; }
+.det-header { background:#1a237e; color:#fff; border-radius:12px; padding:14px;
+  margin-bottom:12px; text-align:center; }
+.det-header h2 { font-size:22px; font-weight:bold; }
+.det-header p  { font-size:12px; opacity:0.75; margin-top:3px; }
 
-  /* Barra busca */
-  .busca-bar { position:fixed; bottom:0; left:0; right:0; background:#0d1660;
-    padding:10px 14px; display:flex; gap:8px; align-items:center; z-index:200;
-    box-shadow:0 -2px 10px rgba(0,0,0,0.4); }
-  .busca-bar input { flex:1; padding:10px 16px; border-radius:25px; border:none;
-    font-size:15px; outline:none; background:#fff; }
-  .btn-fechar { background:rgba(255,255,255,0.2); border:none; border-radius:50%;
-    width:42px; height:42px; font-size:18px; cursor:pointer; color:#fff;
-    display:none; align-items:center; justify-content:center; flex-shrink:0; }
+.info-grid { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:12px; }
+.info-card { background:#fff; border-radius:10px; padding:10px; box-shadow:0 1px 4px rgba(0,0,0,0.08); }
+.info-card .lbl { font-size:10px; color:#888; font-weight:bold; text-transform:uppercase; margin-bottom:2px; }
+.info-card .val { font-size:13px; color:#1a237e; font-weight:bold; }
+
+.lista-card { background:#fff; border-radius:10px; padding:12px; box-shadow:0 1px 4px rgba(0,0,0,0.08); }
+.lista-topo { font-size:13px; font-weight:bold; color:#1a237e; margin-bottom:8px;
+  display:flex; justify-content:space-between; align-items:center; }
+.lista-alunos { list-style:none; }
+.lista-alunos li { font-size:13px; padding:6px 4px; border-bottom:1px solid #f0f0f0;
+  color:#333; display:flex; gap:6px; align-items:flex-start; }
+.lista-alunos li:last-child { border-bottom:none; }
+.num { color:#bbb; font-size:11px; min-width:20px; flex-shrink:0; padding-top:1px; }
+
+/* Botão Voltar (dentro do detalhe) */
+.btn-voltar-det { display:block; width:100%; margin-top:16px; padding:14px;
+  background:#1a237e; color:#fff; border:none; border-radius:12px;
+  font-size:16px; font-weight:bold; cursor:pointer; text-align:center;
+  box-shadow:0 2px 8px rgba(0,0,0,0.25); transition:opacity 0.15s; }
+.btn-voltar-det:active { opacity:0.8; }
+
+/* ── Tela Busca ── */
+.tela-busca { display:none; padding-bottom:80px; }
+.tela-busca h1 { color:#fff; font-size:18px; text-align:center; margin-bottom:12px; }
+.res-card { background:#fff; border-radius:12px; padding:14px; }
+.res-titulo { font-size:15px; font-weight:bold; color:#1a237e; margin-bottom:10px; }
+.res-item { display:flex; align-items:center; gap:8px; padding:9px 4px;
+  border-bottom:1px solid #f0f0f0; cursor:pointer; }
+.res-item:last-child { border-bottom:none; }
+.res-item:active { background:#f0f4ff; border-radius:8px; }
+.tag { background:#1a237e; color:#fff; border-radius:10px; padding:3px 9px;
+  font-size:11px; font-weight:bold; white-space:nowrap; }
+.res-nome { font-size:13px; color:#333; }
+.nenhum { text-align:center; color:#999; padding:20px; font-size:14px; }
+
+/* ── Barra de Busca Fixa ── */
+.busca-bar { position:fixed; bottom:0; left:0; right:0; background:#0d1660;
+  padding:10px 14px; display:flex; gap:8px; align-items:center; z-index:200;
+  box-shadow:0 -2px 10px rgba(0,0,0,0.4); }
+.busca-bar input { flex:1; padding:10px 16px; border-radius:25px; border:none;
+  font-size:15px; outline:none; background:#fff; }
+.btn-fechar { background:rgba(255,255,255,0.2); border:none; border-radius:50%;
+  width:42px; height:42px; font-size:18px; cursor:pointer; color:#fff;
+  display:none; align-items:center; justify-content:center; flex-shrink:0; }
 </style>
 </head>
 <body>
 
-<!-- TELA INÍCIO -->
+<!-- ══════════════ TELA INICIAL ══════════════ -->
 <div id="inicio">
   <div class="header">
     <h1>🏫 Colégio Marista Santa Marta 2026</h1>
     <p>Toque na turma para ver a lista de estudantes</p>
   </div>
+
   <div class="legenda">
     <div class="leg"><div class="leg-box" style="background:#f3e5f5"></div>Ed. Infantil</div>
     <div class="leg"><div class="leg-box" style="background:#fffde7"></div>Manhã</div>
@@ -116,8 +125,8 @@
     <div class="row">
       <div class="btn manha" onclick="abrir('1A')">1A</div>
       <div class="btn manha" onclick="abrir('1B')">1B</div>
-      <div class="btn tarde" onclick="abrir('1C')">1C</div>
-      <div class="btn tarde" onclick="abrir('1D')">1D</div>
+      <div class="btn tarde"  onclick="abrir('1C')">1C</div>
+      <div class="btn tarde"  onclick="abrir('1D')">1D</div>
     </div>
   </div>
 
@@ -126,9 +135,9 @@
     <div class="row">
       <div class="btn manha" onclick="abrir('2A')">2A</div>
       <div class="btn manha" onclick="abrir('2B')">2B</div>
-      <div class="btn tarde" onclick="abrir('2C')">2C</div>
-      <div class="btn tarde" onclick="abrir('2D')">2D</div>
-      <div class="btn tarde" onclick="abrir('2E')">2E</div>
+      <div class="btn tarde"  onclick="abrir('2C')">2C</div>
+      <div class="btn tarde"  onclick="abrir('2D')">2D</div>
+      <div class="btn tarde"  onclick="abrir('2E')">2E</div>
     </div>
   </div>
 
@@ -137,9 +146,9 @@
     <div class="row">
       <div class="btn manha" onclick="abrir('3A')">3A</div>
       <div class="btn manha" onclick="abrir('3B')">3B</div>
-      <div class="btn tarde" onclick="abrir('3C')">3C</div>
-      <div class="btn tarde" onclick="abrir('3D')">3D</div>
-      <div class="btn tarde" onclick="abrir('3E')">3E</div>
+      <div class="btn tarde"  onclick="abrir('3C')">3C</div>
+      <div class="btn tarde"  onclick="abrir('3D')">3D</div>
+      <div class="btn tarde"  onclick="abrir('3E')">3E</div>
     </div>
   </div>
 
@@ -148,6 +157,8 @@
     <div class="row">
       <div class="btn tarde" onclick="abrir('4A')">4A</div>
       <div class="btn tarde" onclick="abrir('4B')">4B</div>
+      <div class="btn tarde" onclick="abrir('4C')">4C</div>
+      <div class="btn tarde" onclick="abrir('4D')">4D</div>
       <div class="btn tarde" onclick="abrir('4E')">4E</div>
     </div>
   </div>
@@ -158,6 +169,7 @@
       <div class="btn tarde" onclick="abrir('5A')">5A</div>
       <div class="btn tarde" onclick="abrir('5B')">5B</div>
       <div class="btn tarde" onclick="abrir('5C')">5C</div>
+      <div class="btn tarde" onclick="abrir('5D')">5D</div>
     </div>
   </div>
 
@@ -165,7 +177,8 @@
     <div class="secao-titulo">6º Ano</div>
     <div class="row">
       <div class="btn manha" onclick="abrir('6A')">6A</div>
-      <div class="btn tarde" onclick="abrir('6B')">6B</div>
+      <div class="btn tarde"  onclick="abrir('6B')">6B</div>
+      <div class="btn tarde"  onclick="abrir('6C')">6C</div>
     </div>
   </div>
 
@@ -197,39 +210,38 @@
   </div>
 
   <div class="secao-wrap">
-    <div class="secao-titulo">Ensino Médio — 1º Ano</div>
+    <div class="secao-titulo">Ensino Médio — 1ª Série</div>
     <div class="row">
       <div class="btn em" onclick="abrir('EM1A')">EM1A</div>
       <div class="btn em" onclick="abrir('EM1B')">EM1B</div>
     </div>
   </div>
-</div>
+</div><!-- /inicio -->
 
-<!-- TELA DETALHE -->
+<!-- ══════════════ TELA DETALHE ══════════════ -->
 <div class="detalhe" id="detalhe">
   <div class="det-header">
     <h2 id="det-titulo"></h2>
-    <p id="det-subtitulo"></p>
+    <p  id="det-subtitulo"></p>
   </div>
-  <div class="info-grid">
-    <div class="info-card"><div class="lbl">Professor(a)</div><div class="val" id="det-prof"></div></div>
-    <div class="info-card"><div class="lbl">Turno</div><div class="val" id="det-turno"></div></div>
-    <div class="info-card"><div class="lbl">Sala</div><div class="val" id="det-sala"></div></div>
-    <div class="info-card"><div class="lbl">Horário</div><div class="val" id="det-horario"></div></div>
-    <div class="info-card"><div class="lbl">Portão</div><div class="val" id="det-portao"></div></div>
-    <div class="info-card"><div class="lbl">Lanche / Intervalo</div><div class="val" id="det-lanche"></div></div>
+
+  <div class="info-grid" id="det-grid">
+    <!-- cards inseridos por JS -->
   </div>
+
   <div class="lista-card">
-    <div class="lista-titulo">
+    <div class="lista-topo">
       <span>👥 Lista de Estudantes</span>
       <span id="det-total" style="font-size:12px;color:#888;font-weight:normal;"></span>
     </div>
     <ul class="lista-alunos" id="det-lista"></ul>
   </div>
-  <button class="btn-voltar" onclick="voltar()">← Voltar</button>
+
+  <!-- Botão Voltar ao final da lista -->
+  <button class="btn-voltar-det" onclick="voltar()">← Voltar</button>
 </div>
 
-<!-- TELA BUSCA -->
+<!-- ══════════════ TELA BUSCA ══════════════ -->
 <div class="tela-busca" id="tela-busca">
   <h1>🔍 Busca de Estudantes</h1>
   <div class="res-card">
@@ -238,21 +250,22 @@
   </div>
 </div>
 
-<!-- BARRA DE BUSCA FIXA -->
+<!-- ══════════════ BARRA FIXA ══════════════ -->
 <div class="busca-bar">
-  <input type="text" id="busca-input" placeholder="🔍 Buscar estudante por nome..."
+  <input type="text" id="busca-input"
+    placeholder="🔍 Buscar estudante por nome..."
     oninput="buscar(this.value)" onfocus="abrirBusca()" />
   <button class="btn-fechar" id="btn-fechar" onclick="fecharBusca()">✕</button>
 </div>
 
 <script>
 const dados = {
-  "EI4A":{prof:"A definir",turno:"Manhã",sala:"A definir",horario:"08h–12h",portao:"A definir",lanche:"A definir"},
-  "EI4B":{prof:"A definir",turno:"Manhã",sala:"A definir",horario:"08h–12h",portao:"A definir",lanche:"A definir"},
-  "EI4C":{prof:"A definir",turno:"Tarde",sala:"A definir",horario:"13h30–17h30",portao:"A definir",lanche:"A definir"},
-  "EI5A":{prof:"A definir",turno:"Manhã",sala:"A definir",horario:"08h–12h",portao:"A definir",lanche:"A definir"},
-  "EI5B":{prof:"A definir",turno:"Tarde",sala:"A definir",horario:"13h30–17h30",portao:"A definir",lanche:"A definir"},
-  "EI5C":{prof:"A definir",turno:"Tarde",sala:"A definir",horario:"13h30–17h30",portao:"A definir",lanche:"A definir"},
+  "EI4A":{prof:"A definir",turno:"Manhã",sala:"—",horario:"08h–12h",portao:"Portão 3",lanche:"09h00–09h20"},
+  "EI4B":{prof:"A definir",turno:"Manhã",sala:"—",horario:"08h–12h",portao:"Portão 3",lanche:"09h00–09h20"},
+  "EI4C":{prof:"A definir",turno:"Tarde",sala:"—",horario:"13h30–17h30",portao:"Portão 3",lanche:"14h15–14h35"},
+  "EI5A":{prof:"A definir",turno:"Manhã",sala:"—",horario:"08h–12h",portao:"Portão 3",lanche:"09h00–09h20"},
+  "EI5B":{prof:"A definir",turno:"Tarde",sala:"—",horario:"13h30–17h30",portao:"Portão 3",lanche:"14h15–14h35"},
+  "EI5C":{prof:"A definir",turno:"Tarde",sala:"—",horario:"13h30–17h30",portao:"Portão 3",lanche:"14h15–14h35"},
   "1A":{prof:"Elizete de Lima",turno:"Manhã",sala:"36",horario:"08h–12h",portao:"Portão 3",lanche:"09h00–09h30"},
   "1B":{prof:"Cátia Maciel",turno:"Manhã",sala:"37",horario:"08h–12h",portao:"Portão 3",lanche:"09h00–09h30"},
   "1C":{prof:"Otília Silveira",turno:"Tarde",sala:"36",horario:"13h30–17h30",portao:"Portão 3",lanche:"14h15–14h45"},
@@ -262,30 +275,34 @@ const dados = {
   "2C":{prof:"Estagiária Gabrielly",turno:"Tarde",sala:"32",horario:"13h30–17h30",portao:"Portão 3",lanche:"14h15–14h45"},
   "2D":{prof:"Karen Quoos",turno:"Tarde",sala:"38",horario:"13h30–17h30",portao:"Portão 3",lanche:"14h15–14h45"},
   "2E":{prof:"Lígia Corrêa",turno:"Tarde",sala:"52",horario:"13h30–17h30",portao:"Portão 3",lanche:"14h15–14h45"},
-  "3A":{prof:"Carla Lidiane da Silva",turno:"Manhã",sala:"1",horario:"08h–12h",portao:"Recepção",lanche:"09h20–09h50"},
-  "3B":{prof:"Eleana Flores",turno:"Manhã",sala:"2",horario:"08h–12h",portao:"Recepção",lanche:"09h20–09h50"},
-  "3C":{prof:"A definir",turno:"Tarde",sala:"5",horario:"13h30–17h30",portao:"Portão 2",lanche:"14h35–15h05"},
-  "3D":{prof:"Aline Ferreira",turno:"Tarde",sala:"1",horario:"13h30–17h30",portao:"Portão 2",lanche:"14h35–15h05"},
-  "3E":{prof:"Fabiane Ferreira",turno:"Tarde",sala:"2",horario:"13h30–17h30",portao:"Portão 2",lanche:"14h35–15h05"},
+  "3A":{prof:"A definir",turno:"Manhã",sala:"—",horario:"08h–12h",portao:"Recepção",lanche:"09h20–09h50"},
+  "3B":{prof:"Carla Lidiane da Silva",turno:"Manhã",sala:"1",horario:"08h–12h",portao:"Recepção",lanche:"09h20–09h50"},
+  "3C":{prof:"Eleana Flores",turno:"Manhã",sala:"2",horario:"08h–12h",portao:"Recepção",lanche:"09h20–09h50"},
+  "3D":{prof:"A definir",turno:"Tarde",sala:"1",horario:"13h30–17h30",portao:"Portão 2",lanche:"14h35–15h05"},
+  "3E":{prof:"A definir",turno:"Tarde",sala:"2",horario:"13h30–17h30",portao:"Portão 2",lanche:"14h35–15h05"},
   "4A":{prof:"Eliane Fonseca",turno:"Tarde",sala:"53",horario:"13h30–17h30",portao:"Portão Ginásio",lanche:"15h00–15h30"},
   "4B":{prof:"Sandra Cardozo",turno:"Tarde",sala:"54",horario:"13h30–17h30",portao:"Portão Ginásio",lanche:"15h00–15h30"},
+  "4C":{prof:"Thainá Moraes",turno:"Tarde",sala:"55",horario:"13h30–17h30",portao:"Portão Ginásio",lanche:"15h00–15h30"},
+  "4D":{prof:"A definir",turno:"Tarde",sala:"56",horario:"13h30–17h30",portao:"Portão Ginásio",lanche:"15h00–15h30"},
   "4E":{prof:"Patrícia Milbradt",turno:"Tarde",sala:"57",horario:"13h30–17h30",portao:"Portão Ginásio",lanche:"15h00–15h30"},
   "5A":{prof:"Milene Cardoso",turno:"Tarde",sala:"13",horario:"13h30–17h30",portao:"Recepção",lanche:"16h00–16h20"},
   "5B":{prof:"Eleana Caetano",turno:"Tarde",sala:"14",horario:"13h30–17h30",portao:"Recepção",lanche:"16h00–16h20"},
   "5C":{prof:"Casinelli Dias",turno:"Tarde",sala:"17",horario:"13h30–17h30",portao:"Recepção",lanche:"16h00–16h20"},
-  "6A":{prof:"A definir",turno:"Manhã",sala:"A definir",horario:"07h30–12h",portao:"Portão Ginásio",lanche:"10h00–10h20"},
-  "6B":{prof:"A definir",turno:"Tarde",sala:"5",horario:"13h30–18h",portao:"Portão 3",lanche:"16h00–16h20"},
-  "7A":{prof:"A definir",turno:"Manhã",sala:"A definir",horario:"07h30–12h",portao:"Portão Ginásio",lanche:"10h00–10h20"},
-  "7B":{prof:"A definir",turno:"Manhã",sala:"A definir",horario:"07h30–12h",portao:"Portão Ginásio",lanche:"10h00–10h20"},
-  "7C":{prof:"A definir",turno:"Manhã",sala:"A definir",horario:"07h30–12h",portao:"Portão Ginásio",lanche:"10h00–10h20"},
-  "8A":{prof:"A definir",turno:"Manhã",sala:"A definir",horario:"07h30–12h",portao:"Portão Ginásio",lanche:"10h00–10h20"},
-  "8B":{prof:"A definir",turno:"Manhã",sala:"A definir",horario:"07h30–12h",portao:"Portão Ginásio",lanche:"10h00–10h20"},
-  "8C":{prof:"A definir",turno:"Manhã",sala:"A definir",horario:"07h30–12h",portao:"Portão Ginásio",lanche:"10h00–10h20"},
-  "9A":{prof:"A definir",turno:"Manhã",sala:"A definir",horario:"07h30–12h",portao:"Portão Ginásio",lanche:"10h00–10h20"},
-  "9B":{prof:"A definir",turno:"Manhã",sala:"A definir",horario:"07h30–12h",portao:"Portão Ginásio",lanche:"10h00–10h20"},
-  "9C":{prof:"A definir",turno:"Manhã",sala:"A definir",horario:"07h30–12h",portao:"Portão Ginásio",lanche:"10h00–10h20"},
-  "EM1A":{prof:"A definir",turno:"Manhã",sala:"A definir",horario:"07h30–12h",portao:"A definir",lanche:"A definir"},
-  "EM1B":{prof:"A definir",turno:"Manhã",sala:"A definir",horario:"07h30–12h",portao:"A definir",lanche:"A definir"},
+  "5D":{prof:"A definir",turno:"Tarde",sala:"18",horario:"13h30–17h30",portao:"Recepção",lanche:"16h00–16h20"},
+  "6A":{sala:"21",turno:"Manhã",horario:"07h30–12h",portao:"Portão Ginásio",lanche:"10h00–10h20"},
+  "6B":{sala:"22",turno:"Tarde",horario:"13h30–18h",portao:"Portão 3",lanche:"16h00–16h20"},
+  "6C":{sala:"23",turno:"Tarde",horario:"13h30–18h",portao:"Portão 3",lanche:"16h00–16h20"},
+  "7A":{sala:"31",turno:"Manhã",horario:"07h30–12h",portao:"Portão Ginásio",lanche:"10h00–10h20"},
+  "7B":{sala:"32",turno:"Manhã",horario:"07h30–12h",portao:"Portão Ginásio",lanche:"10h00–10h20"},
+  "7C":{sala:"33",turno:"Manhã",horario:"07h30–12h",portao:"Portão Ginásio",lanche:"10h00–10h20"},
+  "8A":{sala:"41",turno:"Manhã",horario:"07h30–12h",portao:"Portão Ginásio",lanche:"10h00–10h20"},
+  "8B":{sala:"42",turno:"Manhã",horario:"07h30–12h",portao:"Portão Ginásio",lanche:"10h00–10h20"},
+  "8C":{sala:"43",turno:"Manhã",horario:"07h30–12h",portao:"Portão Ginásio",lanche:"10h00–10h20"},
+  "9A":{sala:"51",turno:"Manhã",horario:"07h30–12h",portao:"Portão Ginásio",lanche:"10h00–10h20"},
+  "9B":{sala:"52",turno:"Manhã",horario:"07h30–12h",portao:"Portão Ginásio",lanche:"10h00–10h20"},
+  "9C":{sala:"53",turno:"Manhã",horario:"07h30–12h",portao:"Portão Ginásio",lanche:"10h00–10h20"},
+  "EM1A":{turno:"Manhã",sala:"61",horario:"07h30–12h",portao:"Recepção",lanche:"10h00–10h20"},
+  "EM1B":{turno:"Manhã",sala:"62",horario:"07h30–12h",portao:"Recepção",lanche:"10h00–10h20"},
 };
 
 const alunos = {
@@ -304,19 +321,23 @@ const alunos = {
   "2C": ["Antonella da Rosa Marafiga", "Benjamim Teixeira Mello", "Brayan Noetzold de Souza", "Brenda da Conceição Charão", "Cecília dos Santos Focking", "Davi Damaceno Lemos dos Santos", "David Cristopher Alves Rieger", "Emanuelly Quinhones do Nascimento", "Enzo Gabriel Barbosa", "Érica Sofia Pontel Weissheimer", "Icaro Silveira Friedrich", "Ísis Cezar de Menezes", "Joaquim Beck Martinez", "Joaquim Fachini Oliveira", "Lavinya Maria dos Santos", "Lorena Moreira Mello", "Maria Clara Sanguinete Padilha", "Mariana Menezes", "Mélany Luiza Rodrigues da Silva", "Melissa Valentina Alves Leal", "Miguel Ferreira Machado", "Millena Retamal Cardoso da Silva", "Mirela Ferreira de Camargo", "Nicolly Gabrielly Gomes Aguiar Fontana", "Paula Silmara da Silva Rodriguez Saraiva Cezar", "Paulo Gabriel Moraes Bandeira", "Valentim Souza Marinho", "Valentina Eduarda Rocha Teixeira"],
   "2D": ["Anthony da Silva Koglin", "Barbara Sofia da Costa Martínez", "Emanuel e Silva Nunes", "Emanuel Perez Fagundes", "Enzo Gabriel Lemes de Britto", "Isaac de Moraes da Silva", "Isís da Silva de Aquino Ribeiro", "Israel de Oliveira Rodrigues Dorneles", "Joaquim Stello Rossi", "Joaquim Xavier Marafiga", "Lorena Gabriele da Silva Noal", "Lorena Isabelly de Souza Braga", "Lorena Simões Rossi", "Luiza Vitória Souza Paim", "Malcon Florence Pruni", "Maria Antônia Britto da Silva", "Maria Eduarda kemmerich Oliveira", "Maria Fernanda Andrade da Silva", "Miguel Benjamin Moura dos Reis", "Miguel da Silva Pereira", "Mirella Aguirre Pisney", "Moisés Rios Freitas", "Nathan Gabriel Borges Rodrigues", "Sofia Gabrielly Brandão dos Santos", "Sophia Pires Costa", "Valentin da Silva Loreto Cezar", "Valentina Bittencourt Pedroso", "Valentina dos Santos Raimundo Milbradt"],
   "2E": ["Agatha Emanuelly Maia Amorim", "Ana Clara de Mattos Herbst", "Antonella Rodrigues Couto", "Arthur Binotto Vestena da Silva", "Davi Luchtenberg Brandão", "Emanuelly Goulart de Souza", "Emanuelly Oliveira Siqueira", "Erick Bairros Brito", "Esmeralda Alves Britto", "Estela Cristo Machado", "Esther Saroti Cunha", "Hanna Simões da Silva", "Heithor Mello dos Santos", "Isabelle Avila Machado", "Isabely Nascimento Batista", "Isadora Rodrigues Franco", "Lara Cecília Ferreira de Oliveira", "Maria Alice de Vargas Dias", "Maria Luiza Nunes de Almeida", "Muryllo Peres Pinto", "Pietra Moraes de Jesus", "Richard Iziquiel Barcellos Dal Osto", "Valentina Peres de Britto", "Vinícius de Bitencourt da Silva", "Vitória Emanueli de Oliveira dos Santos", "Vitória Simões da Costa", "Yasmin de Almeida Moura", "Yuri Oliveira da Silva"],
-  "3A": ["Alice Dutra dos Santos Diniz", "Carol Machado Vidal", "Eloísa Mendes Cezar", "Emilly da Silva Portella", "Erick Augusto Ribeiro de Andrades", "Gabriel da Silva Pietro", "Gabriel Umpierre Saturnino Ferreira", "Isaac de Freitas Rubenich", "Isabelly de Oliveira Dornelles", "Kayler Éverton de Braga Mazzardo da Rocha", "Krishna Xavier Fernandes Martins", "Lavínia Campos Pereira", "Lavynia Kemilly dos Santos Barrozo", "Leonardo do Nascimento Silveira da Silva", "Luiz Davy Maia dos Santos", "Melissa Christino da Rosa", "Miguel Matheus Valder Rodrigues", "Murilo Kurtz de Oliveira", "Nicole Valentina Carvalho Gonçalves", "Nicolly Fagundes Figueiredo", "Peterson Benjamin da Cruz Brum", "Sophia Gabriely Gusmão Soares", "Vitor Miguel Militz Bandeira", "Yasmim de Oliveira Corrêa", "Yasmin Goularte Silva", "Ysadora Mello Garcia", "Ysadora Rodrigues Pereira"],
-  "3B": ["Alerrandro de Souza Dutra", "Antonny Gabriel Ferreira Bittencourte", "Arthur Lima Paust", "Caio Rodrigues Gomes", "Derick Gabriel Müller Pereira", "Eduarda Parcianello Mignot", "Eduardo do Nascimento Silveira da Silva", "Elliezer da Mota Fialho", "Emanuelly Louise de Oliveira da Silva", "Gabriella Castanho Moraes", "Hellena Schalmes Machado", "Henrique Maria dos Santos", "Katty Emmanuelly Charão Simão", "Kauã Dutra dos Santos Diniz", "Larissa Bitencourt Domingues", "Laura Maria Padilha de Souza", "Lorenzo da Silva Vieira", "Luiza Gabrielly de Andrade da Silva de Aquino", "Luiza Siqueira Rodrigues", "Manuelly dos Reis Carvalho", "Maria Alice Cardoso Vargas", "Maria Vitória Rodrigues Bachmann", "Milcio Júnior Nascimento Batista", "Pedro Henrique Ribeiro da Silva", "Pietra Siqueira Santos", "Pyetro da Silva Teixeira", "Pyetro Santos Nunes", "Sophia Beatriz Valder Michel"],
-  "3C": ["Antonella Phillippa Camargo Ribeiro", "Antônio Miguel da Costa Martínez", "Arthur Kemmerich Oliveira", "Cayque Emanuel Rodrigues Machado de Freitas", "Davi Ferreira", "Davi Luiz dos Santos", "Gabriele Favarini Rodrigues Roath", "Guilherme Fripp Rodrigues", "Isabelly Krug Leal", "João Pedro Machado Trindade", "Luara Valentyna dos Santos Ribeiro", "Luiz Miguel Nogueira dos Santos", "Luiza Sophia Souza de Almeida", "Manuela Fernandes Pereira", "Maria Júlia Machado de Castro", "Matheus Trindade Bitencourt da Silva", "Miguel Alves de Almeida Machado", "Murilo Peres da Rosa Mathia Alves", "Nicolas Vidal Borba dos Santos", "Paulo Gabriel Brandão da Silva", "Rafaella Kohler Vargas", "Raphaelly de Andrade Leal", "Ryan Carrion da Costa", "Sthela Iensen de Camargo", "Taynara Dafni Friedrich Fridhin", "Thalissa Vianna Figueiredo", "Théo Santos Krauspenhar", "Ysabelle Bairros"],
-  "3D": ["Alexandre Nunes Maciel Oliveira", "Alexia da Maia Kossmann", "Antônio Gabriel Kuhn da Silva", "Bárbara Helena Druzian Pozzobon", "Brayan dos Santos Paust da Silva", "Dandara Liberta Osvald Martins", "Diovana de Oliveira Rodrigues Dorneles", "Elena Mendes Cezar", "Eliton Schimendes Castro", "Elizandro Jayme da Silva Prass", "Enthony Maciel Silva", "Ícaro da Silva de Aquino Ribeiro", "Isabella de Oliveira Strassburger", "James Willian Rocha Teixeira", "Joaquim Holkem Fogaça do Nascimento", "Julia Danyele Lied Holkem", "Júlia Emanuelly Fleck Rodrigues", "Kamilly Vitoria Rodrigues Dutra", "Lucas da Silva Cardoso", "Luiza Rafaella Guterres Machado", "Maria Cecília da Trindade de Souza", "Mariana da Silva Rodrigues", "Ruan Barros Duarte", "Sophia Isabelly Guites de Britto", "Sophia Mattos da Silva", "Thalles Welliton Rodrigues de Oliveira"],
-  "3E": ["Ana Clara Trindade Siqueira", "Antônia Bittencourt Pedroso", "Berenice Xavier Bandeira Rodrigues", "Bruno Horácio Fripp Rodrigues", "Emily Vitória Xavier Palmieri", "Hendryck Xavier da Silva", "Isabelly Rodrigues Franco", "Isadora da Silva Braio", "Izabella Schmidt Cardoso", "Izabelly da Rosa Freitas", "Julia Antonella dos Santos Correia", "Lorenzo Warnes da Silva Fernandes", "Manuella Oliveira Silva", "Maria Antonia Escobar Ribeiro", "Maria Julia Souza do Nascimento", "Maria Luíza Lopes da Costa", "Maria Ysabella da Silva de Britto", "Mayki Silveira de Freitas", "Paulo Renato Quinhones do Nascimento", "Pietro Gabriel Cruz da Silva", "Pyetro de Brites Maciel", "Sophia Rossi de Mello", "Sthephany Roberta Xavier dos Santos", "Victor Heitor Carrion Fonseca", "Vinícius Medeiros Rocha", "Vitória Dornelles dos Santos"],
-  "4A": ["Ágatha Pereira Araújo", "Alyna Vitória Moura Lopes", "Amanda Simões Xavier", "Ana Clara Batista Bonassa", "Anthony Cauê Pereira dos Santos", "Anthony Fachini Oliveira", "Bernardo Rafael de Oliveira Silva", "Brenda Vitória Rodrigues Gomes", "Diully de Oliveira Bicca", "Éderson Antônio Oliveira Weissheimer", "Emilly Vittória Bairros Britto", "Enzo Gabriel Pereira Cuencas Fonseca da Rosa", "Ezequiel Marques Machado", "Fernanda Luchtenberg Brandão", "João Gabriel Ziegler Ribeiro Moraes", "Kamilly Escobar Negrini", "Kauã Emanuel Dias de Freitas", "Larissa Scremin Antunes", "Larissa Vais da Silva Cruz", "Lauany de Almeida Friedrich", "Lorenzo Coelho da Silva", "Lorenzo Silveira de Freitas", "Manuela Almeida da Silva", "Manuella Retamal Cardoso da Silva", "Maria Helena Amaro Luiz", "Noemy Medeiros Alves", "Robert Lucas Rocha Teixeira", "Tayla Allana Brito Carvalho"],
-  "4B": ["Ághata Antônia Silva de Abreu", "Antonella Inkelmann Guimarães dos Santos", "Antony Kael dos Santos Raimundo Milbradt", "Arthur da Silva de Souza", "Arthur Manoel dos Santos", "Christian Antunes Vieira", "Davi Luis de Almeida da Costa", "Enzo Gabriel Araujo de Oliveira", "Estér Rodrigues dos Santos", "Ícaro Eduardo Azevedo Ferreira", "Isabela Santos Lacerda", "Laura Goulart do Nascimento", "Lorena Aguirre Pisney", "Luíz Cézar da Rosa Rodrigues", "Luiz Gustavo da Costa de Freitas", "Maria Cecília Simões Rossi", "Miguel da Silva Borges", "Miguel Pires Baldoni Hamerski", "Milena Fenalti dos Santos", "Murillo Zeppenfeld Calixto", "Paulo Júnior de Bitencourt da Silva", "Paulo Ricardo Fagundes dos Santos Marques", "Rafael Nunes Maciel Oliveira", "Vitchenzo Pereira Scotte", "Vitor Lucca Gomes Pereira", "Yuri Natan de Aquino"],
+  "3A": ["Agatha Sofia da Rosa Strassburger da Conceição", "Alana Alves dos Santos", "Alejandro Walentin Souza Kunzler", "Antonella Gabriela Carricio dos Santos", "Arthur Junges Rossatto", "Bernardo Ferreira Brandão", "Bernardo Márvin Flores Farias", "Bianca Ramos Garcia", "Breno da Silva Trindade", "Calebe Rocha de Melo", "Cecília Noal Xavier", "Davi Aguiar de Moraes", "Diully Vitória Marafiga Portes Brum", "Érika Rodrigues Brasil", "Henrique Lima Paust", "Joakym Tales Rodrigues Pinheiro", "Joaquim da Cunha Oliveira", "Luann da Silva Costa", "Lucas Henrique Leal Maciel", "Maria Luiza de Oliveira Vicente", "Miguel Rodrigues Kroth", "Naiandra Silva Kümmel", "Pietro Farias Martins", "Sarah Vitoria da Rosa Araujo", "Sofia de Andrades Cezar", "Sophya Vickytoria Santos da Silva", "Vitor Gabriel Barboza Hettwer", "Ysmael Flores Rodrigues", "Yuri Eduardo Pinheiro Franco"],
+  "3B": ["Alice Dutra dos Santos Diniz", "Carol Machado Vidal", "Eloísa Mendes Cezar", "Emilly da Silva Portella", "Erick Augusto Ribeiro de Andrades", "Gabriel da Silva Pietro", "Gabriel Umpierre Saturnino Ferreira", "Isaac de Freitas Rubenich", "Isabelly de Oliveira Dornelles", "Kayler Éverton de Braga Mazzardo da Rocha", "Krishna Xavier Fernandes Martins", "Lavínia Campos Pereira", "Lavynia Kemilly dos Santos Barrozo", "Leonardo do Nascimento Silveira da Silva", "Luiz Davy Maia dos Santos", "Melissa Christino da Rosa", "Miguel Matheus Valder Rodrigues", "Murilo Kurtz de Oliveira", "Nicole Valentina Carvalho Gonçalves", "Nicolly Fagundes Figueiredo", "Peterson Benjamin da Cruz Brum", "Sophia Gabriely Gusmão Soares", "Vitor Miguel Militz Bandeira", "Yasmim de Oliveira Corrêa", "Yasmin Goularte Silva", "Ysadora Mello Garcia", "Ysadora Rodrigues Pereira"],
+  "3C": ["Alerrandro de Souza Dutra", "Antonny Gabriel Ferreira Bittencourte", "Arthur Lima Paust", "Caio Rodrigues Gomes", "Derick Gabriel Müller Pereira", "Eduarda Parcianello Mignot", "Eduardo do Nascimento Silveira da Silva", "Elliezer da Mota Fialho", "Emanuelly Louise de Oliveira da Silva", "Gabriella Castanho Moraes", "Hellena Schalmes Machado", "Henrique Maria dos Santos", "Katty Emmanuelly Charão Simão", "Kauã Dutra dos Santos Diniz", "Larissa Bitencourt Domingues", "Laura Maria Padilha de Souza", "Lorenzo da Silva Vieira", "Luiza Gabrielly de Andrade da Silva de Aquino", "Luiza Siqueira Rodrigues", "Manuelly dos Reis Carvalho", "Maria Alice Cardoso Vargas", "Maria Vitória Rodrigues Bachmann", "Milcio Júnior Nascimento Batista", "Pedro Henrique Ribeiro da Silva", "Pietra Siqueira Santos", "Pyetro da Silva Teixeira", "Pyetro Santos Nunes", "Sophia Beatriz Valder Michel"],
+  "3D": ["Antonella Phillippa Camargo Ribeiro", "Antônio Miguel da Costa Martínez", "Arthur Kemmerich Oliveira", "Cayque Emanuel Rodrigues Machado de Freitas", "Davi Ferreira", "Davi Luiz dos Santos", "Gabriele Favarini Rodrigues Roath", "Guilherme Fripp Rodrigues", "Isabelly Krug Leal", "João Pedro Machado Trindade", "Luara Valentyna dos Santos Ribeiro", "Luiz Miguel Nogueira dos Santos", "Luiza Sophia Souza de Almeida", "Manuela Fernandes Pereira", "Maria Júlia Machado de Castro", "Matheus Trindade Bitencourt da Silva", "Miguel Alves de Almeida Machado", "Murilo Peres da Rosa Mathia Alves", "Nicolas Vidal Borba dos Santos", "Paulo Gabriel Brandão da Silva", "Rafaella Kohler Vargas", "Raphaelly de Andrade Leal", "Ryan Carrion da Costa", "Sthela Iensen de Camargo", "Taynara Dafni Friedrich Fridhin", "Thalissa Vianna Figueiredo", "Théo Santos Krauspenhar", "Ysabelle Bairros"],
+  "3E": ["Aghatta Amorin Oliveira", "Ângelo Machado Nunes", "Anthony Kauan Machado Siqueira", "Antonella de Brito Rodrigues", "Antônio Silva Fonseca de Souza", "Arthur Peixoto Miler", "Arthur Rodrigues Kurz", "Cecília Bagesteiro Alves", "Davi Santos Almeida", "Diovani Pereira Schimit", "Emanuel Brum Marques", "Enzo Gabriel Rossi Calixto", "Enzo Samuel Dias Pereira", "Ester Diniz Rossini", "Isabelly Margareth dos Santos da Rosa", "Ismael do Nascimento Strassburger da Silva", "Joaquim Dias Brum", "Kaio Estevan Goulart Barros", "Kauã William Gomes de Barros", "Leandro Martins de Oliveira", "Nycollas Mello de Oliveira", "Pietro Parode Dias", "Rilari Vitória Almos Damaceno da Silva", "Thalia Vianna Figueiredo", "Thalysson Davi Quinhones Dutra", "Thamara Oliari de Freitas", "Valentina Peixoto dos Reis", "Yasmim Soares de Camargo", "Yasmin Maciel Lima"],
+  "4A": ["Alexandre Nunes Maciel Oliveira", "Alexia da Maia Kossmann", "Antônio Gabriel Kuhn da Silva", "Bárbara Helena Druzian Pozzobon", "Brayan dos Santos Paust da Silva", "Dandara Liberta Osvald Martins", "Diovana de Oliveira Rodrigues Dorneles", "Elena Mendes Cezar", "Eliton Schimendes Castro", "Elizandro Jayme da Silva Prass", "Enthony Maciel Silva", "Ícaro da Silva de Aquino Ribeiro", "Isabella de Oliveira Strassburger", "James Willian Rocha Teixeira", "Joaquim Holkem Fogaça do Nascimento", "Julia Danyele Lied Holkem", "Júlia Emanuelly Fleck Rodrigues", "Kamilly Vitoria Rodrigues Dutra", "Lucas da Silva Cardoso", "Luiza Rafaella Guterres Machado", "Maria Cecília da Trindade de Souza", "Mariana da Silva Rodrigues", "Ruan Barros Duarte", "Sophia Isabelly Guites de Britto", "Sophia Mattos da Silva", "Thalles Welliton Rodrigues de Oliveira"],
+  "4B": ["Ana Clara Trindade Siqueira", "Antônia Bittencourt Pedroso", "Berenice Xavier Bandeira Rodrigues", "Bruno Horácio Fripp Rodrigues", "Emily Vitória Xavier Palmieri", "Hendryck Xavier da Silva", "Isabelly Rodrigues Franco", "Isadora da Silva Braio", "Izabella Schmidt Cardoso", "Izabelly da Rosa Freitas", "Julia Antonella dos Santos Correia", "Lorenzo Warnes da Silva Fernandes", "Manuella Oliveira Silva", "Maria Antonia Escobar Ribeiro", "Maria Julia Souza do Nascimento", "Maria Luíza Lopes da Costa", "Maria Ysabella da Silva de Britto", "Mayki Silveira de Freitas", "Paulo Renato Quinhones do Nascimento", "Pietro Gabriel Cruz da Silva", "Pyetro de Brites Maciel", "Sophia Rossi de Mello", "Sthephany Roberta Xavier dos Santos", "Victor Heitor Carrion Fonseca", "Vinícius Medeiros Rocha", "Vitória Dornelles dos Santos"],
+  "4C": ["Ágatha Pereira Araújo", "Alyna Vitória Moura Lopes", "Amanda Simões Xavier", "Ana Clara Batista Bonassa", "Anthony Cauê Pereira dos Santos", "Anthony Fachini Oliveira", "Bernardo Rafael de Oliveira Silva", "Brenda Vitória Rodrigues Gomes", "Diully de Oliveira Bicca", "Éderson Antônio Oliveira Weissheimer", "Emilly Vittória Bairros Britto", "Enzo Gabriel Pereira Cuencas Fonseca da Rosa", "Ezequiel Marques Machado", "Fernanda Luchtenberg Brandão", "João Gabriel Ziegler Ribeiro Moraes", "Kamilly Escobar Negrini", "Kauã Emanuel Dias de Freitas", "Larissa Scremin Antunes", "Larissa Vais da Silva Cruz", "Lauany de Almeida Friedrich", "Lorenzo Coelho da Silva", "Lorenzo Silveira de Freitas", "Manuela Almeida da Silva", "Manuella Retamal Cardoso da Silva", "Maria Helena Amaro Luiz", "Noemy Medeiros Alves", "Robert Lucas Rocha Teixeira", "Tayla Allana Brito Carvalho"],
+  "4D": ["Ághata Antônia Silva de Abreu", "Antonella Inkelmann Guimarães dos Santos", "Antony Kael dos Santos Raimundo Milbradt", "Arthur da Silva de Souza", "Arthur Manoel dos Santos", "Christian Antunes Vieira", "Davi Luis de Almeida da Costa", "Enzo Gabriel Araujo de Oliveira", "Estér Rodrigues dos Santos", "Ícaro Eduardo Azevedo Ferreira", "Isabela Santos Lacerda", "Laura Goulart do Nascimento", "Lorena Aguirre Pisney", "Luíz Cézar da Rosa Rodrigues", "Luiz Gustavo da Costa de Freitas", "Maria Cecília Simões Rossi", "Miguel da Silva Borges", "Miguel Pires Baldoni Hamerski", "Milena Fenalti dos Santos", "Murillo Zeppenfeld Calixto", "Paulo Júnior de Bitencourt da Silva", "Paulo Ricardo Fagundes dos Santos Marques", "Rafael Nunes Maciel Oliveira", "Vitchenzo Pereira Scotte", "Vitor Lucca Gomes Pereira", "Yuri Natan de Aquino"],
   "4E": ["Alice França Dias", "Alisson Muriel Silva de Moura", "Arthur Fialho Fernandes", "Benjamyn dos Santos Fernandes", "Deivid Barbosa dos Santos", "Erick Bernardo Godoy Bandeira", "Erick Lorenzo de Souza Braga", "Gabriela Dornelles dos Santos", "Isak Rios Freitas", "Jonathan Miguel Carvalho Pompéo", "Julia Naysinger Schmitt", "Kauã Nunes Cordeiro Konrath", "Larissa de Oliveira Costa", "Lorenzo Gabriel Dias da Silva", "Manuella da Silva Blanco", "Miguel Santos Pereira", "Nicolly Elaine dos Santos Franco", "Rafaela Freitas Canofre Oliveira", "Sofia Nunes Martins", "Sophia Roque Lima", "Valentin Bairros Batista", "Valentina Trindade Rodrigues", "Victor Lorenzo da Rosa Goulart", "Vitória Dutra da Rosa", "Yasmim Silva Villagrand"],
   "5A": ["Alejandro Andrade da Silva", "Amanda Cruz da Rosa", "Anna Júlia Souza de Mattos", "Anyelle Fortunato Streb", "Davi Cardoso Machado", "Emily Lima Paust", "Erika Vogt da Rosa", "Evelyn Gabrielle dos Santos Silva", "Fabio Gabriel de Oliveira Motta", "Hérick Henrick Matias Rios", "Hevelin Gabriela Perez Fagundes", "Isadora Grazzioli da Rosa Xavier", "João Luiz Pereira Iunges", "João Lukas Soares de Abreu", "Juliana Pena de Oliveira Medeiros", "Katally Friedrich Fridhin", "Kauan Eduardo Xavier da Rosa", "Laís Graciolli Peransoni", "Lauren dos Santos Faria", "Luiza Malvina Pereira Lopes", "Manuela da Silva Iensen", "Maria Clara Pilar Pereira", "Maria Sophia Pires Lencina", "Mirely Padilha Pereira", "Pietro Antunes Freitas", "Pyetro Cezar da Silva", "Richard Pietro da Silva", "Samuel Nunes Stribe", "Sofia Fleck Pinheiro", "Vinycios Eduardo Costa da Silva Abicht", "Vitória Mellanni Mendes Batista da Silva", "Yasmin da Rosa Ribas"],
   "5B": ["Adrian Barcellos Fernandes", "Allana Stromm Barcelar", "Ana Clara do Nascimento Gonçalves", "Arthur Quevedo dos Santos", "Cassia da Camara Bissacotti", "Cauã Martim Araujo", "Cecília Mariano da Silveira", "Clarisse Santos Gomes", "Davi Lucas e Silva Nunes", "Davi Nascimento Escobar", "Eduardo do Amaral Pedrollo", "Eliézer Emanuel de Providel Borges", "Eliza da Silva de Souza", "Emilly Emanueli Alves da Costa", "Enzo Gabriel Becker da Silva", "Flávia Cristina Camargo dos Santos", "Gabriely Dorneles Pereira", "Henrique Avila Machado", "Henrique Gabriel Barcelar Ortiz", "Joaquim Eduardo Alves Ineu", "Kethlyn Mariana Rodrigues da Silva", "Kimberli Micaeli Carrion", "Lorenzo Miguel Silveira Dutra de Barros", "Marcos Vinicius Leal dos Santos", "Mathias Natel de Deus", "Miguel Pereira de Freitas", "Miguel Portella da Silva Silvestre", "Nicolas dos Santos de Souza", "Pablo Britto Schimitt dos Reis", "Pedro Carvalho da Cunha", "Samuel Carvalho Pinto"],
   "5C": ["Ágatha Lauane Rodrigues Landa", "Ana Gabrielly da Maia Aguiar", "Ana Júlia Rosa dos Reis", "Ana Luiza Souza de Azambuja", "Anna Luísa Oliveira Marinho", "Brenda Victoria Carrion", "Bruno Eduardo Müller Pereira", "Daiton Ryan Mendes Batista da Silva", "Déric Fernando Mello", "Enzo Kemerich Ernesto", "Erick Emanuel Lopes Senna", "Izadora Santos da Rocha", "João Gabriel Beck Leal da Costa", "Júlia dos Santos Martins", "Kauã Graciolli Palar", "Kauê Portella dos Santos", "Kevyn Gavião Kettes Brito", "Luiz Otávio Rocha Teixeira", "Luiza Manuella Silveira da Cunha", "Mariana Maia dos Santos", "Mateus Rodrigues dos Santos", "Michelly Sandy Farias de Lima", "Murillo Teixeira Gonçalves", "Nathally Rebeca Leal Soares", "Nicolas Cardoso Padilha", "Samuel da Cunha Oliveira", "Sofia Miler Zuse", "Sophia Barcellos Flores", "Thainá Gabrielli Barcellos Dal Osto", "Valentina Costa Ferreira", "Yasmin Roberta Quevedo Ferreira"],
+  "5D": ["Allana Morais de Azeredo Barbosa", "Ana Sofia Silva Pendeza", "Anderson Rychard Amaral Cassol", "Antônia Azevedo Ferreira", "Bernardo Schalemberger Kegler", "Diego Henrique Gonçalves da Silva", "Eduarda Vedoy Galvão", "Endrew Gabriel de Almeida Marafiga", "Felipe Estevan Ernesto da Silva", "Isabella Rodrigues Schneider", "Isadora da Rosa Lamach", "José Pedro Rodrigues Moreira de Aguiar", "Kamille da Silva Zippenfeild", "Katherinne Antonela Medeiros Viana", "Lara Samira da Cruz Kraufenberg", "Larah Yasmim Simões", "Luiz Gustavo Carvalho Brasil", "Maria Isabelly Rosa Savian", "Maria Jordana de Carvalho Batista", "Murillo da Silva Blanco Pedrollo", "Murillo Maciel Figueiredo da Silva", "Murillo Martins Larger", "Pedro Henrique de Brites Maciel", "Samuel Alberti dos Santos", "Victor Ryan Martins Conrad", "Vinicius Parcianello Landa", "Vitória de Menezes Moraes", "Wesley Gabriel Cordeiro Lucas", "Ygor Lair Dionisio de Mattos Rios", "Yuri Máiquio Ferreira Fontana"],
   "6A": ["Alysson Ryan Silveira", "Arthur Carvalho da Silva", "Bernardo Campos Pereira", "Bernardo Tavares Cordeiro", "Breno Schuster dos Santos", "Bryan Vinicius Bermonte Venturini da Silva", "Cecilia Osvald Carpes Cavalheiro", "Claisla Lohanna Rodrigues Cavalheiro", "Clara Luiza Rodrigues Brum", "Davi de Carvalho Batista", "Davy de Moraes da Silva", "Eduarda da Silva Souza", "Eduarda Isabelly Gonçalves Escobar", "Emanuelli das Neves Aires", "Guilherme dos Reis Rodrigues", "Helena Vitória de Almeida Silva", "Hendrew Levy Padilha de Oliveira", "Isabelly Beatriz Strassburger Wachter", "João Batista Walter Nardo", "Kethelyn Lauany do Amaral Leite", "Laís Silveira Oliveira Rumpel", "Lorenzo Müller Leite", "Luan Henrique Mainardi Gonçalves", "Manuela Machado Fagundes", "Matheus Tiago Rodrigues da Silva", "Murilo Nogueira Costa", "Nicoly Kimberly Fernandes Vidal", "Otávio da Cunha Cabral", "Pedro Luiz da Camara Bissacotti", "Peterson Ryan Flores Neves", "Rafaella Costa Moreira", "Sara Emanuele Flores", "Sarah Strassburger Dias", "Victória Carrion Gomes", "Victória Vargas Rocha", "Wesley Silveira Rohdt"],
   "6B": ["Adryan Cezar de Menezes", "Alana dos Santos Wanderley", "Alana Vitória Moura Lopes", "Aldir de Jesus da Silveira Rodrigues", "Alice Mannuela Medeiros Viana", "Antônio Campos Souza Oliveira de Almeida", "Artur da Cunha Schultz Dornelles", "Augusto Henrique Lemes de Britto", "Bernardo Stuker da Costa", "Brayan Ezequiel da Silva Coelho", "Cíntia Vitória Luchtenberg Brandão", "Emanuela Silveira Brum", "Emanuelly Peres da Silva Oliveira", "Enzo Samuel Coelho Teixeira", "Érika Tereza Fernandes de Andrades", "Isabelle Mayara Stefani Aita", "Isadora Helena Ferreira de Oliveira", "Ismael Luan Oliveira Cacildo", "Kauã Eduardo Cruz da Rosa", "Layza Yohana de Brito Rodrigues", "Luan Carvalho da Silva", "Marcelo Luiz Ignacio Xavier", "Maria Helena Santos de Quevedo", "Milena Rossi Zeppenfeld", "Murilo Ferreira Derzette", "Natan Inacio Bitencourt", "Nicolas da Silva Xavier", "Nicolas Providel da Fonseca", "Oliver Gonçalves dos Santos", "Pedro Henrique Camargo dos Santos", "Talisson Simões da Silva", "Thaylor Cardoso dos Santos", "Wendell Estêvão Batista Monteiro", "William Artur da Silva Naisinger", "Yasmin Rosado Soares", "Yasmin Schmidt Cardoso"],
+  "6C": ["Adryan Aguirre Corrêa", "Alice Pereira da Maia", "Alicia dos Santos Jorge", "Cristopher Pietro Fernandes de Andrades", "Emanuely Vitória do Nascimento Tasso", "Emilyn Victória Machado e Castro", "Enzo Gabriel Gonçalves Mathias", "Felype Aguirre da Fontoura", "Gabriel de Oliveira Rodrigues Dorneles", "Hana Haycha Martins Reinheimer", "Hendryw Augusto da Silva Camargo", "Isabelle Sanguinete Padilha", "Isabelli de Medeiros Neves", "Izabelly Victória Pires da Silva", "João Vitor Dallaposa", "Kemilly Andrieli Sotto dos Santos", "Kemilly Silva Santos da Fonseca", "Linda Inês de Castro Rizzi", "Lucas Vinícios Vidal Borba dos Santos", "Luiza Beatriz Lima de Andrade", "Matheus Fernando Iunges Flores Cabreira", "Matheus Luel de Carvalho Gonçalves", "Milleny Diany Farias de Lima", "Nícolas D'Alessandro Oliveira Rodrigues", "Pietro Almeida da Silva", "Rafaela Pires Haesbaert", "Safyra Peres Cardoso", "Vinícius Chaves Garcia", "Vitória Ribeiro Tischler"],
   "7A": ["Ana Luiza Maia dos Santos", "Anny Isadora Machado Galha", "Brunna Janete Nunes de Abreu", "Camili Eduarda Mello da Silva", "Carlos Cassiano Lourenço da Silva", "Daniel Marques Machado", "David Luiz Miler de Oliveira", "Dyessika Fillipa Hemam Camfild", "Elano Emanuel Coelho Teixeira", "Évellyn de Brites Maciel", "Felipe Leal Barbosa", "Giovanna Rafaela Pereira da Silva", "Henry Ryan da Silva da Rosa", "João Vítor Carvalho da Cunha", "Kauan Aguirre de Campos", "Kéthelin Gabriele Cordeiro Lucas", "Lara Gabriely Beck Leal da Costa", "Laysa Isabelly de Oliveira Machado", "Livia Marafiga Farias", "Luanny Gabrielly Bairros Galvão", "Lucas de Souza Ribeiro", "Maria Luiza Bianchin Pádua", "Maryane Alves Bairros", "Maurício Britto Schimitt dos Reis", "Miguel Ozório Alves", "Otoniel Araújo dos Santos", "Peterson Oliveira Batista", "Raphaelly de Avila Rodrrigues", "Richard Alexander Retamal Rodrigues", "Sara Ilha Batista", "Sarah Maryana Machado de Lima", "Sofia Moura Silva", "Thálisson Rosaura da Silva Gonçalves", "Thaylla de Britto Ferreira", "Victor Mateus Bordin de Avila", "Vitórya Vallentina Pazzato Peixoto"],
   "7B": ["Aghata Homercher de Oliveira", "Amanda Rodrigues Pereira", "Ana Laura Bittencourt Pedroso", "Andriele Santini de Medeiros", "Anna Julia da Fontoura Fragoso", "Artur Barcellos da Costa", "Bryan Rhuan Sanches Machado", "Dafny Silveira Dias", "Emilly Fernandes Cavalheiro", "Gabriel da Costa de Freitas", "Gabrielli Teixeira dos Reis", "Hacthor da Costa Blanco da Cunha", "Hygor Bellé da Rosa", "Isaac Pereira Machado", "Isaias Emanuel de Oliveira Rodrigues Dorneles", "Izabelly Martins Pereira", "Jean Pierre Zeppenfeld Calixto", "Jonas Gabriel Souza de Almeida", "Karolina Jacy Rossi de Mello", "Ketelin Amanda da Rosa Pires dos Santos", "Kynipher Katrielle Vidal da Luz", "Leonardo Henrique Ramos dos Santos", "Luane de Medeiros Ferreira Dias", "Lucas Santos Cavalheiro", "Luiz Henrique Sanguinete Padilha", "Marcelo Gabriel Pena Paz", "Maria Luisa Freitas de Lima", "Matheus Silveira de Moraes Perez", "Pedro Coelho da Rosa", "Pedro Henrique dos Santos do Nascimento", "Sofia Braga de Lima", "Stevan Abiel Rodrigues", "Thiago Cordeiro Rodrigues", "Thyego Corrales Cruber", "Víctor Ferreira Almeida", "Vitor Rauê Carvalho Silva"],
   "7C": ["Adrielly Santos da Rocha", "Alice Fagundes Dias", "Alice Rosa Cezar", "Ana Júlia Matias Lazzarotto", "Andrey Pedrollo de Andrade", "Bianca Cordeiro de Oliveira", "Daynã Corrêa Coelho", "Dominy Silveira Friedrich", "Edson Corrêa de Britto", "Emanuelly Prass da Costa", "Emanuely Tastch Franco", "Evelin Jaqueline dos Santos Franco", "Gabriel Cabral da Costa", "Gabriel Izaque Carvalho da Rosa", "Henrique Aguirre Poltozi", "Herick de Andrade Goes", "Isaac Cristino Barbieri", "Isadora Trindade Bitencourt da Silva", "Ismael Marques Machado", "João Henrique Pinheiro Rossatto", "Kaio Henrique Costa da Silva", "Kauan Henrique Kemerich Machado", "Lauren Vitória Oliveira da Rosa", "Lorenzo de Almeida Dressler", "Manuella de Lima Camargo", "Maria Luiza da Silva Pereira", "Nícolas da Rosa Strassburger da Conceição", "Pedro Fonseca Cordeiro", "Pedro Henrique Machado de Freitas", "Peterson Israel Rodrigues dos Santos", "Rafaela Flores Farias", "Sophia Alves da Silva", "Thályta Andressa da Silva Guimarães", "Vicktor Gabriel Sabin Cardoso", "Yuri Otávio dos Santos Batista", "Yzakel Barbosa dos Santos"],
@@ -330,20 +351,82 @@ const alunos = {
   "EM1B": ["Álisson Wesley Marques da Silva", "Ana Carolina Pedroso Cavalheiro", "Antonella Santini de Medeiros", "Arthur Coelho Rocha", "Daniel Gomes Lemos", "Daniela do Nascimento Gonçalves", "Davyd Kauã Santos Vilson", "Dickson Kauê dos Santos Peixoto", "Êmilly Gonçalves Silva Thomas", "Emily Vitória de Oliveira Pereira", "Evelyn do Amaral Rosa", "Gabriel Pinheiro Rossatto", "Gabrielli Azambuja do Prado", "Higor Samuel D'Avila Bonotto", "Ismael Freitas da Costa", "João Vítor Menezes dos Santos", "Kauan de Amorin Hengen", "Lanna Beatrys Ferreira Marinho", "Luan Mendes da Silva Gomes", "Luizy Gonçalves Hasselmann", "Maria Clara Schmidt Cardoso", "Maria Cláudia dos Santos Teixeira", "Maria Eduarda da Silva Carrion", "Maria Eduarda Otto dos Santos", "Maria Vitoria da Rosa Braga", "Marlon Everton Brites Oliveira", "Maryane de Oliveira Teixeira", "Pedro Henrique Bandeira Batista", "Rayssa Manuele Amorim Roque", "Roberto Lucian Wartmann Perez", "Samuel Machado Nunes", "Sthefany Rodrigues Dutra", "Suzane da Silva Rocha", "Valentina dos Santos da Rosa", "Yasmin França Dias"],
 };
 
-function abrirBusca() {
-  document.getElementById("inicio").style.display = "none";
+// ── Helpers ──────────────────────────────────────────────────────────────────
+function temProf(turma) {
+  const d = dados[turma] || {};
+  // 6A-9C não tem professor — só sala
+  return !["6A","6B","6C","7A","7B","7C","8A","8B","8C","9A","9B","9C"].includes(turma);
+}
+function isEM(turma)  { return turma.startsWith("EM"); }
+
+function card(lbl, val) {
+  if (!val || val === "—") return "";
+  return `<div class="info-card"><div class="lbl">${lbl}</div><div class="val">${val}</div></div>`;
+}
+
+// ── Abrir turma ──────────────────────────────────────────────────────────────
+function abrir(turma) {
+  const d    = dados[turma] || {};
+  const lista = alunos[turma] || [];
+  const nivel = turma.startsWith("EI") ? "Educação Infantil" :
+                isEM(turma)             ? "Ensino Médio · 1ª Série" :
+                                          "Ensino Fundamental";
+
+  document.getElementById("det-titulo").innerText    = "Turma " + turma;
+  document.getElementById("det-subtitulo").innerText = nivel + " · " + lista.length + " estudantes";
+  document.getElementById("det-total").innerText     = lista.length + " estudantes";
+
+  // Monta cards de info dinamicamente
+  let cards = "";
+  // Sala sempre aparece
+  cards += card("Sala", d.sala);
+  cards += card("Turno", d.turno);
+  // Professor só para turmas que têm
+  if (temProf(turma) && !isEM(turma) && d.prof && d.prof !== "—") {
+    cards += card("Professor(a)", d.prof);
+  }
+  cards += card("Horário", d.horario);
+  cards += card("Portão", d.portao);
+  cards += card("Lanche / Intervalo", d.lanche);
+  document.getElementById("det-grid").innerHTML = cards;
+
+  // Lista de alunos
+  const ul = document.getElementById("det-lista");
+  ul.innerHTML = "";
+  lista.forEach((nome, i) => {
+    const li = document.createElement("li");
+    li.innerHTML = `<span class="num">${i+1}</span>${nome}`;
+    ul.appendChild(li);
+  });
+
+  document.getElementById("inicio").style.display     = "none";
+  document.getElementById("tela-busca").style.display = "none";
+  document.getElementById("detalhe").style.display    = "block";
+  window.scrollTo(0, 0);
+}
+
+// ── Voltar ───────────────────────────────────────────────────────────────────
+function voltar() {
   document.getElementById("detalhe").style.display = "none";
+  document.getElementById("inicio").style.display  = "block";
+  window.scrollTo(0, 0);
+}
+
+// ── Busca ────────────────────────────────────────────────────────────────────
+function abrirBusca() {
+  document.getElementById("inicio").style.display     = "none";
+  document.getElementById("detalhe").style.display    = "none";
   document.getElementById("tela-busca").style.display = "block";
   document.getElementById("btn-fechar").style.display = "flex";
   buscar(document.getElementById("busca-input").value);
 }
 
 function fecharBusca() {
-  document.getElementById("busca-input").value = "";
+  document.getElementById("busca-input").value        = "";
   document.getElementById("tela-busca").style.display = "none";
   document.getElementById("btn-fechar").style.display = "none";
-  document.getElementById("inicio").style.display = "block";
-  window.scrollTo(0,0);
+  document.getElementById("inicio").style.display     = "block";
+  window.scrollTo(0, 0);
 }
 
 function buscar(termo) {
@@ -352,7 +435,7 @@ function buscar(termo) {
   termo = termo.trim().toLowerCase();
   if (termo.length < 2) {
     titulo.innerText = "Digite o nome para buscar";
-    lista.innerHTML = "";
+    lista.innerHTML  = "";
     return;
   }
   const resultados = [];
@@ -362,16 +445,16 @@ function buscar(termo) {
     });
   }
   if (!resultados.length) {
-    titulo.innerText = "Nenhum resultado";
-    lista.innerHTML = `<div class="nenhum">😔 Nenhum estudante encontrado para "<b>${termo}</b>"</div>`;
+    titulo.innerText = "Nenhum resultado encontrado";
+    lista.innerHTML  = `<div class="nenhum">😔 Nenhum estudante encontrado para "<b>${termo}</b>"</div>`;
     return;
   }
   titulo.innerText = `${resultados.length} resultado(s) encontrado(s)`;
-  lista.innerHTML = resultados.map(r =>
+  lista.innerHTML  = resultados.map(r =>
     `<div class="res-item" onclick="abrirDaBusca('${r.turma}')">
-      <span class="tag">${r.turma}</span>
-      <span class="res-nome">${r.nome}</span>
-    </div>`
+       <span class="tag">${r.turma}</span>
+       <span class="res-nome">${r.nome}</span>
+     </div>`
   ).join("");
 }
 
@@ -379,39 +462,6 @@ function abrirDaBusca(turma) {
   document.getElementById("tela-busca").style.display = "none";
   document.getElementById("btn-fechar").style.display = "none";
   abrir(turma);
-}
-
-function abrir(turma) {
-  const d = dados[turma] || {};
-  const lista = alunos[turma] || [];
-  const nivel = turma.startsWith("EI") ? "Educação Infantil" :
-                turma.startsWith("EM") ? "Ensino Médio" : "Ensino Fundamental";
-  document.getElementById("det-titulo").innerText = "Turma " + turma;
-  document.getElementById("det-subtitulo").innerText = nivel + " · " + lista.length + " estudantes";
-  document.getElementById("det-prof").innerText    = d.prof    || "A definir";
-  document.getElementById("det-turno").innerText   = d.turno   || "—";
-  document.getElementById("det-sala").innerText    = d.sala    || "—";
-  document.getElementById("det-horario").innerText = d.horario || "—";
-  document.getElementById("det-portao").innerText  = d.portao  || "—";
-  document.getElementById("det-lanche").innerText  = d.lanche  || "—";
-  document.getElementById("det-total").innerText   = lista.length + " estudantes";
-  const ul = document.getElementById("det-lista");
-  ul.innerHTML = "";
-  lista.forEach((nome, i) => {
-    const li = document.createElement("li");
-    li.innerHTML = `<span class="num">${i+1}</span>${nome}`;
-    ul.appendChild(li);
-  });
-  document.getElementById("inicio").style.display = "none";
-  document.getElementById("tela-busca").style.display = "none";
-  document.getElementById("detalhe").style.display = "block";
-  window.scrollTo(0,0);
-}
-
-function voltar() {
-  document.getElementById("detalhe").style.display = "none";
-  document.getElementById("inicio").style.display = "block";
-  window.scrollTo(0,0);
 }
 </script>
 </body>
