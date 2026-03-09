@@ -129,6 +129,10 @@ body { background:#1a237e; font-family:Arial,sans-serif; padding:12px 12px 80px;
         onkeydown="if(event.key==='Enter') entrar()" />
       <button class="login-toggle" onclick="toggleSenha()" id="toggle-btn">👁️</button>
     </div>
+    <label style="display:flex;align-items:center;gap:8px;margin-bottom:16px;cursor:pointer;">
+      <input type="checkbox" id="lembrar" style="width:18px;height:18px;cursor:pointer;accent-color:#1a237e;">
+      <span style="font-size:14px;color:#555;">Lembrar senha neste dispositivo</span>
+    </label>
     <div class="login-erro" id="login-erro"></div>
     <button class="login-btn" onclick="entrar()">Entrar</button>
   </div>
@@ -578,18 +582,36 @@ function abrirDaBusca(turma) {
 
 // ── Login ────────────────────────────────────────────────────────────────────
 const SENHA_CORRETA = "marista2026";
+const CHAVE_STORAGE = "marista_auth";
+
+// Verifica se já está autenticado ao carregar a página
+(function verificarAuth() {
+  try {
+    if (localStorage.getItem(CHAVE_STORAGE) === "ok") {
+      document.getElementById("tela-login").style.display = "none";
+    }
+  } catch(e) {}
+})();
 
 function entrar() {
-  const senha = document.getElementById("login-senha").value;
-  const erro  = document.getElementById("login-erro");
+  const senha  = document.getElementById("login-senha").value;
+  const erro   = document.getElementById("login-erro");
+  const lembrar = document.getElementById("lembrar").checked;
   if (senha === SENHA_CORRETA) {
+    // Salva no localStorage se marcou "Lembrar"
+    try {
+      if (lembrar) {
+        localStorage.setItem(CHAVE_STORAGE, "ok");
+      } else {
+        localStorage.removeItem(CHAVE_STORAGE);
+      }
+    } catch(e) {}
     document.getElementById("tela-login").style.display = "none";
     erro.innerText = "";
   } else {
     erro.innerText = "❌ Senha incorreta. Tente novamente.";
     document.getElementById("login-senha").value = "";
     document.getElementById("login-senha").focus();
-    // Chacoalha o card
     const card = document.querySelector(".login-card");
     card.style.transform = "translateX(-8px)";
     setTimeout(() => card.style.transform = "translateX(8px)", 80);
