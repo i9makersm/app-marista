@@ -142,6 +142,35 @@ body { background:#1a237e; font-family:Arial,sans-serif; padding:12px 12px 80px;
   font-size:16px; font-weight:bold; cursor:pointer; text-align:center;
   box-shadow:0 2px 8px rgba(0,0,0,0.2); }
 .btn-voltar-nac:active { opacity:0.8; }
+
+/* ── Especializadas / Ed. Física ── */
+.espec   { background:#e8f5e9; color:#1b4a1b; }
+.tela-ef { display:none; background:#f5f7ff; min-height:100vh; padding:16px 14px 24px; }
+.ef-header { background:#2e7d32; color:#fff; border-radius:12px; padding:14px;
+  margin-bottom:12px; text-align:center; }
+.ef-header h2 { font-size:20px; font-weight:bold; }
+.ef-header p  { font-size:12px; opacity:0.8; margin-top:4px; }
+.ef-obs { background:#f1f8e9; border-left:4px solid #7cb342; border-radius:8px;
+  padding:10px 12px; margin-bottom:12px; font-size:12px; color:#33691e; }
+.ef-table { width:100%; border-collapse:collapse; background:#fff;
+  border-radius:10px; overflow:hidden; box-shadow:0 1px 4px rgba(0,0,0,0.08);
+  margin-bottom:4px; font-size:12px; }
+.ef-table th { background:#2e7d32; color:#fff; padding:8px 6px; text-align:center; font-size:11px; }
+.ef-table td { padding:7px 6px; text-align:center; border-bottom:1px solid #f0f0f0;
+  color:#333; vertical-align:middle; line-height:1.4; }
+.ef-table tr:last-child td { border-bottom:none; }
+.ef-table tr:nth-child(even) td { background:#fafafa; }
+.ef-turno { background:#e8f5e9 !important; color:#1b5e20; font-weight:bold; font-size:11px;
+  letter-spacing:1px; text-transform:uppercase; }
+.ef-hora  { font-weight:bold; color:#333; font-size:11px; }
+.ef-cel   { font-size:12px; color:#1a237e; font-weight:bold; }
+.ef-prof  { font-size:11px; color:#555; }
+.ef-sala  { font-size:10px; color:#999; }
+.btn-voltar-ef { display:block; width:100%; margin-top:16px; padding:14px;
+  background:#2e7d32; color:#fff; border:none; border-radius:12px;
+  font-size:16px; font-weight:bold; cursor:pointer; text-align:center;
+  box-shadow:0 2px 8px rgba(0,0,0,0.2); }
+.btn-voltar-ef:active { opacity:0.8; }
 </style>
 </head>
 <body>
@@ -305,6 +334,13 @@ body { background:#1a237e; font-family:Arial,sans-serif; padding:12px 12px 80px;
     </div>
   </div>
 
+  <div class="secao-wrap">
+    <div class="secao-titulo">Especializadas</div>
+    <div class="row">
+      <div class="btn espec" style="width:auto;padding:0 18px;font-size:12px;" onclick="abrirEF()">🏃 Ed. Física</div>
+    </div>
+  </div>
+
 </div><!-- /inicio -->
 
 <!-- ══════════════ TELA DETALHE ══════════════ -->
@@ -442,6 +478,112 @@ body { background:#1a237e; font-family:Arial,sans-serif; padding:12px 12px 80px;
   </table>
 
   <button class="btn-voltar-nac" onclick="voltarNac()">← Voltar</button>
+</div>
+
+<!-- ══════════════ TELA ED. FÍSICA ══════════════ -->
+<div class="tela-ef" id="tela-ef">
+  <div class="ef-header">
+    <h2>🏃 Educação Física 2026</h2>
+    <p>Professor Fábio Pittaluga</p>
+  </div>
+
+  <div class="ef-obs">
+    📌 <strong>Interturmas:</strong> 22 a 26 de Junho de 2026
+  </div>
+
+  <table class="ef-table">
+    <thead>
+      <tr>
+        <th>Turno</th>
+        <th>Horário</th>
+        <th>Segunda-feira</th>
+        <th>Terça-feira</th>
+        <th>Quarta-feira</th>
+        <th>Quinta-feira</th>
+        <th>Sexta-feira</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- MANHÃ -->
+      <tr>
+        <td rowspan="5" class="ef-turno">Manhã</td>
+        <td class="ef-hora">8h às 8h40</td>
+        <td>–</td>
+        <td>–</td>
+        <td><span class="ef-cel">1A</span><br><span class="ef-prof">Elizete</span><br><span class="ef-sala">Sala 36</span></td>
+        <td><span class="ef-cel">1B</span><br><span class="ef-prof">Cátia</span><br><span class="ef-sala">Sala 37</span></td>
+        <td>–</td>
+      </tr>
+      <tr>
+        <td class="ef-hora">8h40 às 9h20</td>
+        <td>–</td>
+        <td>–</td>
+        <td><span class="ef-cel">3B</span><br><span class="ef-prof">Elena</span><br><span class="ef-sala">Sala 2</span></td>
+        <td><span class="ef-cel">EI4B</span><br><span class="ef-prof">Maritiele</span></td>
+        <td>–</td>
+      </tr>
+      <tr>
+        <td class="ef-hora">9h20 às 10h</td>
+        <td>–</td>
+        <td>–</td>
+        <td><span class="ef-cel">EI5A</span><br><span class="ef-prof">Tainá</span></td>
+        <td><span class="ef-cel">EI4A</span><br><span class="ef-prof">Giovana</span></td>
+        <td>–</td>
+      </tr>
+      <tr>
+        <td class="ef-hora">10h20 às 11h10</td>
+        <td>–</td>
+        <td>–</td>
+        <td><span class="ef-cel">2B</span><br><span class="ef-prof">Leslie</span><br><span class="ef-sala">Sala 32</span></td>
+        <td><span class="ef-cel">3A</span><br><span class="ef-prof">Carla</span><br><span class="ef-sala">Sala 1</span></td>
+        <td>–</td>
+      </tr>
+      <tr>
+        <td class="ef-hora">11h10 às 12h</td>
+        <td>–</td>
+        <td>–</td>
+        <td><span class="ef-cel">2A</span><br><span class="ef-prof">Cassinelli</span><br><span class="ef-sala">Sala 38</span></td>
+        <td><span class="ef-cel">3C</span><br><span class="ef-prof">Dime</span><br><span class="ef-sala">Sala 5</span></td>
+        <td>–</td>
+      </tr>
+      <!-- TARDE -->
+      <tr>
+        <td rowspan="4" class="ef-turno">Tarde</td>
+        <td class="ef-hora">13h30 às 14h15</td>
+        <td><span class="ef-cel">1C</span><br><span class="ef-prof">Otília</span><br><span class="ef-sala">Sala 36</span></td>
+        <td><span class="ef-cel">EI5B</span><br><span class="ef-prof">Tainá</span></td>
+        <td><span class="ef-cel">3D</span><br><span class="ef-prof">Aline</span><br><span class="ef-sala">Sala 1</span></td>
+        <td><span class="ef-cel">4B</span><br><span class="ef-prof">Sandra</span><br><span class="ef-sala">Sala 54</span></td>
+        <td>–</td>
+      </tr>
+      <tr>
+        <td class="ef-hora">14h45 às 15h35</td>
+        <td><span class="ef-cel">1D</span><br><span class="ef-prof">Cátia</span><br><span class="ef-sala">Sala 37</span></td>
+        <td><span class="ef-cel">EI5C</span><br><span class="ef-prof">Giovana</span></td>
+        <td><span class="ef-cel">5B</span><br><span class="ef-prof">Elena</span><br><span class="ef-sala">Sala 14</span></td>
+        <td><span class="ef-cel">5A</span><br><span class="ef-prof">Milene</span><br><span class="ef-sala">Sala 13</span></td>
+        <td><span class="ef-cel">5C</span><br><span class="ef-prof">Cassinelli</span><br><span class="ef-sala">Sala 17</span></td>
+      </tr>
+      <tr>
+        <td class="ef-hora">15h35 às 16h25</td>
+        <td><span class="ef-cel">2C</span><br><span class="ef-prof">Leslie</span><br><span class="ef-sala">Sala 32</span></td>
+        <td><span class="ef-cel">EI4C</span><br><span class="ef-prof">Maritiele</span></td>
+        <td><span class="ef-cel">3E</span><br><span class="ef-prof">Fabi</span><br><span class="ef-sala">Sala 2</span></td>
+        <td><span class="ef-cel">4C</span><br><span class="ef-prof">Thainá</span><br><span class="ef-sala">Sala 55</span></td>
+        <td><span class="ef-cel">4E</span><br><span class="ef-prof">Patrícia</span><br><span class="ef-sala">Sala 57</span></td>
+      </tr>
+      <tr>
+        <td class="ef-hora">16h30 às 17h20</td>
+        <td><span class="ef-cel">2D</span><br><span class="ef-prof">Karen</span><br><span class="ef-sala">Sala 38</span></td>
+        <td><span class="ef-cel">2E</span><br><span class="ef-prof">Lígia</span><br><span class="ef-sala">Sala 52</span></td>
+        <td><span class="ef-cel">4A</span><br><span class="ef-prof">Eliane F.</span><br><span class="ef-sala">Sala 53</span></td>
+        <td><span class="ef-cel">4D</span><br><span class="ef-prof">Dime</span><br><span class="ef-sala">Sala 56</span></td>
+        <td><span class="ef-cel">5D</span><br><span class="ef-prof">Ariane</span><br><span class="ef-sala">Sala 18</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <button class="btn-voltar-ef" onclick="voltarEF()">← Voltar</button>
 </div>
 
 <!-- ══════════════ BARRA FIXA ══════════════ -->
@@ -723,6 +865,22 @@ function abrirDaBusca(turma) {
   abrir(turma);
 }
 
+
+
+// ── Ed. Física ───────────────────────────────────────────────────────────────
+function abrirEF() {
+  document.getElementById("inicio").style.display    = "none";
+  document.getElementById("tela-ef").style.display   = "block";
+  document.getElementById("tela-nac").style.display  = "none";
+  document.getElementById("tela-busca").style.display = "none";
+  window.scrollTo(0, 0);
+}
+
+function voltarEF() {
+  document.getElementById("tela-ef").style.display  = "none";
+  document.getElementById("inicio").style.display   = "block";
+  window.scrollTo(0, 0);
+}
 
 // ── NAC Lab Maker ────────────────────────────────────────────────────────────
 function abrirNac() {
