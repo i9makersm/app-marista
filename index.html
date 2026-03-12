@@ -329,8 +329,8 @@ const dados = {
   "3A":{prof:"Carla Lidiane",turno:"Manhã",sala:"1",horario:"08h–12h",portao:"Recepção",lanche:"09h20–09h50"},
   "3B":{prof:"Eleana Flores",turno:"Manhã",sala:"2",horario:"08h–12h",portao:"Recepção",lanche:"09h20–09h50"},
   "3C":{prof:"Admilson",turno:"Manhã",sala:"5",horario:"08h–12h",portao:"Recepção",lanche:"09h20–09h50"},
-  "3D":{prof:"Fabiane Flores",turno:"Tarde",sala:"1",horario:"13h30–17h30",portao:"Portão 2",lanche:"14h35–15h05"},
-  "3E":{prof:"Aline Ferreira",turno:"Tarde",sala:"2",horario:"13h30–17h30",portao:"Portão 2",lanche:"14h35–15h05"},
+  "3D":{prof:"Aline Ferreira",turno:"Tarde",sala:"1",horario:"13h30–17h30",portao:"Portão 2",lanche:"14h35–15h05"},
+  "3E":{prof:"Fabiane Flores",turno:"Tarde",sala:"2",horario:"13h30–17h30",portao:"Portão 2",lanche:"14h35–15h05"},
   "4A":{prof:"Eliane Fonseca",turno:"Tarde",sala:"53",horario:"13h30–17h30",portao:"Portão Ginásio",lanche:"15h00–15h30"},
   "4B":{prof:"Sandra Cardozo",turno:"Tarde",sala:"54",horario:"13h30–17h30",portao:"Portão Ginásio",lanche:"15h00–15h30"},
   "4C":{prof:"Thainá Moraes",turno:"Tarde",sala:"55",horario:"13h30–17h30",portao:"Portão Ginásio",lanche:"15h00–15h30"},
@@ -521,14 +521,14 @@ function buscar(termo) {
   const lista  = document.getElementById("res-lista");
   const raw    = termo.trim();
 
-  if (raw.length < 2) {
+  if (raw.length < 1) {
     titulo.innerText = "Digite o nome para buscar";
     lista.innerHTML  = "";
     return;
   }
 
   const termNorm   = normalizar(raw);
-  const palavras   = termNorm.split(" ").filter(p => p.length >= 2);
+  const palavras   = termNorm.split(" ").filter(p => p.length >= 1);
   const resultados = [];
 
   for (const turma in alunos) {
@@ -564,7 +564,7 @@ function buscar(termo) {
   titulo.innerText = `${resultados.length} resultado(s) encontrado(s)`;
 
   // Termos originais para destacar (sem normalização, para bater no nome original)
-  const termosDest = raw.split(" ").filter(p => p.length >= 2);
+  const termosDest = raw.split(" ").filter(p => p.length >= 1);
 
   lista.innerHTML = resultados.map(r =>
     `<div class="res-item" onclick="abrirDaBusca('${r.turma}')">
