@@ -173,6 +173,34 @@ body { background:#1a237e; font-family:Arial,sans-serif; padding:12px 12px 80px;
   font-size:16px; font-weight:bold; cursor:pointer; text-align:center;
   box-shadow:0 2px 8px rgba(0,0,0,0.2); }
 .btn-voltar-ef:active { opacity:0.8; }
+
+/* ── Oficinas NAC extras ── */
+.tela-oficina { display:none; background:#f5f7ff; min-height:100vh; padding:16px 14px 24px; }
+.of-header { border-radius:12px; padding:14px; margin-bottom:12px; text-align:center; color:#fff; }
+.of-header h2 { font-size:20px; font-weight:bold; }
+.of-header p  { font-size:12px; opacity:0.8; margin-top:4px; }
+.of-table { width:100%; border-collapse:collapse; background:#fff;
+  border-radius:10px; overflow:hidden; box-shadow:0 1px 4px rgba(0,0,0,0.08);
+  margin-bottom:12px; font-size:12px; }
+.of-table th { color:#fff; padding:8px 6px; text-align:center; font-size:11px; }
+.of-table td { padding:7px 6px; text-align:center; border-bottom:1px solid #f0f0f0;
+  color:#333; vertical-align:middle; line-height:1.4; font-size:12px; }
+.of-table tr:last-child td { border-bottom:none; }
+.of-table tr:nth-child(even) td { background:#fafafa; }
+.of-hora { font-weight:bold; color:#444; font-size:11px; white-space:nowrap; }
+.of-turno-m { background:#fff8e1 !important; color:#e65100; font-weight:bold;
+  font-size:11px; letter-spacing:1px; text-transform:uppercase;
+  border-left:4px solid #ffa000 !important; }
+.of-turno-t { background:#e3f2fd !important; color:#0d47a1; font-weight:bold;
+  font-size:11px; letter-spacing:1px; text-transform:uppercase;
+  border-left:4px solid #1565c0 !important; }
+.btn-voltar-of { display:block; width:100%; margin-top:16px; padding:14px;
+  color:#fff; border:none; border-radius:12px; font-size:16px; font-weight:bold;
+  cursor:pointer; text-align:center; box-shadow:0 2px 8px rgba(0,0,0,0.2); }
+.btn-voltar-of:active { opacity:0.8; }
+.of-titulo-turno { font-size:11px; font-weight:bold; letter-spacing:1.5px;
+  text-transform:uppercase; margin:14px 0 6px; padding:6px 10px;
+  border-radius:6px; display:inline-block; }
 </style>
 </head>
 <body>
@@ -333,6 +361,12 @@ body { background:#1a237e; font-family:Arial,sans-serif; padding:12px 12px 80px;
     <div class="secao-titulo">NAC — Núcleo de Atividades Complementares</div>
     <div class="row">
       <div class="btn nac" style="width:auto;padding:0 18px;font-size:12px;" onclick="abrirNac()">🤖 Lab Maker</div>
+      <div class="btn nac" style="width:auto;padding:0 18px;font-size:12px;" onclick="abrirOf('esporte')">⚽ Esporte</div>
+      <div class="btn nac" style="width:auto;padding:0 18px;font-size:12px;" onclick="abrirOf('musica')">🎵 Música</div>
+      <div class="btn nac" style="width:auto;padding:0 18px;font-size:12px;" onclick="abrirOf('capoeira')">🥋 Capoeira</div>
+      <div class="btn nac" style="width:auto;padding:0 18px;font-size:12px;" onclick="abrirOf('judo')">🥋 Judô</div>
+      <div class="btn nac" style="width:auto;padding:0 18px;font-size:12px;" onclick="abrirOf('handebol')">🤾 Handebol</div>
+      <div class="btn nac" style="width:auto;padding:0 18px;font-size:12px;" onclick="abrirOf('pjm')">🙏 PJM e Pastoral</div>
     </div>
   </div>
 
@@ -586,6 +620,233 @@ body { background:#1a237e; font-family:Arial,sans-serif; padding:12px 12px 80px;
   </table>
 
   <button class="btn-voltar-ef" onclick="voltarEF()">← Voltar</button>
+</div>
+
+<!-- ══════════════ TELAS OFICINAS ══════════════ -->
+
+<!-- ESPORTE -->
+<div class="tela-oficina" id="of-esporte">
+  <div class="of-header" style="background:#1565C0;">
+    <h2>⚽ Esporte 2026</h2>
+    <p>Instrutor Felipe</p>
+  </div>
+  <div class="of-titulo-turno" style="background:#fff8e1;color:#e65100;">☀️ Manhã</div>
+  <table class="of-table">
+    <thead><tr>
+      <th style="background:#1565C0;">Horário</th>
+      <th style="background:#1565C0;">Segunda</th>
+      <th style="background:#1565C0;">Terça</th>
+      <th style="background:#1565C0;">Quarta</th>
+      <th style="background:#1565C0;">Quinta</th>
+      <th style="background:#1565C0;">Sexta</th>
+    </tr></thead>
+    <tbody>
+      <tr><td class="of-hora">9h30–10h30</td><td>–</td><td>–</td><td>–</td><td>Atletismo</td><td>–</td></tr>
+      <tr><td class="of-hora">10h30–12h</td><td>Futebol<br>(desenvolvimento)</td><td>–</td><td>–</td><td>–</td><td>–</td></tr>
+      <tr><td class="of-hora">10h45–12h</td><td>–</td><td>–</td><td>–</td><td>Futebol 1° ano<br>(1C e 1D)</td><td>–</td></tr>
+    </tbody>
+  </table>
+  <div class="of-titulo-turno" style="background:#e3f2fd;color:#0d47a1;">🌙 Tarde</div>
+  <table class="of-table">
+    <thead><tr>
+      <th style="background:#1565C0;">Horário</th>
+      <th style="background:#1565C0;">Segunda</th>
+      <th style="background:#1565C0;">Terça</th>
+      <th style="background:#1565C0;">Quarta</th>
+      <th style="background:#1565C0;">Quinta</th>
+      <th style="background:#1565C0;">Sexta</th>
+    </tr></thead>
+    <tbody>
+      <tr><td class="of-hora">13h30–14h45</td><td>–</td><td>–</td><td>–</td><td>Vôlei Misto AI</td><td>–</td></tr>
+      <tr><td class="of-hora">14h–15h10</td><td>Futebol<br>(desenvolvimento)</td><td>Futebol 1° e 2° ano<br>(1A, 1B)</td><td>Ponto: 14h30</td><td>–</td><td>–</td></tr>
+      <tr><td class="of-hora">14h45–16h</td><td>–</td><td>–</td><td>–</td><td>Vôlei Misto AF</td><td>–</td></tr>
+      <tr><td class="of-hora">15h10–17h20</td><td>Futebol Feminino</td><td>Futebol Sub 13</td><td>Futebol Sub 15</td><td>–</td><td>–</td></tr>
+      <tr><td class="of-hora" style="background:#f5f5f5;color:#999;">17h20–17h40</td><td style="color:#999;">Intervalo</td><td style="color:#999;">Intervalo</td><td style="color:#999;">Intervalo</td><td style="color:#999;">Intervalo</td><td>–</td></tr>
+      <tr><td class="of-hora">17h40–18h45</td><td>Futebol 3° anos</td><td>HFSM</td><td>Futebol 2° anos</td><td>Futebol 3° anos</td><td>–</td></tr>
+      <tr><td class="of-hora">18h45–20h</td><td>Futebol 5° anos</td><td>HFSM</td><td>Futebol 4° anos</td><td>Futebol 5° anos</td><td>–</td></tr>
+    </tbody>
+  </table>
+  <button class="btn-voltar-of" style="background:#1565C0;" onclick="voltarOf('esporte')">← Voltar</button>
+</div>
+
+<!-- MÚSICA -->
+<div class="tela-oficina" id="of-musica">
+  <div class="of-header" style="background:#6A1B9A;">
+    <h2>🎵 Música 2026</h2>
+    <p>Michel Wagner &amp; Rodrigo</p>
+  </div>
+  <div class="of-titulo-turno" style="background:#e8eaf6;color:#311B92;font-weight:bold;padding:6px 12px;border-radius:8px;display:block;margin-bottom:4px;">🎹 Michel Wagner</div>
+  <div class="of-titulo-turno" style="background:#fff8e1;color:#e65100;">☀️ Manhã</div>
+  <table class="of-table">
+    <thead><tr>
+      <th style="background:#6A1B9A;">Horário</th>
+      <th style="background:#6A1B9A;">Segunda</th>
+      <th style="background:#6A1B9A;">Terça</th>
+      <th style="background:#6A1B9A;">Quarta</th>
+    </tr></thead>
+    <tbody>
+      <tr><td class="of-hora">8h–12h</td><td>Planejamento</td><td>–</td><td>–</td></tr>
+      <tr><td class="of-hora">8h–9h</td><td>–</td><td>Violão I</td><td>Teclado I</td></tr>
+      <tr><td class="of-hora">9h–10h</td><td>–</td><td>Ukulelê I</td><td>Teclado II</td></tr>
+      <tr><td class="of-hora">10h15–11h05</td><td>–</td><td>–</td><td>Ukulelê II</td></tr>
+      <tr><td class="of-hora">10h20–11h</td><td>–</td><td>Coral: Canto e Magia</td><td>–</td></tr>
+      <tr><td class="of-hora">11h–12h</td><td>–</td><td>Coral: Canto e Magia</td><td>–</td></tr>
+      <tr><td class="of-hora">11h05–12h</td><td>–</td><td>–</td><td>Violão II</td></tr>
+    </tbody>
+  </table>
+  <div class="of-titulo-turno" style="background:#e3f2fd;color:#0d47a1;">🌙 Tarde</div>
+  <table class="of-table">
+    <thead><tr>
+      <th style="background:#6A1B9A;">Horário</th>
+      <th style="background:#6A1B9A;">Segunda</th>
+      <th style="background:#6A1B9A;">Terça</th>
+      <th style="background:#6A1B9A;">Quarta</th>
+    </tr></thead>
+    <tbody>
+      <tr><td class="of-hora">13h30–14h30</td><td>Coral Vidas em Canto</td><td>Teclado I</td><td>Baixo Banda</td></tr>
+      <tr><td class="of-hora">14h30–15h30</td><td>Coral Vidas em Cantos</td><td>Teclado II</td><td>Teclado Banda</td></tr>
+      <tr><td class="of-hora">15h40–16h40</td><td>Violão I</td><td>Guitarra I</td><td>–</td></tr>
+      <tr><td class="of-hora">15h45–16h45</td><td>–</td><td>–</td><td>Banda Marista Sou</td></tr>
+      <tr><td class="of-hora">15h45–17h30</td><td>–</td><td>–</td><td>Banda Marista</td></tr>
+      <tr><td class="of-hora">16h40–17h30</td><td>Violão</td><td>Guitarra II</td><td>–</td></tr>
+    </tbody>
+  </table>
+  <div class="of-titulo-turno" style="background:#e8eaf6;color:#311B92;font-weight:bold;padding:6px 12px;border-radius:8px;display:block;margin-bottom:4px;">🥁 Rodrigo</div>
+  <div class="of-titulo-turno" style="background:#fff8e1;color:#e65100;">☀️ Manhã</div>
+  <table class="of-table">
+    <thead><tr>
+      <th style="background:#6A1B9A;">Horário</th>
+      <th style="background:#6A1B9A;">Segunda</th>
+      <th style="background:#6A1B9A;">Terça</th>
+      <th style="background:#6A1B9A;">Quarta</th>
+    </tr></thead>
+    <tbody>
+      <tr><td class="of-hora">8h–12h</td><td>Planejamento</td><td>–</td><td>–</td></tr>
+      <tr><td class="of-hora">8h–9h</td><td>–</td><td>Percussão M</td><td>Bateria F1</td></tr>
+      <tr><td class="of-hora">9h–10h</td><td>–</td><td>Bateria M1</td><td>Percussão F1</td></tr>
+      <tr><td class="of-hora">10h15–11h05</td><td>–</td><td>–</td><td>Percussão F2</td></tr>
+      <tr><td class="of-hora">10h20–11h</td><td>–</td><td>Bateria M2</td><td>–</td></tr>
+      <tr><td class="of-hora">11h–12h</td><td>–</td><td>Coral Canto e Magia</td><td>–</td></tr>
+      <tr><td class="of-hora">11h05–12h</td><td>–</td><td>–</td><td>Bateria F2</td></tr>
+    </tbody>
+  </table>
+  <div class="of-titulo-turno" style="background:#e3f2fd;color:#0d47a1;">🌙 Tarde</div>
+  <table class="of-table">
+    <thead><tr>
+      <th style="background:#6A1B9A;">Horário</th>
+      <th style="background:#6A1B9A;">Segunda</th>
+      <th style="background:#6A1B9A;">Terça</th>
+      <th style="background:#6A1B9A;">Quarta</th>
+    </tr></thead>
+    <tbody>
+      <tr><td class="of-hora">13h30–14h30</td><td>Coral Vidas em Canto / Bateria</td><td>Percussão F</td><td>Bateria Banda</td></tr>
+      <tr><td class="of-hora">14h30–15h30</td><td>Coral Vidas em Canto</td><td>Percussão M</td><td>Percussão Banda</td></tr>
+      <tr><td class="of-hora">15h40–16h40</td><td>Bateria F2</td><td>Bateria M1</td><td>–</td></tr>
+      <tr><td class="of-hora">15h45–16h45</td><td>–</td><td>–</td><td>Banda Marista Sou</td></tr>
+      <tr><td class="of-hora">15h45–17h30</td><td>–</td><td>–</td><td>Banda Marista</td></tr>
+      <tr><td class="of-hora">16h40–17h30</td><td>Bateria F3</td><td>Bateria M2</td><td>–</td></tr>
+    </tbody>
+  </table>
+  <button class="btn-voltar-of" style="background:#6A1B9A;" onclick="voltarOf('musica')">← Voltar</button>
+</div>
+
+<!-- CAPOEIRA -->
+<div class="tela-oficina" id="of-capoeira">
+  <div class="of-header" style="background:#BF360C;">
+    <h2>🥋 Capoeira 2026</h2>
+    <p>Instrutor Fabiano</p>
+  </div>
+  <table class="of-table">
+    <thead><tr>
+      <th style="background:#BF360C;">Horário</th>
+      <th style="background:#BF360C;">Segunda</th>
+      <th style="background:#BF360C;">Quarta</th>
+    </tr></thead>
+    <tbody>
+      <tr><td class="of-hora">18h</td><td>1° Capoeira</td><td>1° Capoeira</td></tr>
+      <tr><td class="of-hora">19h</td><td>2° Capoeira</td><td>2° Capoeira</td></tr>
+    </tbody>
+  </table>
+  <button class="btn-voltar-of" style="background:#BF360C;" onclick="voltarOf('capoeira')">← Voltar</button>
+</div>
+
+<!-- JUDÔ -->
+<div class="tela-oficina" id="of-judo">
+  <div class="of-header" style="background:#37474F;">
+    <h2>🥋 Judô 2026</h2>
+    <p>Instrutor Ilson</p>
+  </div>
+  <table class="of-table">
+    <thead><tr>
+      <th style="background:#37474F;">Horário</th>
+      <th style="background:#37474F;">Terça</th>
+      <th style="background:#37474F;">Quinta</th>
+    </tr></thead>
+    <tbody>
+      <tr><td class="of-hora">18h30</td><td>1° Turma de Judô</td><td>1° Turma de Judô</td></tr>
+      <tr><td class="of-hora">19h30</td><td>2° Turma de Judô</td><td>2° Turma de Judô</td></tr>
+    </tbody>
+  </table>
+  <button class="btn-voltar-of" style="background:#37474F;" onclick="voltarOf('judo')">← Voltar</button>
+</div>
+
+<!-- HANDEBOL -->
+<div class="tela-oficina" id="of-handebol">
+  <div class="of-header" style="background:#00695C;">
+    <h2>🤾 Handebol 2026</h2>
+    <p>Instrutora Rafaela</p>
+  </div>
+  <table class="of-table">
+    <thead><tr>
+      <th style="background:#00695C;">Horário</th>
+      <th style="background:#00695C;">Terça</th>
+    </tr></thead>
+    <tbody>
+      <tr><td class="of-hora">17h40</td><td>1° Turma Handebol</td></tr>
+      <tr><td class="of-hora">19h20</td><td>2° Turma Handebol</td></tr>
+    </tbody>
+  </table>
+  <button class="btn-voltar-of" style="background:#00695C;" onclick="voltarOf('handebol')">← Voltar</button>
+</div>
+
+<!-- PJM E PASTORAL -->
+<div class="tela-oficina" id="of-pjm">
+  <div class="of-header" style="background:#4527A0;">
+    <h2>🙏 PJM e Pastoral das Infâncias 2026</h2>
+    <p>Rafael &amp; Antônio</p>
+  </div>
+  <div class="of-titulo-turno" style="background:#e8eaf6;color:#311B92;font-weight:bold;padding:6px 12px;border-radius:8px;display:block;margin-bottom:4px;">PJM — Rafael</div>
+  <table class="of-table">
+    <thead><tr>
+      <th style="background:#4527A0;">Horário</th>
+      <th style="background:#4527A0;">Quinta</th>
+    </tr></thead>
+    <tbody>
+      <tr><td class="of-hora">16h30–17h30</td><td>PJM</td></tr>
+    </tbody>
+  </table>
+  <div class="of-titulo-turno" style="background:#e8eaf6;color:#311B92;font-weight:bold;padding:6px 12px;border-radius:8px;display:block;margin:10px 0 4px;">Pastoral das Infâncias — Antônio</div>
+  <div class="of-titulo-turno" style="background:#fff8e1;color:#e65100;">☀️ Manhã</div>
+  <table class="of-table">
+    <thead><tr>
+      <th style="background:#4527A0;">Horário</th>
+      <th style="background:#4527A0;">Quarta</th>
+    </tr></thead>
+    <tbody>
+      <tr><td class="of-hora">9h30–10h15</td><td>Pastoral das Infâncias</td></tr>
+    </tbody>
+  </table>
+  <div class="of-titulo-turno" style="background:#e3f2fd;color:#0d47a1;">🌙 Tarde</div>
+  <table class="of-table">
+    <thead><tr>
+      <th style="background:#4527A0;">Horário</th>
+      <th style="background:#4527A0;">Quarta</th>
+    </tr></thead>
+    <tbody>
+      <tr><td class="of-hora">14h–15h15</td><td>Pastoral das Infâncias</td></tr>
+    </tbody>
+  </table>
+  <button class="btn-voltar-of" style="background:#4527A0;" onclick="voltarOf('pjm')">← Voltar</button>
 </div>
 
 <!-- ══════════════ BARRA FIXA ══════════════ -->
@@ -871,10 +1132,8 @@ function abrirDaBusca(turma) {
 
 // ── Ed. Física ───────────────────────────────────────────────────────────────
 function abrirEF() {
-  document.getElementById("inicio").style.display    = "none";
-  document.getElementById("tela-ef").style.display   = "block";
-  document.getElementById("tela-nac").style.display  = "none";
-  document.getElementById("tela-busca").style.display = "none";
+  todasTelas.forEach(t => { const el=document.getElementById(t); if(el) el.style.display='none'; });
+  document.getElementById("tela-ef").style.display = "block";
   window.scrollTo(0, 0);
 }
 
@@ -884,11 +1143,30 @@ function voltarEF() {
   window.scrollTo(0, 0);
 }
 
+
+// ── Oficinas NAC ─────────────────────────────────────────────────────────────
+const todasTelas = ['inicio','tela-nac','tela-ef','of-esporte','of-musica',
+                    'of-capoeira','of-judo','of-handebol','of-pjm'];
+
+function abrirOf(id) {
+  todasTelas.forEach(t => {
+    const el = document.getElementById(t);
+    if (el) el.style.display = 'none';
+  });
+  document.getElementById('of-' + id).style.display = 'block';
+  window.scrollTo(0, 0);
+}
+
+function voltarOf(id) {
+  document.getElementById('of-' + id).style.display = 'none';
+  document.getElementById('inicio').style.display = 'block';
+  window.scrollTo(0, 0);
+}
+
 // ── NAC Lab Maker ────────────────────────────────────────────────────────────
 function abrirNac() {
-  document.getElementById("inicio").style.display    = "none";
-  document.getElementById("tela-nac").style.display  = "block";
-  document.getElementById("tela-busca").style.display = "none";
+  todasTelas.forEach(t => { const el=document.getElementById(t); if(el) el.style.display='none'; });
+  document.getElementById("tela-nac").style.display = "block";
   window.scrollTo(0, 0);
 }
 
