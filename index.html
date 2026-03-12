@@ -112,6 +112,36 @@ body { background:#1a237e; font-family:Arial,sans-serif; padding:12px 12px 80px;
 .login-btn:active { background:#0d1660; }
 .login-rodape { color:rgba(255,255,255,0.4); font-size:11px; text-align:center;
   margin-top:28px; }
+
+/* ── NAC / Lab Maker ── */
+.nac    { background:#fff3e0; color:#7c3b00; }
+.tela-nac { display:none; background:#f5f7ff; min-height:100vh; padding:16px 14px 24px; }
+.nac-header { background:#e65100; color:#fff; border-radius:12px; padding:14px;
+  margin-bottom:12px; text-align:center; }
+.nac-header h2 { font-size:20px; font-weight:bold; }
+.nac-header p  { font-size:12px; opacity:0.8; margin-top:4px; }
+.nac-obs { background:#fff8e1; border-left:4px solid #ffa000; border-radius:8px;
+  padding:10px 12px; margin-bottom:12px; font-size:12px; color:#5d4037; }
+.turno-titulo { font-size:11px; font-weight:bold; letter-spacing:1.5px;
+  text-transform:uppercase; color:#e65100; margin:16px 0 8px; }
+.nac-table { width:100%; border-collapse:collapse; background:#fff;
+  border-radius:10px; overflow:hidden; box-shadow:0 1px 4px rgba(0,0,0,0.08);
+  margin-bottom:4px; font-size:12px; }
+.nac-table th { background:#e65100; color:#fff; padding:8px 6px;
+  text-align:center; font-size:11px; }
+.nac-table td { padding:7px 6px; text-align:center; border-bottom:1px solid #f0f0f0;
+  color:#333; vertical-align:top; line-height:1.4; }
+.nac-table tr:last-child td { border-bottom:none; }
+.nac-table tr:nth-child(even) td { background:#fafafa; }
+.nac-turma { font-weight:bold; color:#1a237e; display:block; }
+.nac-hora  { color:#888; font-size:11px; display:block; }
+.nac-prog  { font-weight:bold; color:#e65100; display:block; }
+.nac-nivel { color:#777; font-size:10px; display:block; }
+.btn-voltar-nac { display:block; width:100%; margin-top:16px; padding:14px;
+  background:#e65100; color:#fff; border:none; border-radius:12px;
+  font-size:16px; font-weight:bold; cursor:pointer; text-align:center;
+  box-shadow:0 2px 8px rgba(0,0,0,0.2); }
+.btn-voltar-nac:active { opacity:0.8; }
 </style>
 </head>
 <body>
@@ -267,6 +297,14 @@ body { background:#1a237e; font-family:Arial,sans-serif; padding:12px 12px 80px;
       <div class="btn em" onclick="abrir('EM1B')">EM1B</div>
     </div>
   </div>
+
+  <div class="secao-wrap">
+    <div class="secao-titulo">NAC — Núcleo de Atividades Complementares</div>
+    <div class="row">
+      <div class="btn nac" style="width:auto;padding:0 18px;font-size:12px;" onclick="abrirNac()">🤖 Lab Maker</div>
+    </div>
+  </div>
+
 </div><!-- /inicio -->
 
 <!-- ══════════════ TELA DETALHE ══════════════ -->
@@ -299,6 +337,112 @@ body { background:#1a237e; font-family:Arial,sans-serif; padding:12px 12px 80px;
     <div class="res-titulo" id="res-titulo">Digite o nome para buscar</div>
     <div id="res-lista"></div>
   </div>
+</div>
+
+<!-- ══════════════ TELA NAC ══════════════ -->
+<div class="tela-nac" id="tela-nac">
+  <div class="nac-header">
+    <h2>🤖 Lab Maker — Robótica 2026</h2>
+    <p>Horários das turmas por dia da semana</p>
+  </div>
+
+  <div class="nac-obs">
+    📌 <strong>Obs:</strong> Aulas quinzenais. Exceção: Educação Infantil (semanal).
+  </div>
+
+  <div class="turno-titulo">☀️ Manhã</div>
+  <table class="nac-table">
+    <thead>
+      <tr>
+        <th>Segunda</th><th>Terça</th><th>Quarta</th><th>Quinta</th><th>Sexta</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="nac-turma">2B</span><span class="nac-hora">8h–8h45</span></td>
+        <td><span class="nac-prog">Ilédicos</span><span class="nac-nivel">4º ano</span><span class="nac-hora">8h–9h45</span></td>
+        <td><span class="nac-prog">Dínamo</span><span class="nac-nivel">3º ano</span><span class="nac-hora">8h–9h45</span></td>
+        <td><span class="nac-turma">3B</span><span class="nac-hora">8h–8h45</span></td>
+        <td><span class="nac-turma">EI4A</span><span class="nac-hora">8h–8h45</span></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><span class="nac-prog">Ilédicos</span><span class="nac-nivel">4º ano</span><span class="nac-hora">8h–9h45</span></td>
+        <td><span class="nac-prog">Dínamo</span><span class="nac-nivel">3º ano</span><span class="nac-hora">8h–9h45</span></td>
+        <td></td>
+        <td><span class="nac-turma">EI4B</span><span class="nac-hora">8h45–9h30</span></td>
+      </tr>
+      <tr>
+        <td><span class="nac-turma">1B</span><span class="nac-hora">9h40–10h25</span></td>
+        <td><span class="nac-prog">Robotek</span><span class="nac-nivel">5º e 6º</span><span class="nac-hora">10h–11h45</span></td>
+        <td><span class="nac-prog">Atto Kids</span><span class="nac-nivel">2º ano</span><span class="nac-hora">10h–11h45</span></td>
+        <td></td>
+        <td><span class="nac-turma">EI5A</span><span class="nac-hora">9h40–10h25</span></td>
+      </tr>
+      <tr>
+        <td><span class="nac-turma">1A</span><span class="nac-hora">10h25–11h10</span></td>
+        <td><span class="nac-prog">Robotek</span><span class="nac-nivel">5º e 6º</span><span class="nac-hora">10h–11h45</span></td>
+        <td><span class="nac-prog">Atto Kids</span><span class="nac-nivel">2º ano</span><span class="nac-hora">10h–11h45</span></td>
+        <td><span class="nac-turma">3C</span><span class="nac-hora">10h25–11h10</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="nac-turma">2A</span><span class="nac-hora">11h10–11h55</span></td>
+        <td></td>
+        <td><span class="nac-prog">Atto Kids</span><span class="nac-nivel">2º ano</span><span class="nac-hora">10h–11h45</span></td>
+        <td><span class="nac-turma">3A</span><span class="nac-hora">11h10–11h55</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="turno-titulo">🌙 Tarde</div>
+  <table class="nac-table">
+    <thead>
+      <tr>
+        <th>Segunda</th><th>Terça</th><th>Quarta</th><th>Quinta</th><th>Sexta</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="nac-turma">1D</span><span class="nac-hora">13h30–14h15</span></td>
+        <td><span class="nac-turma">4B</span><span class="nac-hora">13h30–14h15</span><br><span class="nac-turma" style="margin-top:4px">5D</span><span class="nac-hora">13h30–14h15</span></td>
+        <td><span class="nac-turma">4E</span><span class="nac-hora">13h30–14h15</span></td>
+        <td><span class="nac-prog">Loop</span><span class="nac-nivel">2º e 3º</span><span class="nac-hora">13h30–15h20</span></td>
+        <td><span class="nac-prog">Anonymous</span><span class="nac-nivel">6º e 7º</span><span class="nac-hora">13h30–15h20</span></td>
+      </tr>
+      <tr>
+        <td><span class="nac-turma">EI5C</span><span class="nac-hora">14h15–15h</span></td>
+        <td><span class="nac-turma">4A</span><span class="nac-hora">14h15–15h</span><br><span class="nac-turma" style="margin-top:4px">5C</span><span class="nac-hora">14h15–15h</span></td>
+        <td><span class="nac-turma">EI4C</span><span class="nac-hora">14h15–15h</span></td>
+        <td><span class="nac-prog">Loop</span><span class="nac-nivel">2º e 3º</span><span class="nac-hora">13h30–15h20</span></td>
+        <td><span class="nac-prog">Anonymous</span><span class="nac-nivel">6º e 7º</span><span class="nac-hora">13h30–15h20</span></td>
+      </tr>
+      <tr>
+        <td><span class="nac-turma">1C</span><span class="nac-hora">15h15–16h</span></td>
+        <td><span class="nac-turma">3E</span><span class="nac-hora">15h15–16h</span><br><span class="nac-turma" style="margin-top:4px">5B</span><span class="nac-hora">15h15–16h</span></td>
+        <td><span class="nac-turma">3D</span><span class="nac-hora">15h15–16h</span></td>
+        <td><span class="nac-prog">I9</span><span class="nac-nivel">9º e 1º EM</span><span class="nac-hora">15h40–17h30</span></td>
+        <td><span class="nac-prog">Robox</span><span class="nac-nivel">8º, 9º e 1º EM</span><span class="nac-hora">15h40–17h30</span></td>
+      </tr>
+      <tr>
+        <td><span class="nac-turma">EI5B</span><span class="nac-hora">16h–16h45</span></td>
+        <td><span class="nac-turma">4C</span><span class="nac-hora">16h–16h45</span><br><span class="nac-turma" style="margin-top:4px">4D</span><span class="nac-hora">16h45–17h30</span></td>
+        <td><span class="nac-turma">2D</span><span class="nac-hora">16h–16h45</span></td>
+        <td><span class="nac-prog">I9</span><span class="nac-nivel">9º e 1º EM</span><span class="nac-hora">15h40–17h30</span></td>
+        <td><span class="nac-prog">Robox</span><span class="nac-nivel">8º, 9º e 1º EM</span><span class="nac-hora">15h40–17h30</span></td>
+      </tr>
+      <tr>
+        <td><span class="nac-turma">2C</span><span class="nac-hora">16h45–17h30</span></td>
+        <td><span class="nac-turma">5A</span><span class="nac-hora">16h45–17h30</span></td>
+        <td><span class="nac-turma">2E</span><span class="nac-hora">16h45–17h30</span></td>
+        <td><span class="nac-prog">I9</span><span class="nac-nivel">9º e 1º EM</span><span class="nac-hora">15h40–17h30</span></td>
+        <td><span class="nac-prog">Robox</span><span class="nac-nivel">8º, 9º e 1º EM</span><span class="nac-hora">15h40–17h30</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <button class="btn-voltar-nac" onclick="voltarNac()">← Voltar</button>
 </div>
 
 <!-- ══════════════ BARRA FIXA ══════════════ -->
@@ -578,6 +722,21 @@ function abrirDaBusca(turma) {
   document.getElementById("tela-busca").style.display = "none";
   document.getElementById("btn-fechar").style.display = "none";
   abrir(turma);
+}
+
+
+// ── NAC Lab Maker ────────────────────────────────────────────────────────────
+function abrirNac() {
+  document.getElementById("inicio").style.display    = "none";
+  document.getElementById("tela-nac").style.display  = "block";
+  document.getElementById("tela-busca").style.display = "none";
+  window.scrollTo(0, 0);
+}
+
+function voltarNac() {
+  document.getElementById("tela-nac").style.display  = "none";
+  document.getElementById("inicio").style.display    = "block";
+  window.scrollTo(0, 0);
 }
 
 // ── Login ────────────────────────────────────────────────────────────────────
