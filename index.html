@@ -93,10 +93,10 @@ body { background:#020818; font-family:Arial,sans-serif; padding:12px 12px 80px;
 .em:active { box-shadow:0 0 22px rgba(16,185,129,0.9), 0 0 40px rgba(16,185,129,0.4); }
 
 /* NAC — laranja neon escuro */
-.nac { background:linear-gradient(135deg,#1a0a00,#2d1500);
-  color:#fb923c; border:1px solid #f97316;
-  box-shadow:0 0 10px rgba(249,115,22,0.35); }
-.nac:active { box-shadow:0 0 22px rgba(249,115,22,0.9); }
+.nac { background:linear-gradient(135deg,#0d1117,#1a2030);
+  color:#c0d8f0; border:1px solid #7eb8e0;
+  box-shadow:0 0 10px rgba(180,210,240,0.35); }
+.nac:active { box-shadow:0 0 22px rgba(180,210,240,0.95), 0 0 40px rgba(120,180,220,0.5); }
 
 /* Especializadas — verde neon */
 .espec { background:linear-gradient(135deg,#001a0a,#003318);
@@ -107,10 +107,10 @@ body { background:#020818; font-family:Arial,sans-serif; padding:12px 12px 80px;
 /* Seções NAC/Especializadas — painel 3D holográfico */
 .secao-wrap:has(.nac),
 .secao-wrap:has(.espec) {
-  background: linear-gradient(135deg, rgba(249,115,22,0.07), rgba(0,234,255,0.07));
-  border:1px solid rgba(249,115,22,0.3);
-  box-shadow: 0 4px 20px rgba(249,115,22,0.1), 0 0 30px rgba(0,234,255,0.05),
-              inset 0 1px 0 rgba(255,255,255,0.05);
+  background: linear-gradient(135deg, rgba(100,160,210,0.07), rgba(0,234,255,0.06));
+  border:1px solid rgba(140,190,230,0.3);
+  box-shadow: 0 4px 20px rgba(140,190,230,0.12), 0 0 30px rgba(0,234,255,0.05),
+              inset 0 1px 0 rgba(255,255,255,0.07);
   transform: perspective(600px) rotateX(1deg); }
 
 /* ── Tela Detalhe ── */
@@ -369,7 +369,7 @@ body { background:#020818; font-family:Arial,sans-serif; padding:12px 12px 80px;
     <div class="row">
       <div class="btn manha" onclick="abrir('3A')">3A</div>
       <div class="btn manha" onclick="abrir('3B')">3B</div>
-      <div class="btn tarde"  onclick="abrir('3C')">3C</div>
+      <div class="btn manha" onclick="abrir('3C')">3C</div>
       <div class="btn tarde"  onclick="abrir('3D')">3D</div>
       <div class="btn tarde"  onclick="abrir('3E')">3E</div>
     </div>
