@@ -14,31 +14,104 @@
 <title>Colégio Marista Santa Marta 2026</title>
 <style>
 * { box-sizing:border-box; margin:0; padding:0; }
-body { background:#1a237e; font-family:Arial,sans-serif; padding:12px 12px 80px; min-height:100vh; }
+/* ── Canvas animado de rede ── */
+#network-canvas { position:fixed; top:0; left:0; width:100%; height:100%;
+  z-index:0; pointer-events:none; }
+
+body { background:#020818; font-family:Arial,sans-serif; padding:12px 12px 80px;
+  min-height:100vh; position:relative; }
+#inicio, .detalhe, .tela-busca, .tela-nac, .tela-ef, .tela-oficina {
+  position:relative; z-index:1; }
 
 /* ── Tela Inicial ── */
 .header { text-align:center; margin-bottom:14px; }
-.header h1 { color:#fff; font-size:17px; font-weight:bold; line-height:1.4; }
-.header p  { color:rgba(255,255,255,0.65); font-size:11px; margin-top:4px; }
+.header h1 {
+  font-size:17px; font-weight:bold; line-height:1.4;
+  background: linear-gradient(90deg, #00eaff, #ffffff, #a78bfa);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 0 8px rgba(0,234,255,0.7));
+  animation: holoPulse 3s ease-in-out infinite; }
+.header p { color:rgba(0,234,255,0.7); font-size:11px; margin-top:4px;
+  text-shadow:0 0 8px rgba(0,234,255,0.5); }
+@keyframes holoPulse {
+  0%,100% { filter:drop-shadow(0 0 6px rgba(0,234,255,0.6)); }
+  50%      { filter:drop-shadow(0 0 18px rgba(167,139,250,0.9)); }
+}
 
 .legenda { display:flex; gap:10px; justify-content:center; margin-bottom:12px; flex-wrap:wrap; }
-.leg { font-size:11px; color:rgba(255,255,255,0.85); display:flex; align-items:center; gap:4px; }
+.leg { font-size:11px; color:rgba(255,255,255,0.9); display:flex; align-items:center; gap:4px; }
 .leg-box { width:13px; height:13px; border-radius:3px; border:1px solid rgba(255,255,255,0.3); }
 
-.secao-wrap { background:rgba(255,255,255,0.07); border-radius:12px; padding:10px 10px 8px; margin-bottom:8px; }
-.secao-titulo { color:rgba(255,255,255,0.6); font-size:10px; font-weight:bold; letter-spacing:1.5px;
-  text-transform:uppercase; text-align:center; margin-bottom:7px; }
+/* Legenda neon */
+.leg-ei   { background:#a855f7; box-shadow:0 0 8px #a855f7; }
+.leg-manha{ background:#00eaff; box-shadow:0 0 8px #00eaff; }
+.leg-tarde{ background:#f97316; box-shadow:0 0 8px #f97316; }
+.leg-em   { background:#22d3ee; box-shadow:0 0 8px #22d3ee; }
+
+/* Seções */
+.secao-wrap {
+  background: linear-gradient(135deg, rgba(0,234,255,0.06), rgba(167,139,250,0.06));
+  border:1px solid rgba(0,234,255,0.2);
+  border-radius:12px; padding:10px 10px 8px; margin-bottom:8px;
+  box-shadow: 0 0 12px rgba(0,234,255,0.08), inset 0 0 20px rgba(0,234,255,0.03); }
+.secao-titulo {
+  color:#00eaff; font-size:10px; font-weight:bold; letter-spacing:2px;
+  text-transform:uppercase; text-align:center; margin-bottom:7px;
+  text-shadow:0 0 10px rgba(0,234,255,0.8); }
 .row { display:flex; gap:7px; justify-content:center; flex-wrap:wrap; }
 
 /* Botões de turma */
-.btn { width:58px; height:50px; border:none; border-radius:9px; font-weight:bold;
-  font-size:13px; cursor:pointer; box-shadow:0 2px 5px rgba(0,0,0,0.35);
-  transition:transform 0.1s; display:flex; align-items:center; justify-content:center; }
-.btn:active { transform:scale(0.92); }
-.manha { background:#fffde7; color:#4a3900; }
-.tarde { background:#e3f2fd; color:#0d2b50; }
-.ei    { background:#f3e5f5; color:#4a0072; }
-.em    { background:#e8f5e9; color:#1b4a1b; }
+.btn { width:58px; height:50px; border:1px solid rgba(255,255,255,0.15);
+  border-radius:9px; font-weight:bold; font-size:13px; cursor:pointer;
+  transition:transform 0.1s, box-shadow 0.15s;
+  display:flex; align-items:center; justify-content:center; }
+.btn:active { transform:scale(0.9); }
+
+/* Manhã — ciano elétrico */
+.manha { background:linear-gradient(135deg,#003d4d,#005f73);
+  color:#00eaff; border-color:#00eaff;
+  box-shadow:0 0 10px rgba(0,234,255,0.4); }
+.manha:active { box-shadow:0 0 22px rgba(0,234,255,0.9), 0 0 40px rgba(0,234,255,0.4); }
+
+/* Tarde — laranja neon */
+.tarde { background:linear-gradient(135deg,#2d1a00,#4a2800);
+  color:#fb923c; border-color:#f97316;
+  box-shadow:0 0 10px rgba(249,115,22,0.4); }
+.tarde:active { box-shadow:0 0 22px rgba(249,115,22,0.9), 0 0 40px rgba(249,115,22,0.4); }
+
+/* Ed. Infantil — roxo neon */
+.ei { background:linear-gradient(135deg,#1e0a2e,#2d1147);
+  color:#d8b4fe; border-color:#a855f7;
+  box-shadow:0 0 10px rgba(168,85,247,0.4); }
+.ei:active { box-shadow:0 0 22px rgba(168,85,247,0.9), 0 0 40px rgba(168,85,247,0.4); }
+
+/* Ensino Médio — verde-ciano */
+.em { background:linear-gradient(135deg,#002020,#003333);
+  color:#6ee7b7; border-color:#10b981;
+  box-shadow:0 0 10px rgba(16,185,129,0.4); }
+.em:active { box-shadow:0 0 22px rgba(16,185,129,0.9), 0 0 40px rgba(16,185,129,0.4); }
+
+/* NAC — laranja neon escuro */
+.nac { background:linear-gradient(135deg,#1a0a00,#2d1500);
+  color:#fb923c; border:1px solid #f97316;
+  box-shadow:0 0 10px rgba(249,115,22,0.35); }
+.nac:active { box-shadow:0 0 22px rgba(249,115,22,0.9); }
+
+/* Especializadas — verde neon */
+.espec { background:linear-gradient(135deg,#001a0a,#003318);
+  color:#6ee7b7; border:1px solid #10b981;
+  box-shadow:0 0 10px rgba(16,185,129,0.35); }
+.espec:active { box-shadow:0 0 22px rgba(16,185,129,0.9); }
+
+/* Seções NAC/Especializadas — painel 3D holográfico */
+.secao-wrap:has(.nac),
+.secao-wrap:has(.espec) {
+  background: linear-gradient(135deg, rgba(249,115,22,0.07), rgba(0,234,255,0.07));
+  border:1px solid rgba(249,115,22,0.3);
+  box-shadow: 0 4px 20px rgba(249,115,22,0.1), 0 0 30px rgba(0,234,255,0.05),
+              inset 0 1px 0 rgba(255,255,255,0.05);
+  transform: perspective(600px) rotateX(1deg); }
 
 /* ── Tela Detalhe ── */
 .detalhe { display:none; background:#f5f7ff; min-height:100vh; padding:16px 14px 24px; }
@@ -237,6 +310,8 @@ body { background:#1a237e; font-family:Arial,sans-serif; padding:12px 12px 80px;
 </div>
 
 <!-- ══════════════ TELA INICIAL ══════════════ -->
+<canvas id="network-canvas"></canvas>
+
 <div id="inicio">
   <div class="header">
     <h1>🏫 Colégio Marista Santa Marta 2026</h1>
@@ -244,10 +319,10 @@ body { background:#1a237e; font-family:Arial,sans-serif; padding:12px 12px 80px;
   </div>
 
   <div class="legenda">
-    <div class="leg"><div class="leg-box" style="background:#f3e5f5"></div>Ed. Infantil</div>
-    <div class="leg"><div class="leg-box" style="background:#fffde7"></div>Manhã</div>
-    <div class="leg"><div class="leg-box" style="background:#e3f2fd"></div>Tarde</div>
-    <div class="leg"><div class="leg-box" style="background:#e8f5e9"></div>Ens. Médio</div>
+    <div class="leg"><div class="leg-box leg-ei"></div>Ed. Infantil</div>
+    <div class="leg"><div class="leg-box leg-manha"></div>Manhã</div>
+    <div class="leg"><div class="leg-box leg-tarde"></div>Tarde</div>
+    <div class="leg"><div class="leg-box leg-em"></div>Ens. Médio</div>
   </div>
 
   <div class="secao-wrap">
@@ -1287,5 +1362,76 @@ if ('serviceWorker' in navigator) {
   });
 }
 </script>
+
+<script>
+// ── Rede animada de fundo ─────────────────────────────────────────────────
+(function() {
+  const canvas = document.getElementById('network-canvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  let W, H, nodes = [], animId;
+
+  function resize() {
+    W = canvas.width  = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+  }
+
+  function init() {
+    resize();
+    nodes = [];
+    const count = Math.floor((W * H) / 18000);
+    for (let i = 0; i < count; i++) {
+      nodes.push({
+        x: Math.random() * W,
+        y: Math.random() * H,
+        vx: (Math.random() - 0.5) * 0.4,
+        vy: (Math.random() - 0.5) * 0.4,
+        r: Math.random() * 2 + 1,
+        hue: Math.random() < 0.6 ? 195 : 270  // ciano ou roxo
+      });
+    }
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+    // Linhas
+    for (let i = 0; i < nodes.length; i++) {
+      for (let j = i + 1; j < nodes.length; j++) {
+        const dx = nodes[i].x - nodes[j].x;
+        const dy = nodes[i].y - nodes[j].y;
+        const dist = Math.sqrt(dx*dx + dy*dy);
+        if (dist < 110) {
+          const alpha = (1 - dist / 110) * 0.35;
+          ctx.beginPath();
+          ctx.strokeStyle = `hsla(${nodes[i].hue},100%,60%,${alpha})`;
+          ctx.lineWidth = 0.5;
+          ctx.moveTo(nodes[i].x, nodes[i].y);
+          ctx.lineTo(nodes[j].x, nodes[j].y);
+          ctx.stroke();
+        }
+      }
+    }
+    // Nós
+    nodes.forEach(n => {
+      ctx.beginPath();
+      ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+      ctx.fillStyle = `hsla(${n.hue},100%,70%,0.7)`;
+      ctx.shadowBlur = 8;
+      ctx.shadowColor = `hsl(${n.hue},100%,60%)`;
+      ctx.fill();
+      ctx.shadowBlur = 0;
+      // Mover
+      n.x += n.vx; n.y += n.vy;
+      if (n.x < 0 || n.x > W) n.vx *= -1;
+      if (n.y < 0 || n.y > H) n.vy *= -1;
+    });
+    animId = requestAnimationFrame(draw);
+  }
+
+  window.addEventListener('resize', () => { cancelAnimationFrame(animId); init(); draw(); });
+  init(); draw();
+})();
+</script>
+
 </body>
 </html>
