@@ -94,42 +94,31 @@ body { background:#020818; font-family:Arial,sans-serif; padding:12px 12px 80px;
 
 /* NAC — laranja neon escuro */
 .nac {
-  background: linear-gradient(135deg,
-    rgba(180,195,210,0.32) 0%,
-    rgba(210,222,234,0.42) 45%,
-    rgba(165,185,205,0.32) 100%);
-  color: #f0f6ff;
-  border: 1.5px solid rgba(200,218,238,0.92);
+  background: rgba(30,40,55,0.75);
+  color: #d8e8f4;
+  border: 1.5px solid rgba(160,185,210,0.55);
   box-shadow:
-    0 0 12px rgba(180,205,230,0.60),
-    0 0 24px rgba(150,180,210,0.25),
-    inset 0 1px 0 rgba(230,242,255,0.45),
-    inset 0 -1px 0 rgba(140,175,210,0.20);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  text-shadow:
-    0 0 8px rgba(220,236,255,0.95),
-    0 0 18px rgba(180,210,240,0.60);
-  letter-spacing: 0.5px;
+    0 0 6px rgba(140,175,210,0.30),
+    inset 0 1px 0 rgba(200,220,240,0.12);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  text-shadow: 0 0 6px rgba(180,210,240,0.50);
+  letter-spacing: 0.4px;
   font-size: 11px !important;
-  font-weight: 800 !important;
+  font-weight: 700 !important;
   transition: all 0.18s ease; }
 .nac:hover {
-  background: linear-gradient(135deg,
-    rgba(195,210,225,0.48) 0%,
-    rgba(220,233,246,0.58) 45%,
-    rgba(178,198,218,0.46) 100%);
-  border-color: rgba(215,232,250,1);
+  background: rgba(40,55,75,0.85);
+  border-color: rgba(180,210,235,0.80);
   box-shadow:
-    0 0 20px rgba(190,215,240,0.80),
-    0 0 40px rgba(150,185,220,0.40),
-    inset 0 1px 0 rgba(240,248,255,0.65); }
+    0 0 14px rgba(160,200,235,0.55),
+    inset 0 1px 0 rgba(210,230,248,0.20); }
 .nac:active {
   transform: scale(0.93);
+  background: rgba(50,68,90,0.90);
   box-shadow:
-    0 0 28px rgba(200,224,248,0.95),
-    0 0 55px rgba(160,198,235,0.55),
-    inset 0 0 14px rgba(215,235,255,0.30); }
+    0 0 22px rgba(170,210,240,0.75),
+    inset 0 0 10px rgba(180,215,245,0.15); }
 
 /* Especializadas — verde neon */
 .espec { background:linear-gradient(135deg,#001a0a,#003318);
