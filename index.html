@@ -493,7 +493,10 @@ body { background:#020818; font-family:Arial,sans-serif; padding:12px 12px 80px;
     <div class="secao-titulo">Especializadas</div>
     <div class="row">
       <div class="btn espec" style="width:auto;padding:0 18px;font-size:12px;" onclick="abrirEF()">🏃 Ed. Física</div>
-      <div class="btn espec" style="width:auto;padding:0 18px;font-size:12px;" onclick="abrirOf('ingles')">🇬🇧 Língua Inglesa</div>
+      <div class="btn espec" style="width:auto;padding:0 18px;font-size:12px;" onclick="abrirOf('ing-katia')">🇬🇧 Inglês — Kátia</div>
+      <div class="btn espec" style="width:auto;padding:0 18px;font-size:12px;" onclick="abrirOf('ing-valeria')">🇬🇧 Inglês — Valéria</div>
+      <div class="btn espec" style="width:auto;padding:0 18px;font-size:12px;" onclick="abrirOf('ing-jp')">🇬🇧 Inglês — João Pedro</div>
+      <div class="btn espec" style="width:auto;padding:0 18px;font-size:12px;" onclick="abrirOf('ing-tarde')">🇬🇧 Inglês — Prof. Tarde</div>
       <div class="btn espec" style="width:auto;padding:0 18px;font-size:12px;" onclick="abrirOf('musicajp')">🎵 Música</div>
     </div>
   </div>
@@ -1008,43 +1011,47 @@ body { background:#020818; font-family:Arial,sans-serif; padding:12px 12px 80px;
   <button class="btn-voltar-of" style="background:#4527A0;" onclick="voltarOf('pjm')">← Voltar</button>
 </div>
 
-<!-- ══════════════ TELA LÍNGUA INGLESA ══════════════ -->
-<div class="tela-oficina" id="of-ingles">
+<div class="tela-oficina" id="of-ing-katia">
   <div class="of-header" style="background:#1a6b3a;">
     <h2>🇬🇧 Língua Inglesa 2026</h2>
-    <p>Prof. Kátia · Prof. Valéria · Prof. João Pedro · Prof. (Tarde)</p>
+    <p>Professora Kátia</p>
   </div>
-  <div class="of-titulo-turno" style="background:#e8f5e9;color:#1b5e20;font-weight:bold;padding:6px 12px;border-radius:8px;display:block;margin-bottom:4px;">📚 Professora Kátia</div>
   <div class="of-titulo-turno" style="background:#fff8e1;color:#e65100;">☀️ Manhã</div>
-  <table class="of-table">
-    <thead><tr><th style="background:#1a6b3a;">Horário</th><th style="background:#1a6b3a;">Segunda</th><th style="background:#1a6b3a;">Terça</th><th style="background:#1a6b3a;">Quarta</th><th style="background:#1a6b3a;">Quinta</th><th style="background:#1a6b3a;">Sexta</th></tr></thead>
-    <tbody><tr><td>8h–8h40</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td></tr><tr><td>8h40–9h20</td><td>3C</td><td>–</td><td>–</td><td>–</td><td>–</td></tr><tr><td>9h50–10h30</td><td>3B</td><td>3C</td><td>–</td><td>–</td><td>–</td></tr><tr><td>10h30–11h10</td><td>3B</td><td>3C</td><td>–</td><td>–</td><td>–</td></tr><tr><td>11h10–11h50</td><td>2B</td><td>3B</td><td>–</td><td>–</td><td>–</td></tr></tbody>
-  </table>  <div class="of-titulo-turno" style="background:#e8f5e9;color:#1b5e20;font-weight:bold;padding:6px 12px;border-radius:8px;display:block;margin:10px 0 4px;">📚 Professora Valéria</div>
+  <table class="of-table"><thead><tr><th style="background:#1a6b3a;">Horário</th><th style="background:#1a6b3a;">Segunda</th><th style="background:#1a6b3a;">Terça</th><th style="background:#1a6b3a;">Quarta</th><th style="background:#1a6b3a;">Quinta</th><th style="background:#1a6b3a;">Sexta</th></tr></thead><tbody><tr><td>8h–8h40</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td></tr><tr><td>8h40–9h20</td><td>3C</td><td>–</td><td>–</td><td>–</td><td>–</td></tr><tr><td>9h50–10h30</td><td>3B</td><td>3C</td><td>–</td><td>–</td><td>–</td></tr><tr><td>10h30–11h10</td><td>3B</td><td>3C</td><td>–</td><td>–</td><td>–</td></tr><tr><td>11h10–11h50</td><td>2B</td><td>3B</td><td>–</td><td>–</td><td>–</td></tr></tbody></table>
+
+  <button class="btn-voltar-of" style="background:#1a6b3a;" onclick="voltarOf('ing-katia')">← Voltar</button>
+</div>
+<div class="tela-oficina" id="of-ing-valeria">
+  <div class="of-header" style="background:#1a6b3a;">
+    <h2>🇬🇧 Língua Inglesa 2026</h2>
+    <p>Professora Valéria</p>
+  </div>
   <div class="of-titulo-turno" style="background:#fff8e1;color:#e65100;">☀️ Manhã</div>
-  <table class="of-table">
-    <thead><tr><th style="background:#1a6b3a;">Horário</th><th style="background:#1a6b3a;">Segunda</th><th style="background:#1a6b3a;">Terça</th><th style="background:#1a6b3a;">Quarta</th><th style="background:#1a6b3a;">Quinta</th><th style="background:#1a6b3a;">Sexta</th></tr></thead>
-    <tbody><tr><td>7h30–8h20</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td></tr><tr><td>8h20–9h10</td><td>–</td><td>–</td><td>–</td><td>3A</td><td>–</td></tr><tr><td>9h10–10h</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td></tr><tr><td>10h20–11h10</td><td>–</td><td>–</td><td>–</td><td>–</td><td>3A</td></tr><tr><td>11h10–12h</td><td>–</td><td>–</td><td>–</td><td>–</td><td>3A</td></tr></tbody>
-  </table>
+  <table class="of-table"><thead><tr><th style="background:#1a6b3a;">Horário</th><th style="background:#1a6b3a;">Segunda</th><th style="background:#1a6b3a;">Terça</th><th style="background:#1a6b3a;">Quarta</th><th style="background:#1a6b3a;">Quinta</th><th style="background:#1a6b3a;">Sexta</th></tr></thead><tbody><tr><td>7h30–8h20</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td></tr><tr><td>8h20–9h10</td><td>–</td><td>–</td><td>–</td><td>3A</td><td>–</td></tr><tr><td>9h10–10h</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td></tr><tr><td>10h20–11h10</td><td>–</td><td>–</td><td>–</td><td>–</td><td>3A</td></tr><tr><td>11h10–12h</td><td>–</td><td>–</td><td>–</td><td>–</td><td>3A</td></tr></tbody></table>
   <div class="of-titulo-turno" style="background:#e3f2fd;color:#0d47a1;">🌙 Tarde</div>
-  <table class="of-table">
-    <thead><tr><th style="background:#1a6b3a;">Horário</th><th style="background:#1a6b3a;">Segunda</th><th style="background:#1a6b3a;">Terça</th><th style="background:#1a6b3a;">Quarta</th><th style="background:#1a6b3a;">Quinta</th><th style="background:#1a6b3a;">Sexta</th></tr></thead>
-    <tbody><tr><td>13h30–14h15</td><td>4A</td><td>4A</td><td>4A</td><td>5D</td><td>4C</td></tr><tr><td>14h15–14h55</td><td>4B</td><td>4B</td><td>4C</td><td>4C</td><td>4B</td></tr><tr><td>15h10–16h</td><td>5A</td><td>5A</td><td>5A</td><td>5C</td><td>5D</td></tr><tr><td>16h20–17h10</td><td>5B</td><td>5C</td><td>5B</td><td>5D</td><td>5B</td></tr><tr><td>–</td><td>–</td><td>5C (até 17h30)</td><td>–</td><td>–</td><td>–</td></tr></tbody>
-  </table>  <div class="of-titulo-turno" style="background:#e8f5e9;color:#1b5e20;font-weight:bold;padding:6px 12px;border-radius:8px;display:block;margin:10px 0 4px;">📚 Professor João Pedro</div>
+  <table class="of-table"><thead><tr><th style="background:#1a6b3a;">Horário</th><th style="background:#1a6b3a;">Segunda</th><th style="background:#1a6b3a;">Terça</th><th style="background:#1a6b3a;">Quarta</th><th style="background:#1a6b3a;">Quinta</th><th style="background:#1a6b3a;">Sexta</th></tr></thead><tbody><tr><td>13h30–14h15</td><td>4A</td><td>4A</td><td>4A</td><td>5D</td><td>4C</td></tr><tr><td>14h15–14h55</td><td>4B</td><td>4B</td><td>4C</td><td>4C</td><td>4B</td></tr><tr><td>15h10–16h</td><td>5A</td><td>5A</td><td>5A</td><td>5C</td><td>5D</td></tr><tr><td>16h20–17h10</td><td>5B</td><td>5C</td><td>5B</td><td>5D</td><td>5B</td></tr><tr><td>–</td><td>–</td><td>5C (até 17h30)</td><td>–</td><td>–</td><td>–</td></tr></tbody></table>
+  <button class="btn-voltar-of" style="background:#1a6b3a;" onclick="voltarOf('ing-valeria')">← Voltar</button>
+</div>
+<div class="tela-oficina" id="of-ing-jp">
+  <div class="of-header" style="background:#1a6b3a;">
+    <h2>🇬🇧 Língua Inglesa 2026</h2>
+    <p>Professor João Pedro</p>
+  </div>
   <div class="of-titulo-turno" style="background:#fff8e1;color:#e65100;">☀️ Manhã</div>
-  <table class="of-table">
-    <thead><tr><th style="background:#1a6b3a;">Horário</th><th style="background:#1a6b3a;">Segunda</th><th style="background:#1a6b3a;">Terça</th><th style="background:#1a6b3a;">Quarta</th><th style="background:#1a6b3a;">Quinta</th><th style="background:#1a6b3a;">Sexta</th></tr></thead>
-    <tbody><tr><td>8h15–9h</td><td>EI4A</td><td>EI4A</td><td>EI4A</td><td>1A</td><td>1A</td></tr><tr><td>9h15–10h</td><td>EI4B</td><td>EI4B</td><td>EI4B</td><td>1B</td><td>1B</td></tr><tr><td>10h–10h50</td><td>EI5A</td><td>EI5A</td><td>EI5A</td><td>2A</td><td>2A</td></tr><tr><td>11h–11h50</td><td>1A</td><td>1B</td><td>2B</td><td>2B</td><td>2A</td></tr></tbody>
-  </table>
+  <table class="of-table"><thead><tr><th style="background:#1a6b3a;">Horário</th><th style="background:#1a6b3a;">Segunda</th><th style="background:#1a6b3a;">Terça</th><th style="background:#1a6b3a;">Quarta</th><th style="background:#1a6b3a;">Quinta</th><th style="background:#1a6b3a;">Sexta</th></tr></thead><tbody><tr><td>8h15–9h</td><td>EI4A</td><td>EI4A</td><td>EI4A</td><td>1A</td><td>1A</td></tr><tr><td>9h15–10h</td><td>EI4B</td><td>EI4B</td><td>EI4B</td><td>1B</td><td>1B</td></tr><tr><td>10h–10h50</td><td>EI5A</td><td>EI5A</td><td>EI5A</td><td>2A</td><td>2A</td></tr><tr><td>11h–11h50</td><td>1A</td><td>1B</td><td>2B</td><td>2B</td><td>2A</td></tr></tbody></table>
   <div class="of-titulo-turno" style="background:#e3f2fd;color:#0d47a1;">🌙 Tarde</div>
-  <table class="of-table">
-    <thead><tr><th style="background:#1a6b3a;">Horário</th><th style="background:#1a6b3a;">Segunda</th><th style="background:#1a6b3a;">Terça</th><th style="background:#1a6b3a;">Quarta</th><th style="background:#1a6b3a;">Quinta</th><th style="background:#1a6b3a;">Sexta</th></tr></thead>
-    <tbody><tr><td>13h30–14h15</td><td>EI4C</td><td>1C</td><td>EI4C</td><td>1C</td><td>EI4C</td></tr><tr><td>14h55–15h40</td><td>EI5B</td><td>1D</td><td>EI5B</td><td>1D</td><td>EI5B</td></tr><tr><td>15h55–16h40</td><td>EI5C</td><td>2C</td><td>EI5C</td><td>2C</td><td>EI5C</td></tr><tr><td>16h50–17h30</td><td>1C</td><td>Intervalo</td><td>2C</td><td>Intervalo</td><td>1D</td></tr></tbody>
-  </table>  <div class="of-titulo-turno" style="background:#e8f5e9;color:#1b5e20;font-weight:bold;padding:6px 12px;border-radius:8px;display:block;margin:10px 0 4px;">📚 Prof. (Tarde)</div>
+  <table class="of-table"><thead><tr><th style="background:#1a6b3a;">Horário</th><th style="background:#1a6b3a;">Segunda</th><th style="background:#1a6b3a;">Terça</th><th style="background:#1a6b3a;">Quarta</th><th style="background:#1a6b3a;">Quinta</th><th style="background:#1a6b3a;">Sexta</th></tr></thead><tbody><tr><td>13h30–14h15</td><td>EI4C</td><td>1C</td><td>EI4C</td><td>1C</td><td>EI4C</td></tr><tr><td>14h55–15h40</td><td>EI5B</td><td>1D</td><td>EI5B</td><td>1D</td><td>EI5B</td></tr><tr><td>15h55–16h40</td><td>EI5C</td><td>2C</td><td>EI5C</td><td>2C</td><td>EI5C</td></tr><tr><td>16h50–17h30</td><td>1C</td><td>Intervalo</td><td>2C</td><td>Intervalo</td><td>1D</td></tr></tbody></table>
+  <button class="btn-voltar-of" style="background:#1a6b3a;" onclick="voltarOf('ing-jp')">← Voltar</button>
+</div>
+<div class="tela-oficina" id="of-ing-tarde">
+  <div class="of-header" style="background:#1a6b3a;">
+    <h2>🇬🇧 Língua Inglesa 2026</h2>
+    <p>Prof. (Tarde)</p>
+  </div>
+
   <div class="of-titulo-turno" style="background:#e3f2fd;color:#0d47a1;">🌙 Tarde</div>
-  <table class="of-table">
-    <thead><tr><th style="background:#1a6b3a;">Horário</th><th style="background:#1a6b3a;">Segunda</th><th style="background:#1a6b3a;">Terça</th><th style="background:#1a6b3a;">Quarta</th><th style="background:#1a6b3a;">Quinta</th><th style="background:#1a6b3a;">Sexta</th></tr></thead>
-    <tbody><tr><td>13h30–14h15</td><td>2D</td><td>2D</td><td>2D</td><td>4E</td><td>3E</td></tr><tr><td>14h15–15h</td><td>4D</td><td>4D</td><td>4E</td><td>4D</td><td>4E</td></tr><tr><td>15h15–16h05</td><td>2E</td><td>2E</td><td>2E</td><td>3E</td><td>–</td></tr><tr><td>16h15–17h05</td><td>3D</td><td>3D</td><td>3D</td><td>3E</td><td>–</td></tr></tbody>
-  </table>  <button class="btn-voltar-of" style="background:#1a6b3a;" onclick="voltarOf('ingles')">← Voltar</button>
+  <table class="of-table"><thead><tr><th style="background:#1a6b3a;">Horário</th><th style="background:#1a6b3a;">Segunda</th><th style="background:#1a6b3a;">Terça</th><th style="background:#1a6b3a;">Quarta</th><th style="background:#1a6b3a;">Quinta</th><th style="background:#1a6b3a;">Sexta</th></tr></thead><tbody><tr><td>13h30–14h15</td><td>2D</td><td>2D</td><td>2D</td><td>4E</td><td>3E</td></tr><tr><td>14h15–15h</td><td>4D</td><td>4D</td><td>4E</td><td>4D</td><td>4E</td></tr><tr><td>15h15–16h05</td><td>2E</td><td>2E</td><td>2E</td><td>3E</td><td>–</td></tr><tr><td>16h15–17h05</td><td>3D</td><td>3D</td><td>3D</td><td>3E</td><td>–</td></tr></tbody></table>
+  <button class="btn-voltar-of" style="background:#1a6b3a;" onclick="voltarOf('ing-tarde')">← Voltar</button>
 </div>
 
 <!-- ══════════════ TELA MÚSICA JP ══════════════ -->
@@ -1364,7 +1371,7 @@ function voltarEF() {
 // ── Oficinas NAC ─────────────────────────────────────────────────────────────
 const todasTelas = ['inicio','tela-nac','tela-ef','of-esporte','of-musica',
                     'of-capoeira','of-judo','of-handebol','of-pjm',
-                    'of-ingles','of-musicajp'];
+                    'ing-katia','ing-valeria','ing-jp','ing-tarde','of-musicajp'];
 
 function abrirOf(id) {
   todasTelas.forEach(t => {
